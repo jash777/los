@@ -1,0 +1,4590 @@
+{
+  "success": true,
+  "clientId": "credit_report_experian_vhnYiqKnZjnamspAijNL",
+  "personalInfo": {
+    "name": "JOHN DOE",
+    "mobile": "9876543210",
+    "panNumber": "ABCDE1234F"
+  },
+  "creditScore": 796,
+  "creditReport": {
+    "CreditProfileHeader": {
+      "ReportDate": 20240605,
+      "ReportTime": 155524,
+      "Version": "V2.4",
+      "ReportNumber": 1717583124506
+    },
+    "Current_Application": {
+      "Current_Application_Details": {
+        "Enquiry_Reason": 99,
+        "Finance_Purpose": 99,
+        "Amount_Financed": 0,
+        "Duration_Of_Agreement": 0,
+        "Current_Applicant_Details": {
+          "Last_Name": "s",
+          "First_Name": "Munna",
+          "Middle_Name1": "",
+          "Middle_Name2": "",
+          "Middle_Name3": "",
+          "Gender_Code": 1,
+          "IncomeTaxPan": "ABCDC1818A",
+          "Date_Of_Birth_Applicant": 19980925,
+          "Telephone_Number_Applicant_1st": "",
+          "Telephone_Extension": "",
+          "Telephone_Type": "",
+          "MobilePhoneNumber": 9988776655,
+          "EMailId": ""
+        },
+        "Current_Other_Details": {
+          "Income": 0,
+          "Marital_Status": "",
+          "Employment_Status": "",
+          "Time_with_Employer": "",
+          "Number_of_Major_Credit_Card_Held": ""
+        },
+        "Current_Applicant_Address_Details": {
+          "FlatNoPlotNoHouseNo": "A 120  MUNNA APARTMENT",
+          "BldgNoSocietyName": "",
+          "RoadNoNameAreaLocality": "",
+          "City": "New Delhi",
+          "Landmark": "",
+          "State": 7,
+          "PINCode": 110034,
+          "Country_Code": "IB"
+        },
+        "Current_Applicant_Additional_AddressDetails": ""
+      }
+    },
+    "CAIS_Account": {
+      "CAIS_Summary": {
+        "Credit_Account": {
+          "CreditAccountTotal": 23,
+          "CreditAccountActive": 18,
+          "CreditAccountDefault": 0,
+          "CreditAccountClosed": 5,
+          "CADSuitFiledCurrentBalance": 0
+        },
+        "Total_Outstanding_Balance": {
+          "Outstanding_Balance_Secured": 234290,
+          "Outstanding_Balance_Secured_Percentage": 85,
+          "Outstanding_Balance_UnSecured": 42314,
+          "Outstanding_Balance_UnSecured_Percentage": 15,
+          "Outstanding_Balance_All": 276604
+        }
+      },
+      "CAIS_Account_DETAILS": [
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXX2561",
+          "Portfolio_Type": "R",
+          "Account_Type": 31,
+          "Open_Date": 20211012,
+          "Credit_Limit_Amount": "",
+          "Highest_Credit_or_Original_Loan_Amount": 45495,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 13,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "0000000000000000000000000???????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20231130,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": 20231102,
+          "Date_of_Last_Payment": 20230123,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20211031,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2021,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2021,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2021,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Akshay Kumar",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "A 120  MUNNA APARTMENT",
+              "Second_Line_Of_Address_non_normalized": "NEAR KESHAV DELHI",
+              "Third_Line_Of_Address_non_normalized": "",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 3,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "A 120  MUNNA APARTMENT",
+              "Second_Line_Of_Address_non_normalized": "NORTH WEST DE LHI NEWDELHI",
+              "Third_Line_Of_Address_non_normalized": "",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 3,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "A 120  MUNNA APARTMENT",
+              "Second_Line_Of_Address_non_normalized": "NEAR KESHAV MAHAVIDYALAYA",
+              "Third_Line_Of_Address_non_normalized": "NEWDELHI",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 3,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 9988776655,
+              "Telephone_Type": 3,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "NBFXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXX4529",
+          "Portfolio_Type": "I",
+          "Account_Type": 5,
+          "Open_Date": 20211013,
+          "Credit_Limit_Amount": "",
+          "Highest_Credit_or_Original_Loan_Amount": 30000,
+          "Terms_Duration": 36,
+          "Terms_Frequency": "M",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "000000000000?0000000000000000???????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240331,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20221102,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": 0,
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 36,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20211031,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2021,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2021,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2021,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Akshay Kumar",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D- 401,VENUS",
+              "Second_Line_Of_Address_non_normalized": "7078 DELHI",
+              "Third_Line_Of_Address_non_normalized": "",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 1,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 9988776655,
+              "Telephone_Type": 2,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": 9988776655,
+              "Telephone_Type": 0,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "NBFXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXX8911",
+          "Portfolio_Type": "I",
+          "Account_Type": 5,
+          "Open_Date": 20220207,
+          "Credit_Limit_Amount": "",
+          "Highest_Credit_or_Original_Loan_Amount": 3500,
+          "Terms_Duration": 1,
+          "Terms_Frequency": "M",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "0000000000000000000000000???????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20230201,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": 0,
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": 0,
+          "Written_Off_Amt_Principal": 0,
+          "Rate_of_Interest": 36,
+          "Repayment_Tenure": 1,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20220331,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 9988776655,
+              "Telephone_Type": "",
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "FORXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXXXXX7834",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20220222,
+          "Credit_Limit_Amount": 11100,
+          "Highest_Credit_or_Original_Loan_Amount": 10368,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 13,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "0000000000000000000000000???????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240419,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": 20240321,
+          "Date_of_Last_Payment": "",
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20220331,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 919988776655,
+              "Telephone_Type": "",
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXXXXX5181",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20220519,
+          "Credit_Limit_Amount": 150000,
+          "Highest_Credit_or_Original_Loan_Amount": 114293,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "0000000000000000?000000?????????????",
+          "Special_Comment": "",
+          "Current_Balance": 11818,
+          "Amount_Past_Due": "",
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240223,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20220531,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": ""
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "",
+              "EMailId": ""
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXX0082",
+          "Portfolio_Type": "I",
+          "Account_Type": 1,
+          "Open_Date": 20220506,
+          "Credit_Limit_Amount": "",
+          "Highest_Credit_or_Original_Loan_Amount": 605024,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "00000000000000000000000?????????????",
+          "Special_Comment": "",
+          "Current_Balance": 234290,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240408,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": 0,
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20220531,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2022,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Kumar",
+              "First_Name_Non_Normalized": "Akshay",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 9988776655,
+              "Telephone_Type": 2,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": 9988776655,
+              "Telephone_Type": 3,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXXXXX6743",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20220422,
+          "Credit_Limit_Amount": 0,
+          "Highest_Credit_or_Original_Loan_Amount": 31199,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 13,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "000000000000000000000???????????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240310,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": 20240118,
+          "Date_of_Last_Payment": 20231118,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20220608,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Kumar",
+              "First_Name_Non_Normalized": "Akshay",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 119988776655,
+              "Telephone_Type": 2,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": ""
+            },
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": ""
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": ""
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXX2805",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20220926,
+          "Credit_Limit_Amount": 600000,
+          "Highest_Credit_or_Original_Loan_Amount": 67921,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "0000000000000000000?????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 505,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240411,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": 0,
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20220930,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Kumar  Akshay",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 919988776655,
+              "FaxNumber": "",
+              "EMailId": "munna@mirzapur.io"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "",
+              "EMailId": "munna@mirzapur.io"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXX3908",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20221130,
+          "Credit_Limit_Amount": 65000,
+          "Highest_Credit_or_Original_Loan_Amount": 16174,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "00000000000000000???????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240418,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20221130,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXXXXX7139",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20220924,
+          "Credit_Limit_Amount": 10000,
+          "Highest_Credit_or_Original_Loan_Amount": 10644,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "00000000000?000000??????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 3122,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240512,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240418,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20221111,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2022,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Akshay",
+              "First_Name_Non_Normalized": "Kumar",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": ""
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": ""
+            }
+          ]
+        },
+        {
+          "Identification_Number": "FORXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXX1872",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20220326,
+          "Credit_Limit_Amount": "",
+          "Highest_Credit_or_Original_Loan_Amount": 0,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 13,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "??????00????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20231130,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": 20231127,
+          "Date_of_Last_Payment": "",
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": 0,
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20230331,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D 401 Sainik Vihar",
+              "Second_Line_Of_Address_non_normalized": "Delhi",
+              "Third_Line_Of_Address_non_normalized": "",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 9988776655,
+              "Telephone_Type": "",
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXXXXX4230",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20230122,
+          "Credit_Limit_Amount": 136000,
+          "Highest_Credit_or_Original_Loan_Amount": 9535,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "000000000000?00?????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240512,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20231215,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": 42,
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20230212,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Akshay",
+              "First_Name_Non_Normalized": "Kumar",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401, SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": "DELHI",
+              "Third_Line_Of_Address_non_normalized": "NEW DELHI",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXX1200",
+          "Portfolio_Type": "I",
+          "Account_Type": "",
+          "Open_Date": 20221103,
+          "Credit_Limit_Amount": "",
+          "Highest_Credit_or_Original_Loan_Amount": 10000,
+          "Terms_Duration": 4,
+          "Terms_Frequency": "M",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 13,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "N",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20221231,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": 20221231,
+          "Date_of_Last_Payment": 20221231,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": 18,
+          "Repayment_Tenure": 4,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20221231,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2022,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 9988776655,
+              "Telephone_Type": "",
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXXXXX6588",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20230427,
+          "Credit_Limit_Amount": 150000,
+          "Highest_Credit_or_Original_Loan_Amount": 29621,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "000000000000????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 4716,
+          "Amount_Past_Due": "",
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240402,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20230430,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 8,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 7,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 6,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXX7053",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20230922,
+          "Credit_Limit_Amount": 165000,
+          "Highest_Credit_or_Original_Loan_Amount": 0,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "0000000?????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20230925,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20230930,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 11,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 10,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 9,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXX7919",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20231124,
+          "Credit_Limit_Amount": 600000,
+          "Highest_Credit_or_Original_Loan_Amount": 128981,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "0000????????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240425,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": 0,
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20231231,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Kumar",
+              "First_Name_Non_Normalized": "Akshay",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 919988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXX1799",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20231030,
+          "Credit_Limit_Amount": 750000,
+          "Highest_Credit_or_Original_Loan_Amount": 7916,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "000?????????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 601,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240412,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240315,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20240112,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "kumar",
+              "First_Name_Non_Normalized": "Akshay",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 11222,
+              "Telephone_Type": 3,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXX9667",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20230801,
+          "Credit_Limit_Amount": 350000,
+          "Highest_Credit_or_Original_Loan_Amount": -11331,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "0000????????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 10517,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240420,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20231231,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20231220,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2023,
+              "Month": 12,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Kumar",
+              "First_Name_Non_Normalized": "Akshay",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 11222,
+              "Telephone_Type": 3,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PUBXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXX4499",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20231215,
+          "Credit_Limit_Amount": 150000,
+          "Highest_Credit_or_Original_Loan_Amount": 5811,
+          "Terms_Duration": 1,
+          "Terms_Frequency": "M",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "00?0????????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 5260,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240520,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240425,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": 35.89,
+          "Repayment_Tenure": 1,
+          "Promotional_Rate_Flag": "",
+          "Income": 999470,
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20240120,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": ""
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "",
+              "EMailId": ""
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXXXXX6007",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20240105,
+          "Credit_Limit_Amount": 720000,
+          "Highest_Credit_or_Original_Loan_Amount": 11153,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "000?????????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 719,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240423,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20240131,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "S"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 919988776655,
+              "Telephone_Type": 0,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": 91919988776655,
+              "Telephone_Type": 2,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 919988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "NBFXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXX8083",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20240131,
+          "Credit_Limit_Amount": 400000,
+          "Highest_Credit_or_Original_Loan_Amount": 1001,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "000?????????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240430,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240420,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20240131,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 2,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 1,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Kumar",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXXXXX8588",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20220422,
+          "Credit_Limit_Amount": 40000,
+          "Highest_Credit_or_Original_Loan_Amount": 31199,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "00??????????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 0,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240509,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": 20240218,
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20240310,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 5,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "Kumar",
+              "First_Name_Non_Normalized": "Akshay",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            },
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 119988776655,
+              "Telephone_Type": 2,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            },
+            {
+              "Telephone_Number": "",
+              "Telephone_Type": 1,
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": 9988776655,
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        },
+        {
+          "Identification_Number": "PVTXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Account_Number": "XXXXXXXXXXXXXXX7834",
+          "Portfolio_Type": "R",
+          "Account_Type": 10,
+          "Open_Date": 20240312,
+          "Credit_Limit_Amount": 165000,
+          "Highest_Credit_or_Original_Loan_Amount": 5056,
+          "Terms_Duration": "",
+          "Terms_Frequency": "",
+          "Scheduled_Monthly_Payment_Amount": "",
+          "Account_Status": 11,
+          "Payment_Rating": 0,
+          "Payment_History_Profile": "0???????????????????????????????????",
+          "Special_Comment": "",
+          "Current_Balance": 5056,
+          "Amount_Past_Due": 0,
+          "Original_Charge_Off_Amount": "",
+          "Date_Reported": 20240415,
+          "Date_of_First_Delinquency": "",
+          "Date_Closed": "",
+          "Date_of_Last_Payment": "",
+          "SuitFiledWillfulDefaultWrittenOffStatus": "",
+          "SuitFiled_WillfulDefault": "",
+          "Written_off_Settled_Status": "",
+          "Value_of_Credits_Last_Month": "",
+          "Occupation_Code": "",
+          "Settlement_Amount": "",
+          "Value_of_Collateral": "",
+          "Type_of_Collateral": "",
+          "Written_Off_Amt_Total": "",
+          "Written_Off_Amt_Principal": "",
+          "Rate_of_Interest": "",
+          "Repayment_Tenure": 0,
+          "Promotional_Rate_Flag": "",
+          "Income": "",
+          "Income_Indicator": "",
+          "Income_Frequency_Indicator": "",
+          "DefaultStatusDate": "",
+          "LitigationStatusDate": "",
+          "WriteOffStatusDate": "",
+          "DateOfAddition": 20240315,
+          "CurrencyCode": "INR",
+          "Subscriber_comments": "",
+          "Consumer_comments": "",
+          "AccountHoldertypeCode": 1,
+          "CAIS_Account_History": [
+            {
+              "Year": 2024,
+              "Month": 4,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            },
+            {
+              "Year": 2024,
+              "Month": 3,
+              "Days_Past_Due": 0,
+              "Asset_Classification": "?"
+            }
+          ],
+          "CAIS_Holder_Details": [
+            {
+              "Surname_Non_Normalized": "MUNNA BHAIYA",
+              "First_Name_Non_Normalized": "",
+              "Middle_Name_1_Non_Normalized": "",
+              "Middle_Name_2_Non_Normalized": "",
+              "Middle_Name_3_Non_Normalized": "",
+              "Alias": "",
+              "Gender_Code": 1,
+              "Income_TAX_PAN": "ABCDC1818A",
+              "Date_of_birth": 19980925
+            }
+          ],
+          "CAIS_Holder_Address_Details": [
+            {
+              "First_Line_Of_Address_non_normalized": "D-401,SAINIK VIHAR",
+              "Second_Line_Of_Address_non_normalized": ",NEW DEL",
+              "Third_Line_Of_Address_non_normalized": "HI,NORTH WEST DELHI,DL,IN,110034",
+              "City_non_normalized": "",
+              "Fifth_Line_Of_Address_non_normalized": "",
+              "State_non_normalized": 7,
+              "ZIP_Postal_Code_non_normalized": 110034,
+              "CountryCode_non_normalized": "IB",
+              "Address_indicator_non_normalized": 2,
+              "Residence_code_non_normalized": ""
+            }
+          ],
+          "CAIS_Holder_Phone_Details": [
+            {
+              "Telephone_Number": 9988776655,
+              "Telephone_Type": "",
+              "Telephone_Extension": "",
+              "Mobile_Telephone_Number": "",
+              "FaxNumber": "",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ],
+          "CAIS_Holder_ID_Details": [
+            {
+              "Income_TAX_PAN": "ABCDC1818A",
+              "EMailId": "munnabhaiya@gmail.com"
+            }
+          ]
+        }
+      ]
+    },
+    "Match_result": {
+      "Exact_match": "Y"
+    },
+    "TotalCAPS_Summary": {
+      "TotalCAPSLast7Days": 10,
+      "TotalCAPSLast30Days": 10,
+      "TotalCAPSLast90Days": 10,
+      "TotalCAPSLast180Days": 11
+    },
+    "CAPS": {
+      "CAPS_Summary": {
+        "CAPSLast7Days": 0,
+        "CAPSLast30Days": 0,
+        "CAPSLast90Days": 0,
+        "CAPSLast180Days": 1
+      },
+      "CAPS_Application_Details": [
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20231117,
+          "ReportTime": 155524,
+          "ReportNumber": 1700171141276,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 10000,
+          "Duration_Of_Agreement": 36
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20230718,
+          "ReportTime": 155524,
+          "ReportNumber": 1689678274753,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 1000,
+          "Duration_Of_Agreement": 3
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20230421,
+          "ReportTime": 155524,
+          "ReportNumber": 1682092842726,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 1000,
+          "Duration_Of_Agreement": 3
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20230405,
+          "ReportTime": 155524,
+          "ReportNumber": 1680702340114,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 10000,
+          "Duration_Of_Agreement": 36
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20230330,
+          "ReportTime": 155524,
+          "ReportNumber": 1680175958703,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 1000,
+          "Duration_Of_Agreement": 3
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20230115,
+          "ReportTime": 155524,
+          "ReportNumber": 1673785887829,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 10000,
+          "Duration_Of_Agreement": 36
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20221002,
+          "ReportTime": 155524,
+          "ReportNumber": 1664705276015,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 10000,
+          "Duration_Of_Agreement": 36
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20220923,
+          "ReportTime": 155524,
+          "ReportNumber": 1663953152168,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 10000,
+          "Duration_Of_Agreement": 36
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20220902,
+          "ReportTime": 155524,
+          "ReportNumber": 1662100948715,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 10000,
+          "Duration_Of_Agreement": 36
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20220222,
+          "ReportTime": 155524,
+          "ReportNumber": 1645550941990,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 23,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20220218,
+          "ReportTime": 155524,
+          "ReportNumber": 1645192845490,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 10000,
+          "Duration_Of_Agreement": 36
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20211005,
+          "ReportTime": 155524,
+          "ReportNumber": 1633436300127,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 10000,
+          "Duration_Of_Agreement": 36
+        }
+      ]
+    },
+    "NonCreditCAPS": {
+      "NonCreditCAPS_Summary": {
+        "NonCreditCAPSLast7Days": 10,
+        "NonCreditCAPSLast30Days": 10,
+        "NonCreditCAPSLast90Days": 10,
+        "NonCreditCAPSLast180Days": 10
+      },
+      "CAPS_Application_Details": [
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20240605,
+          "ReportTime": 155524,
+          "ReportNumber": 1717583124035,
+          "Enquiry_Reason": 99,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20240605,
+          "ReportTime": 155524,
+          "ReportNumber": 1717583024053,
+          "Enquiry_Reason": 99,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20240605,
+          "ReportTime": 155524,
+          "ReportNumber": 1717583023170,
+          "Enquiry_Reason": 99,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20231230,
+          "ReportTime": 155524,
+          "ReportNumber": 1703924579407,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 23,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20230402,
+          "ReportTime": 155524,
+          "ReportNumber": 1680420591097,
+          "Enquiry_Reason": 99,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20230402,
+          "ReportTime": 155524,
+          "ReportNumber": 1680420591829,
+          "Enquiry_Reason": 99,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20221121,
+          "ReportTime": 155524,
+          "ReportNumber": 1669032662503,
+          "Enquiry_Reason": 99,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20220616,
+          "ReportTime": 155524,
+          "ReportNumber": 1655394547675,
+          "Enquiry_Reason": 7,
+          "Finance_Purpose": 23,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20220601,
+          "ReportTime": 155524,
+          "ReportNumber": 1654088314424,
+          "Enquiry_Reason": 99,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        },
+        {
+          "Subscriber_code": "OTHXXXXXXXX",
+          "Subscriber_Name": "XXXXXXXXXX",
+          "Date_of_Request": 20220601,
+          "ReportTime": 155524,
+          "ReportNumber": 1654088314990,
+          "Enquiry_Reason": 99,
+          "Finance_Purpose": 99,
+          "Amount_Financed": 0,
+          "Duration_Of_Agreement": 0
+        }
+      ]
+    },
+    "SCORE": {
+      "FCIREXScore": 796,
+      "FCIREXScoreConfidLevel": ""
+    }
+  },
+  "timestamp": "2025-08-25T19:14:46.632Z",
+  "creditSummary": {
+    "totalAccounts": 23,
+    "activeAccounts": 18,
+    "closedAccounts": 5,
+    "defaultAccounts": 0,
+    "totalOutstanding": 276604,
+    "securedOutstanding": 234290,
+    "unsecuredOutstanding": 42314
+  },
+  "creditGrade": "Excellent"
+}

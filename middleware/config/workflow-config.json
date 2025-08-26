@@ -1,0 +1,166 @@
+{
+  "workflow_version": "2.0",
+  "description": "Dual-Phase Loan Origination Workflow Configuration",
+  "last_updated": "2025-08-25",
+  
+  "workflow_phases": {
+    "automated_phase": {
+      "description": "Automated processing phase with rule-based decisions",
+      "stages": [
+        "pre-qualification",
+        "loan-application",
+        "application-processing",
+        "underwriting"
+      ],
+      "parallel_processing": true,
+      "timeout_minutes": 30
+    },
+    "manual_phase": {
+      "description": "Manual review and decision phase",
+      "stages": [
+        "credit-decision",
+        "quality-check",
+        "loan-funding"
+      ],
+      "requires_employee_assignment": true,
+      "timeout_hours": 24
+    }
+  },
+  
+  "stage_descriptions": {
+    "pre-qualification": {
+      "name": "Pre-Qualification",
+      "description": "Initial eligibility and basic document verification",
+      "automated": true,
+      "required_data": ["personal_info", "employment_info", "loan_request"],
+      "outputs": ["eligibility_status", "preliminary_score"]
+    },
+    "loan-application": {
+      "name": "Loan Application Processing",
+      "description": "Complete application data validation and processing",
+      "automated": true,
+      "required_data": ["complete_application", "documents"],
+      "outputs": ["application_status", "validation_results"]
+    },
+    "application-processing": {
+      "name": "Application Processing",
+      "description": "Document verification and data processing",
+      "automated": true,
+      "required_data": ["verified_documents", "processed_data"],
+      "outputs": ["processing_status", "verification_results"]
+    },
+    "underwriting": {
+      "name": "Automated Underwriting",
+      "description": "Risk assessment and automated decision making",
+      "automated": true,
+      "required_data": ["credit_report", "financial_data", "risk_factors"],
+      "outputs": ["underwriting_decision", "risk_score", "recommended_terms"]
+    },
+    "credit-decision": {
+      "name": "Credit Decision Review",
+      "description": "Manual review of automated underwriting results",
+      "automated": false,
+      "required_data": ["underwriting_results", "risk_assessment"],
+      "outputs": ["final_decision", "approved_terms", "conditions"]
+    },
+    "quality-check": {
+      "name": "Quality Assurance",
+      "description": "Final quality check and compliance verification",
+      "automated": false,
+      "required_data": ["approved_application", "compliance_checklist"],
+      "outputs": ["quality_status", "compliance_verification"]
+    },
+    "loan-funding": {
+      "name": "Loan Funding",
+      "description": "Final loan disbursement and documentation",
+      "automated": false,
+      "required_data": ["approved_loan", "disbursement_details"],
+      "outputs": ["funding_status", "loan_account_details"]
+    }
+  },
+  
+  "transition_rules": {
+    "pre-qualification": {
+      "success": "loan-application",
+      "failure": "manual_review",
+      "conditions": {
+        "auto_approve_threshold": 70,
+        "auto_reject_threshold": 30
+      }
+    },
+    "loan-application": {
+      "success": "application-processing",
+      "failure": "manual_review",
+      "conditions": {
+        "validation_pass_rate": 90
+      }
+    },
+    "application-processing": {
+      "success": "underwriting",
+      "failure": "manual_review",
+      "conditions": {
+        "document_verification_rate": 95
+      }
+    },
+    "underwriting": {
+      "success": "credit-decision",
+      "failure": "credit-decision",
+      "conditions": {
+        "always_proceed_to_manual": true
+      }
+    },
+    "credit-decision": {
+      "success": "quality-check",
+      "failure": "rejected",
+      "conditions": {
+        "requires_manager_approval": false
+      }
+    },
+    "quality-check": {
+      "success": "loan-funding",
+      "failure": "manual_review",
+      "conditions": {
+        "compliance_score_threshold": 85
+      }
+    },
+    "loan-funding": {
+      "success": "completed",
+      "failure": "manual_review",
+      "conditions": {
+        "funding_approval_required": true
+      }
+    }
+  },
+  
+  "employee_assignment": {
+    "assignment_strategy": "round_robin",
+    "max_concurrent_applications": 10,
+    "specialization_matching": true,
+    "workload_balancing": true,
+    "escalation_rules": {
+      "high_value_loans": {
+        "threshold": 1000000,
+        "requires_senior_approval": true
+      },
+      "complex_cases": {
+        "risk_score_threshold": 80,
+        "requires_specialist": true
+      }
+    }
+  },
+  
+  "notification_config": {
+    "automated_phase_completion": true,
+    "manual_assignment": true,
+    "stage_transitions": true,
+    "escalations": true,
+    "final_decisions": true
+  },
+  
+  "audit_config": {
+    "log_all_transitions": true,
+    "log_decision_factors": true,
+    "log_employee_actions": true,
+    "retention_days": 2555
+  }
+}

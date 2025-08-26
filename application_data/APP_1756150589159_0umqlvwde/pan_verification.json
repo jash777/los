@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "statusCode": 200,
+  "message": null,
+  "clientId": "pan_comprehensive_kLHfCXJylvmfLiVQUWka",
+  "verification": {
+    "panNumber": "EMMPP2177M",
+    "fullName": "JASHUVA PEYYALA",
+    "fullNameSplit": [
+      "JASHUVA",
+      "",
+      "PEYYALA"
+    ],
+    "maskedAadhaar": "XXXXXXXX7897",
+    "email": null,
+    "phoneNumber": null,
+    "gender": "M",
+    "dob": "1997-08-06",
+    "dobVerified": false,
+    "dobCheck": false,
+    "aadhaarLinked": true,
+    "category": "person",
+    "status": "valid",
+    "lessInfo": false,
+    "address": {
+      "line_1": "",
+      "line_2": "",
+      "street_name": "",
+      "zip": "",
+      "city": "",
+      "state": "",
+      "country": "",
+      "full": ""
+    }
+  },
+  "timestamp": "2025-08-25T19:15:28.685Z",
+  "isValid": true,
+  "isActive": true
+}

@@ -1,0 +1,14 @@
+{
+  "applicationId": "APP_1756180759896_fgbth67nk",
+  "timestamp": "2025-08-26T03:59:20.827Z",
+  "personalInfo": {
+    "first_name": "jashuva",
+    "last_name": "peyyala",
+    "date_of_birth": "1997-08-06",
+    "mobile": "9876543210",
+    "email": "john.doe@example.com",
+    "pan_number": "EMMPP2177M",
+    "aadhar_number": "789719737897"
+  },
+  "requestId": "preq_1756180759894_1f0ule38j"
+}

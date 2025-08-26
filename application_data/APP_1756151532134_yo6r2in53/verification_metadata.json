@@ -1,0 +1,19 @@
+{
+  "applicationId": "APP_1756151532134_yo6r2in53",
+  "timestamp": "2025-08-25T19:52:13.630Z",
+  "panDataAvailable": true,
+  "cibilDataAvailable": false,
+  "requestId": "preq_1756151532133_fvf3qcqti",
+  "providedName": "Jashua Peyala",
+  "providedPAN": "EMMPP2177M",
+  "providedMobile": "9876543210",
+  "panVerifiedName": "JASHUVA PEYYALA",
+  "panStatus": "valid",
+  "nameMatching": {
+    "score": 0.8666666666666667,
+    "match": true,
+    "providedName": "jashua peyala",
+    "panName": "jashuva peyyala",
+    "reason": "Names match sufficiently"
+  }
+}

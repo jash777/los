@@ -1,0 +1,19 @@
+{
+  "applicationId": "APP_1756151897506_02fsh9vyd",
+  "timestamp": "2025-08-25T19:58:18.407Z",
+  "panDataAvailable": true,
+  "cibilDataAvailable": false,
+  "requestId": "preq_1756151897505_i2gnpzyx5",
+  "providedName": "Jshua Peala",
+  "providedPAN": "EMMPP2177M",
+  "providedMobile": "9876543210",
+  "panVerifiedName": "JASHUVA PEYYALA",
+  "panStatus": "valid",
+  "nameMatching": {
+    "score": 0.7333333333333333,
+    "match": false,
+    "providedName": "jshua peala",
+    "panName": "jashuva peyyala",
+    "reason": "Names do not match sufficiently"
+  }
+}

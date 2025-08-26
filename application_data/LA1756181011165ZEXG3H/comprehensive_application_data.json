@@ -1,0 +1,539 @@
+{
+  "applicationId": "LA1756181011165ZEXG3H",
+  "preQualificationId": "APP_1756149283965_kt1dbnlqf",
+  "timestamp": "2025-08-26T04:03:31.177Z",
+  "requestId": "test_1756181011144_p1j4rsji7",
+  "currentStage": "loan_application",
+  "stageHistory": [
+    {
+      "stage": "pre_qualification",
+      "status": "completed",
+      "timestamp": "2025-08-26T04:03:31.178Z",
+      "data": {
+        "application_id": "APP_1756149283965_kt1dbnlqf",
+        "approved": true,
+        "cibil_score": 720,
+        "eligible_amount": 500000,
+        "risk_category": "medium"
+      }
+    },
+    {
+      "stage": "loan_application",
+      "timestamp": "2025-08-26T04:03:31.177Z",
+      "data": {
+        "phase": "loan-application",
+        "success": false,
+        "processing_results": {
+          "cibil_employment_verification": {
+            "status": "completed",
+            "cibil_employment_data": {
+              "employers": [],
+              "income": 999470,
+              "employment_duration": 0
+            },
+            "user_employment_data": {
+              "company_name": "Tech Solutions Pvt Ltd",
+              "monthly_salary": 85000,
+              "work_experience": 48,
+              "employment_type": "salaried",
+              "designation": "Senior Software Engineer"
+            },
+            "verification_results": {
+              "company_name_match": {
+                "match": false,
+                "score": 0,
+                "reason": "Insufficient data for comparison"
+              },
+              "income_consistency": {
+                "consistent": false,
+                "score": 30,
+                "variance": 91.5,
+                "user_income": 85000,
+                "cibil_income": 999470,
+                "reason": "Significant income variance detected"
+              },
+              "employment_duration": {
+                "consistent": false,
+                "score": 0,
+                "reason": "Insufficient employment duration data"
+              },
+              "overall_score": 15
+            },
+            "verification_score": 15,
+            "recommendations": [
+              "Verify company name with additional documentation",
+              "Request additional income verification documents",
+              "Verify employment history with HR documentation",
+              "Consider manual review due to low verification score"
+            ],
+            "completed_at": "2025-08-26T04:03:31.169Z"
+          },
+          "account_statement_verification": {
+            "status": "failed",
+            "error": "accountStatementService.verifyAccountStatement is not a function",
+            "verification_score": 0
+          },
+          "payslip_verification": {
+            "status": "completed",
+            "payslip_data": {
+              "employeeDetails": {
+                "name": "John Doe",
+                "employeeId": "EMP001234",
+                "designation": "Software Engineer",
+                "department": "Information Technology",
+                "joiningDate": "2022-03-15",
+                "pan": "ABCDE1234F",
+                "esi": "1234567890",
+                "pf": "PF1234567890"
+              },
+              "employerDetails": {
+                "companyName": "Tech Solutions Pvt Ltd",
+                "address": "123 Business Park, Bangalore, Karnataka 560001",
+                "contact": "+91-80-12345678",
+                "registrationNumber": "CIN123456789",
+                "tan": "BLRT12345A",
+                "pfRegistration": "KA/BGE/12345"
+              },
+              "salaryDetails": {
+                "basicSalary": 45000,
+                "hra": 18000,
+                "allowances": 12000,
+                "grossSalary": 75000,
+                "netSalary": 65087,
+                "payPeriod": "2025-08"
+              },
+              "deductions": [
+                {
+                  "type": "Provident Fund",
+                  "amount": 5400
+                },
+                {
+                  "type": "TDS",
+                  "amount": 3750
+                },
+                {
+                  "type": "ESI",
+                  "amount": 563
+                },
+                {
+                  "type": "Professional Tax",
+                  "amount": 200
+                }
+              ],
+              "digitalSignature": true,
+              "generatedAt": "2025-08-26T04:03:31.172Z"
+            },
+            "verification_results": {},
+            "completed_at": "2025-08-26T04:03:31.174Z"
+          },
+          "financial_assessment": {
+            "status": "completed",
+            "dti_ratio": 55.29,
+            "financial_stability_score": 70,
+            "net_worth": 245000,
+            "monthly_disposable_income": 38000,
+            "assessment": {
+              "income_adequacy": "adequate",
+              "expense_management": "moderate",
+              "asset_base": "strong",
+              "overall_rating": "good"
+            },
+            "enhanced_assessment": {
+              "enhanced_score": 45,
+              "base_score": 70,
+              "adjustments": [
+                "Poor CIBIL employment verification (-15)",
+                "Weak account statement verification (-10)"
+              ],
+              "risk_level": "high",
+              "recommendation": "reject"
+            },
+            "verification_summary": {
+              "cibil_employment_score": 15,
+              "account_statement_score": 0,
+              "payslip_verification_score": 0,
+              "combined_verification_score": 6
+            },
+            "details": {
+              "monthly_income": 85000,
+              "monthly_expenses": 35000,
+              "existing_emis": 12000,
+              "total_assets": 450000,
+              "total_liabilities": 205000,
+              "stability_factors": [
+                "Adequate income level",
+                "Good expense management",
+                "Low existing debt burden",
+                "Adequate liquid assets"
+              ]
+            },
+            "completed_at": "2025-08-26T04:03:31.176Z"
+          },
+          "loan_validation": {
+            "status": "invalid",
+            "validations": [
+              {
+                "field": "requested_amount",
+                "status": "valid",
+                "message": "Loan amount is within acceptable range"
+              },
+              {
+                "field": "tenure",
+                "status": "invalid",
+                "message": "Minimum tenure is 6 months"
+              },
+              {
+                "field": "loan_purpose",
+                "status": "invalid",
+                "message": "Loan purpose must be detailed (minimum 10 characters)"
+              }
+            ],
+            "completed_at": "2025-08-26T04:03:31.176Z"
+          },
+          "document_validation": {
+            "status": "incomplete",
+            "document_status": {
+              "income_proof": {
+                "status": "missing"
+              },
+              "bank_statements": {
+                "status": "missing"
+              },
+              "address_proof": {
+                "status": "missing"
+              },
+              "identity_proof": {
+                "status": "submitted"
+              }
+            },
+            "missing_documents": [
+              "income_proof",
+              "bank_statements",
+              "address_proof"
+            ],
+            "total_documents": 3,
+            "required_documents": 4,
+            "completion_percentage": 25,
+            "completed_at": "2025-08-26T04:03:31.177Z"
+          },
+          "risk_assessment": {
+            "status": "completed",
+            "risk_score": 88,
+            "risk_category": "low",
+            "risk_factors": [
+              "Good credit score",
+              "Conservative loan-to-income ratio",
+              "Stable employment history",
+              "Limited asset coverage"
+            ],
+            "detailed_assessment": {
+              "credit_score_contribution": 25,
+              "financial_stability_contribution": 38,
+              "employment_stability_contribution": 20,
+              "asset_coverage_contribution": 6
+            },
+            "completed_at": "2025-08-26T04:03:31.177Z"
+          }
+        },
+        "overall_result": {
+          "approved": false,
+          "rejection_reason": "Invalid loan details; Incomplete documentation",
+          "recommendations": [
+            "Review and correct loan application details",
+            "Submit missing documents: income_proof, bank_statements, address_proof"
+          ],
+          "next_steps": "Address the issues and reapply",
+          "eligible_amount": 2736000,
+          "suggested_terms": {
+            "interest_rate": "10.5%",
+            "max_tenure": 84
+          }
+        }
+      }
+    }
+  ],
+  "userInputData": {
+    "personalInfo": {},
+    "employmentDetails": {
+      "company_name": "Tech Solutions Pvt Ltd",
+      "monthly_salary": 85000,
+      "work_experience": 48,
+      "employment_type": "salaried",
+      "designation": "Senior Software Engineer"
+    },
+    "financialInfo": {},
+    "loanDetails": {
+      "loan_type": "personal",
+      "requested_amount": 500000,
+      "tenure_months": 36,
+      "purpose": "debt_consolidation"
+    },
+    "documents": [
+      {
+        "type": "salary_certificate",
+        "status": "uploaded"
+      },
+      {
+        "type": "bank_statement",
+        "status": "uploaded"
+      },
+      {
+        "type": "identity_proof",
+        "status": "uploaded"
+      }
+    ],
+    "accountStatementData": null,
+    "payslipData": null
+  },
+  "verificationResults": {
+    "panVerification": null,
+    "cibilVerification": null,
+    "cibilEmploymentVerification": {
+      "status": "completed",
+      "cibil_employment_data": {
+        "employers": [],
+        "income": 999470,
+        "employment_duration": 0
+      },
+      "user_employment_data": {
+        "company_name": "Tech Solutions Pvt Ltd",
+        "monthly_salary": 85000,
+        "work_experience": 48,
+        "employment_type": "salaried",
+        "designation": "Senior Software Engineer"
+      },
+      "verification_results": {
+        "company_name_match": {
+          "match": false,
+          "score": 0,
+          "reason": "Insufficient data for comparison"
+        },
+        "income_consistency": {
+          "consistent": false,
+          "score": 30,
+          "variance": 91.5,
+          "user_income": 85000,
+          "cibil_income": 999470,
+          "reason": "Significant income variance detected"
+        },
+        "employment_duration": {
+          "consistent": false,
+          "score": 0,
+          "reason": "Insufficient employment duration data"
+        },
+        "overall_score": 15
+      },
+      "verification_score": 15,
+      "recommendations": [
+        "Verify company name with additional documentation",
+        "Request additional income verification documents",
+        "Verify employment history with HR documentation",
+        "Consider manual review due to low verification score"
+      ],
+      "completed_at": "2025-08-26T04:03:31.169Z"
+    },
+    "accountStatementVerification": {
+      "status": "failed",
+      "error": "accountStatementService.verifyAccountStatement is not a function",
+      "verification_score": 0
+    },
+    "payslipVerification": {
+      "status": "completed",
+      "payslip_data": {
+        "employeeDetails": {
+          "name": "John Doe",
+          "employeeId": "EMP001234",
+          "designation": "Software Engineer",
+          "department": "Information Technology",
+          "joiningDate": "2022-03-15",
+          "pan": "ABCDE1234F",
+          "esi": "1234567890",
+          "pf": "PF1234567890"
+        },
+        "employerDetails": {
+          "companyName": "Tech Solutions Pvt Ltd",
+          "address": "123 Business Park, Bangalore, Karnataka 560001",
+          "contact": "+91-80-12345678",
+          "registrationNumber": "CIN123456789",
+          "tan": "BLRT12345A",
+          "pfRegistration": "KA/BGE/12345"
+        },
+        "salaryDetails": {
+          "basicSalary": 45000,
+          "hra": 18000,
+          "allowances": 12000,
+          "grossSalary": 75000,
+          "netSalary": 65087,
+          "payPeriod": "2025-08"
+        },
+        "deductions": [
+          {
+            "type": "Provident Fund",
+            "amount": 5400
+          },
+          {
+            "type": "TDS",
+            "amount": 3750
+          },
+          {
+            "type": "ESI",
+            "amount": 563
+          },
+          {
+            "type": "Professional Tax",
+            "amount": 200
+          }
+        ],
+        "digitalSignature": true,
+        "generatedAt": "2025-08-26T04:03:31.172Z"
+      },
+      "verification_results": {},
+      "completed_at": "2025-08-26T04:03:31.174Z"
+    }
+  },
+  "assessmentResults": {
+    "preQualificationAssessment": null,
+    "financialAssessment": {
+      "status": "completed",
+      "dti_ratio": 55.29,
+      "financial_stability_score": 70,
+      "net_worth": 245000,
+      "monthly_disposable_income": 38000,
+      "assessment": {
+        "income_adequacy": "adequate",
+        "expense_management": "moderate",
+        "asset_base": "strong",
+        "overall_rating": "good"
+      },
+      "enhanced_assessment": {
+        "enhanced_score": 45,
+        "base_score": 70,
+        "adjustments": [
+          "Poor CIBIL employment verification (-15)",
+          "Weak account statement verification (-10)"
+        ],
+        "risk_level": "high",
+        "recommendation": "reject"
+      },
+      "verification_summary": {
+        "cibil_employment_score": 15,
+        "account_statement_score": 0,
+        "payslip_verification_score": 0,
+        "combined_verification_score": 6
+      },
+      "details": {
+        "monthly_income": 85000,
+        "monthly_expenses": 35000,
+        "existing_emis": 12000,
+        "total_assets": 450000,
+        "total_liabilities": 205000,
+        "stability_factors": [
+          "Adequate income level",
+          "Good expense management",
+          "Low existing debt burden",
+          "Adequate liquid assets"
+        ]
+      },
+      "completed_at": "2025-08-26T04:03:31.176Z"
+    },
+    "riskAssessment": {
+      "status": "completed",
+      "risk_score": 88,
+      "risk_category": "low",
+      "risk_factors": [
+        "Good credit score",
+        "Conservative loan-to-income ratio",
+        "Stable employment history",
+        "Limited asset coverage"
+      ],
+      "detailed_assessment": {
+        "credit_score_contribution": 25,
+        "financial_stability_contribution": 38,
+        "employment_stability_contribution": 20,
+        "asset_coverage_contribution": 6
+      },
+      "completed_at": "2025-08-26T04:03:31.177Z"
+    },
+    "loanValidation": {
+      "status": "invalid",
+      "validations": [
+        {
+          "field": "requested_amount",
+          "status": "valid",
+          "message": "Loan amount is within acceptable range"
+        },
+        {
+          "field": "tenure",
+          "status": "invalid",
+          "message": "Minimum tenure is 6 months"
+        },
+        {
+          "field": "loan_purpose",
+          "status": "invalid",
+          "message": "Loan purpose must be detailed (minimum 10 characters)"
+        }
+      ],
+      "completed_at": "2025-08-26T04:03:31.176Z"
+    },
+    "documentValidation": {
+      "status": "incomplete",
+      "document_status": {
+        "income_proof": {
+          "status": "missing"
+        },
+        "bank_statements": {
+          "status": "missing"
+        },
+        "address_proof": {
+          "status": "missing"
+        },
+        "identity_proof": {
+          "status": "submitted"
+        }
+      },
+      "missing_documents": [
+        "income_proof",
+        "bank_statements",
+        "address_proof"
+      ],
+      "total_documents": 3,
+      "required_documents": 4,
+      "completion_percentage": 25,
+      "completed_at": "2025-08-26T04:03:31.177Z"
+    }
+  },
+  "decisionSummary": {
+    "preQualificationDecision": {
+      "approved": true,
+      "eligibleAmount": 500000,
+      "rejectionReason": null
+    },
+    "loanApplicationDecision": {
+      "approved": false,
+      "eligibleAmount": 2736000,
+      "rejectionReason": "Invalid loan details; Incomplete documentation",
+      "recommendations": [
+        "Review and correct loan application details",
+        "Submit missing documents: income_proof, bank_statements, address_proof"
+      ],
+      "nextSteps": "Address the issues and reapply",
+      "suggestedTerms": {
+        "interest_rate": "10.5%",
+        "max_tenure": 84
+      }
+    }
+  },
+  "processingMetadata": {
+    "totalProcessingTime": null,
+    "stagesCompleted": [
+      "pre_qualification",
+      "loan_application"
+    ],
+    "nextStage": null,
+    "flags": {
+      "requiresManualReview": true,
+      "highRisk": false,
+      "incompleteDocuments": true
+    }
+  }
+}
