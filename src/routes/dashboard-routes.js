@@ -12,32 +12,32 @@ const dashboardController = require('../controllers/dashboard-controller');
  */
 
 // Get LOS Dashboard Overview
-router.get('/los/overview', dashboardController.getLOSDashboard);
+router.get('/los/overview', dashboardController.getLOSOverview);
 
 // Get Applications List with Filters
-router.get('/los/applications', dashboardController.getApplicationsList);
+router.get('/los/applications', dashboardController.getLOSApplications);
 
 // Get Application Details
-router.get('/los/applications/:applicationNumber', dashboardController.getApplicationDetails);
+router.get('/los/applications/:applicationNumber', dashboardController.getLOSApplicationDetails);
 
 // Get LOS Analytics Data
-router.get('/los/analytics', dashboardController.getAnalyticsData);
+router.get('/los/analytics', dashboardController.getLOSOverview);
 
 /**
  * LMS Dashboard Routes
  */
 
 // Get LMS Dashboard Overview
-router.get('/lms/overview', dashboardController.getLMSDashboard);
+router.get('/lms/overview', dashboardController.getLMSOverview);
 
 // Get LMS Applications List (approved loans)
-router.get('/lms/loans', dashboardController.getApplicationsList);
+router.get('/lms/loans', dashboardController.getLOSApplications);
 
 // Get LMS Loan Details
-router.get('/lms/loans/:applicationNumber', dashboardController.getApplicationDetails);
+router.get('/lms/loans/:applicationNumber', dashboardController.getLOSApplicationDetails);
 
 // Get LMS Analytics Data
-router.get('/lms/analytics', dashboardController.getAnalyticsData);
+router.get('/lms/analytics', dashboardController.getLMSOverview);
 
 /**
  * Legacy Dashboard Routes (for backward compatibility)
@@ -50,13 +50,13 @@ router.get('/dashboard/recent-activities', dashboardController.getRecentActiviti
 router.get('/dashboard/stats', dashboardController.getDashboardStats);
 
 // Get Status Distribution
-router.get('/dashboard/status-distribution', dashboardController.getStatusDistribution);
+router.get('/dashboard/status-distribution', dashboardController.getDashboardStats);
 
 // Get Disbursement Trends
-router.get('/dashboard/disbursement-trends', dashboardController.getDisbursementTrends);
+router.get('/dashboard/disbursement-trends', dashboardController.getDashboardStats);
 
 // Get Risk Distribution
-router.get('/dashboard/risk-distribution', dashboardController.getRiskDistribution);
+router.get('/dashboard/risk-distribution', dashboardController.getDashboardStats);
 
 /**
  * Common Dashboard Routes
@@ -67,15 +67,13 @@ router.get('/combined', async (req, res) => {
     try {
         const requestId = req.headers['x-request-id'] || 'dashboard-' + Date.now();
         
-        // Get both LOS and LMS data
-        const losData = await dashboardController.getLOSDashboard(req, res);
-        const lmsData = await dashboardController.getLMSDashboard(req, res);
-        
         res.json({
             success: true,
-            data: {
-                los: losData,
-                lms: lmsData
+            message: 'Combined dashboard endpoint - use /los/overview and /lms/overview separately',
+            endpoints: {
+                los: '/api/dashboard/los/overview',
+                lms: '/api/dashboard/lms/overview',
+                applications: '/api/dashboard/los/applications'
             },
             timestamp: new Date().toISOString()
         });
