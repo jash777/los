@@ -1,0 +1,869 @@
+{
+  "loan_origination_system_fields": {
+    "version": "1.0.0",
+    "description": "Complete field mapping for Stage 1 (Pre-Qualification) and Stage 2 (Loan Application)",
+    "last_updated": "2025-01-27",
+    "total_stages": 7,
+    "current_coverage": "Stage 1 and Stage 2",
+    
+    "stage_1_pre_qualification": {
+      "stage_name": "Pre-Qualification",
+      "description": "Initial eligibility screening with minimal user input (2-3 minutes)",
+      "processing_time": "2-3 minutes",
+      "purpose": "Quick eligibility check with minimal friction",
+      "required_fields": {
+        "personal_information": {
+          "full_name": {
+            "required": true,
+            "type": "string",
+            "min_length": 3,
+            "max_length": 100,
+            "description": "Full name as per official documents",
+            "example": "Rajesh Kumar Sharma",
+            "validation": "Must match PAN card name",
+            "field_category": "identity"
+          },
+          "phone": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[6-9][0-9]{9}$",
+            "description": "Valid Indian mobile number (10 digits)",
+            "example": "9876543210",
+            "validation": "Must be valid Indian mobile number",
+            "field_category": "contact"
+          },
+          "email": {
+            "required": true,
+            "type": "email",
+            "description": "Valid email address for communication",
+            "example": "rajesh.sharma@example.com",
+            "validation": "Must be valid email format",
+            "field_category": "contact"
+          },
+          "pan_number": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$",
+            "description": "Valid PAN number for identity verification",
+            "example": "ABCDE1234F",
+            "validation": "Must be valid PAN format and verified",
+            "field_category": "identity"
+          },
+          "date_of_birth": {
+            "required": true,
+            "type": "date",
+            "format": "YYYY-MM-DD",
+            "description": "Date of birth (age must be 21-65 years)",
+            "example": "1985-06-15",
+            "validation": "Age must be between 21-65 years",
+            "field_category": "identity"
+          }
+        },
+        "loan_requirements": {
+          "requested_loan_amount": {
+            "required": true,
+            "type": "number",
+            "minimum": 50000,
+            "maximum": 5000000,
+            "description": "Loan amount required (₹50K - ₹50L)",
+            "example": 500000,
+            "validation": "Must be between ₹50,000 and ₹50,00,000",
+            "field_category": "loan"
+          },
+          "loan_purpose": {
+            "required": true,
+            "type": "string",
+            "enum": [
+              "personal",
+              "home_improvement", 
+              "medical",
+              "education",
+              "business",
+              "debt_consolidation",
+              "travel",
+              "wedding",
+              "other"
+            ],
+            "description": "Purpose of the loan",
+            "example": "personal",
+            "validation": "Must be from predefined list",
+            "field_category": "loan"
+          },
+          "employment_type": {
+            "required": true,
+            "type": "string",
+            "enum": [
+              "salaried",
+              "self_employed",
+              "business_owner",
+              "professional",
+              "retired"
+            ],
+            "description": "Type of employment",
+            "example": "salaried",
+            "validation": "Must be from predefined list",
+            "field_category": "employment"
+          }
+        }
+      },
+      "system_processing": {
+        "automated_checks": [
+          "Basic data validation",
+          "PAN verification via third-party",
+          "CIBIL score retrieval",
+          "Age and employment eligibility check",
+          "Fraud risk assessment",
+          "Preliminary approval/rejection decision"
+        ],
+        "external_integrations": [
+          "PAN verification service",
+          "CIBIL credit bureau",
+          "Fraud detection system"
+        ]
+      },
+      "decision_criteria": {
+        "approved": {
+          "description": "Eligible for Stage 2 (Comprehensive Application)",
+          "criteria": [
+            "Age between 21-65 years",
+            "CIBIL score ≥ 650",
+            "Valid PAN verification",
+            "No critical fraud flags",
+            "Employment type acceptable"
+          ]
+        },
+        "rejected": {
+          "description": "Not eligible for loan",
+          "criteria": [
+            "Age outside 21-65 range",
+            "CIBIL score < 650",
+            "PAN verification failed",
+            "High fraud risk detected",
+            "Ineligible employment type"
+          ]
+        }
+      }
+    },
+
+    "stage_2_loan_application": {
+      "stage_name": "Loan Application",
+      "description": "Comprehensive data collection for detailed assessment",
+      "processing_time": "10-15 minutes",
+      "purpose": "Detailed application processing with complete information",
+      "prerequisite": "Stage 1 approval required",
+      "required_fields": {
+        "personal_information": {
+          "aadhaar_number": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9]{12}$",
+            "description": "12-digit Aadhaar number",
+            "example": "123456789012",
+            "validation": "Must be valid 12-digit Aadhaar",
+            "field_category": "identity"
+          },
+          "marital_status": {
+            "required": true,
+            "type": "string",
+            "enum": ["single", "married", "divorced", "widowed"],
+            "description": "Current marital status",
+            "example": "married",
+            "validation": "Must be from predefined list",
+            "field_category": "personal"
+          },
+          "number_of_dependents": {
+            "required": true,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Number of dependents",
+            "example": 2,
+            "validation": "Must be between 0-10",
+            "field_category": "personal"
+          },
+          "education_level": {
+            "required": true,
+            "type": "string",
+            "enum": ["high_school", "diploma", "graduate", "post_graduate", "phd", "other"],
+            "description": "Highest education level",
+            "example": "graduate",
+            "validation": "Must be from predefined list",
+            "field_category": "personal"
+          }
+        },
+        "address_information": {
+          "current_address": {
+            "street_address": {
+              "required": true,
+              "type": "string",
+              "max_length": 200,
+              "description": "Complete street address",
+              "example": "123 Main Street, Apartment 4B",
+              "validation": "Must be complete address",
+              "field_category": "address"
+            },
+            "city": {
+              "required": true,
+              "type": "string",
+              "max_length": 50,
+              "description": "City name",
+              "example": "Mumbai",
+              "validation": "Must be valid city name",
+              "field_category": "address"
+            },
+            "state": {
+              "required": true,
+              "type": "string",
+              "max_length": 50,
+              "description": "State name",
+              "example": "Maharashtra",
+              "validation": "Must be valid Indian state",
+              "field_category": "address"
+            },
+            "pincode": {
+              "required": true,
+              "type": "string",
+              "pattern": "^[0-9]{6}$",
+              "description": "6-digit postal code",
+              "example": "400001",
+              "validation": "Must be valid 6-digit pincode",
+              "field_category": "address"
+            },
+            "residence_type": {
+              "required": true,
+              "type": "string",
+              "enum": ["owned", "rented", "leased", "paying_guest", "family_owned"],
+              "description": "Type of residence",
+              "example": "owned",
+              "validation": "Must be from predefined list",
+              "field_category": "address"
+            },
+            "years_at_address": {
+              "required": true,
+              "type": "number",
+              "minimum": 0,
+              "maximum": 50,
+              "description": "Number of years at current address",
+              "example": 5,
+              "validation": "Must be reasonable number",
+              "field_category": "address"
+            }
+          },
+          "permanent_address": {
+            "street_address": {
+              "required": true,
+              "type": "string",
+              "max_length": 200,
+              "description": "Complete permanent address",
+              "example": "456 Village Road, District",
+              "validation": "Must be complete address",
+              "field_category": "address"
+            },
+            "city": {
+              "required": true,
+              "type": "string",
+              "max_length": 50,
+              "description": "Permanent city name",
+              "example": "Pune",
+              "validation": "Must be valid city name",
+              "field_category": "address"
+            },
+            "state": {
+              "required": true,
+              "type": "string",
+              "max_length": 50,
+              "description": "Permanent state name",
+              "example": "Maharashtra",
+              "validation": "Must be valid Indian state",
+              "field_category": "address"
+            },
+            "pincode": {
+              "required": true,
+              "type": "string",
+              "pattern": "^[0-9]{6}$",
+              "description": "Permanent 6-digit postal code",
+              "example": "411001",
+              "validation": "Must be valid 6-digit pincode",
+              "field_category": "address"
+            }
+          },
+          "same_as_current": {
+            "required": false,
+            "type": "boolean",
+            "description": "Whether permanent address is same as current",
+            "example": false,
+            "validation": "Boolean value",
+            "field_category": "address"
+          }
+        },
+        "employment_information": {
+          "employment_type": {
+            "required": true,
+            "type": "string",
+            "enum": ["salaried", "self_employed", "business_owner", "professional", "retired"],
+            "description": "Type of employment",
+            "example": "salaried",
+            "validation": "Must be from predefined list",
+            "field_category": "employment"
+          },
+          "company_name": {
+            "required": true,
+            "type": "string",
+            "max_length": 100,
+            "description": "Name of employer/company",
+            "example": "ABC Corporation Ltd",
+            "validation": "Must be valid company name",
+            "field_category": "employment"
+          },
+          "designation": {
+            "required": true,
+            "type": "string",
+            "max_length": 100,
+            "description": "Job title/designation",
+            "example": "Senior Software Engineer",
+            "validation": "Must be valid designation",
+            "field_category": "employment"
+          },
+          "monthly_gross_income": {
+            "required": true,
+            "type": "number",
+            "minimum": 15000,
+            "maximum": 10000000,
+            "description": "Monthly gross income before deductions",
+            "example": 75000,
+            "validation": "Must be reasonable income amount",
+            "field_category": "employment"
+          },
+          "monthly_net_income": {
+            "required": true,
+            "type": "number",
+            "minimum": 10000,
+            "maximum": 8000000,
+            "description": "Monthly net income after deductions",
+            "example": 65000,
+            "validation": "Must be less than gross income",
+            "field_category": "employment"
+          },
+          "work_experience_years": {
+            "required": true,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 50,
+            "description": "Total work experience in years",
+            "example": 8,
+            "validation": "Must be reasonable experience",
+            "field_category": "employment"
+          },
+          "current_job_experience_years": {
+            "required": true,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 30,
+            "description": "Experience in current job in years",
+            "example": 3,
+            "validation": "Must be less than total experience",
+            "field_category": "employment"
+          },
+          "industry_type": {
+            "required": true,
+            "type": "string",
+            "enum": [
+              "it_software", "banking_finance", "healthcare", "manufacturing", 
+              "retail", "education", "government", "consulting", "real_estate", 
+              "media_entertainment", "logistics", "other"
+            ],
+            "description": "Industry sector",
+            "example": "it_software",
+            "validation": "Must be from predefined list",
+            "field_category": "employment"
+          },
+          "employment_status": {
+            "required": true,
+            "type": "string",
+            "enum": ["permanent", "contract", "probation", "internship", "freelance"],
+            "description": "Employment status",
+            "example": "permanent",
+            "validation": "Must be from predefined list",
+            "field_category": "employment"
+          },
+          "company_address": {
+            "street": {
+              "required": true,
+              "type": "string",
+              "max_length": 200,
+              "description": "Company street address",
+              "example": "789 Business Park, Tech Hub",
+              "validation": "Must be complete address",
+              "field_category": "employment"
+            },
+            "city": {
+              "required": true,
+              "type": "string",
+              "max_length": 50,
+              "description": "Company city",
+              "example": "Bangalore",
+              "validation": "Must be valid city name",
+              "field_category": "employment"
+            },
+            "state": {
+              "required": true,
+              "type": "string",
+              "max_length": 50,
+              "description": "Company state",
+              "example": "Karnataka",
+              "validation": "Must be valid Indian state",
+              "field_category": "employment"
+            },
+            "pincode": {
+              "required": true,
+              "type": "string",
+              "pattern": "^[0-9]{6}$",
+              "description": "Company pincode",
+              "example": "560001",
+              "validation": "Must be valid 6-digit pincode",
+              "field_category": "employment"
+            }
+          }
+        },
+        "banking_information": {
+          "primary_account": {
+            "account_number": {
+              "required": true,
+              "type": "string",
+              "pattern": "^[0-9]{9,18}$",
+              "description": "Bank account number",
+              "example": "1234567890",
+              "validation": "Must be valid account number",
+              "field_category": "banking"
+            },
+            "ifsc_code": {
+              "required": true,
+              "type": "string",
+              "pattern": "^[A-Z]{4}0[A-Z0-9]{6}$",
+              "description": "IFSC code of bank branch",
+              "example": "HDFC0001234",
+              "validation": "Must be valid IFSC code",
+              "field_category": "banking"
+            },
+            "bank_name": {
+              "required": true,
+              "type": "string",
+              "max_length": 100,
+              "description": "Name of the bank",
+              "example": "HDFC Bank",
+              "validation": "Must be valid bank name",
+              "field_category": "banking"
+            },
+            "account_type": {
+              "required": true,
+              "type": "string",
+              "enum": ["savings", "current", "salary", "nro", "nre"],
+              "description": "Type of bank account",
+              "example": "savings",
+              "validation": "Must be from predefined list",
+              "field_category": "banking"
+            },
+            "account_holder_name": {
+              "required": true,
+              "type": "string",
+              "max_length": 100,
+              "description": "Name on bank account",
+              "example": "Rajesh Kumar Sharma",
+              "validation": "Must match applicant name",
+              "field_category": "banking"
+            },
+            "branch_name": {
+              "required": true,
+              "type": "string",
+              "max_length": 100,
+              "description": "Bank branch name",
+              "example": "Mumbai Main Branch",
+              "validation": "Must be valid branch name",
+              "field_category": "banking"
+            },
+            "account_opening_date": {
+              "required": true,
+              "type": "date",
+              "format": "YYYY-MM-DD",
+              "description": "Date when account was opened",
+              "example": "2020-01-15",
+              "validation": "Must be valid date",
+              "field_category": "banking"
+            },
+            "average_monthly_balance": {
+              "required": true,
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10000000,
+              "description": "Average monthly balance maintained",
+              "example": 50000,
+              "validation": "Must be reasonable amount",
+              "field_category": "banking"
+            }
+          },
+          "monthly_expenses": {
+            "total_monthly_expenses": {
+              "required": true,
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5000000,
+              "description": "Total monthly expenses",
+              "example": 35000,
+              "validation": "Must be reasonable amount",
+              "field_category": "banking"
+            }
+          }
+        },
+        "references": {
+          "reference_1": {
+            "name": {
+              "required": true,
+              "type": "string",
+              "max_length": 100,
+              "description": "Full name of reference person",
+              "example": "Amit Kumar Singh",
+              "validation": "Must be valid name",
+              "field_category": "reference"
+            },
+            "mobile": {
+              "required": true,
+              "type": "string",
+              "pattern": "^[0-9]{10}$",
+              "description": "Mobile number of reference",
+              "example": "9876543211",
+              "validation": "Must be valid 10-digit number",
+              "field_category": "reference"
+            },
+            "relationship": {
+              "required": true,
+              "type": "string",
+              "enum": ["family", "friend", "colleague", "neighbor", "relative"],
+              "description": "Relationship with reference",
+              "example": "friend",
+              "validation": "Must be from predefined list",
+              "field_category": "reference"
+            },
+            "address": {
+              "required": true,
+              "type": "string",
+              "max_length": 200,
+              "description": "Address of reference",
+              "example": "456 Oak Street, Mumbai",
+              "validation": "Must be complete address",
+              "field_category": "reference"
+            },
+            "years_known": {
+              "required": true,
+              "type": "number",
+              "minimum": 1,
+              "maximum": 50,
+              "description": "Number of years known",
+              "example": 10,
+              "validation": "Must be reasonable number",
+              "field_category": "reference"
+            }
+          },
+          "reference_2": {
+            "name": {
+              "required": true,
+              "type": "string",
+              "max_length": 100,
+              "description": "Full name of second reference",
+              "example": "Priya Sharma",
+              "validation": "Must be valid name",
+              "field_category": "reference"
+            },
+            "mobile": {
+              "required": true,
+              "type": "string",
+              "pattern": "^[0-9]{10}$",
+              "description": "Mobile number of second reference",
+              "example": "9876543212",
+              "validation": "Must be valid 10-digit number",
+              "field_category": "reference"
+            },
+            "relationship": {
+              "required": true,
+              "type": "string",
+              "enum": ["family", "friend", "colleague", "neighbor", "relative"],
+              "description": "Relationship with second reference",
+              "example": "colleague",
+              "validation": "Must be from predefined list",
+              "field_category": "reference"
+            },
+            "address": {
+              "required": true,
+              "type": "string",
+              "max_length": 200,
+              "description": "Address of second reference",
+              "example": "789 Pine Avenue, Mumbai",
+              "validation": "Must be complete address",
+              "field_category": "reference"
+            },
+            "years_known": {
+              "required": true,
+              "type": "number",
+              "minimum": 1,
+              "maximum": 50,
+              "description": "Number of years known",
+              "example": 5,
+              "validation": "Must be reasonable number",
+              "field_category": "reference"
+            }
+          }
+        },
+        "required_documents": {
+          "identity_proof": {
+            "document_type": {
+              "required": true,
+              "type": "string",
+              "enum": ["pan_card", "aadhaar_card", "passport", "driving_license"],
+              "description": "Type of identity document",
+              "example": "pan_card",
+              "validation": "Must be from predefined list",
+              "field_category": "documents"
+            },
+            "document_url": {
+              "required": true,
+              "type": "string",
+              "description": "URL/link to uploaded document",
+              "example": "https://storage.example.com/documents/pan_card_123.pdf",
+              "validation": "Must be valid document URL",
+              "field_category": "documents"
+            }
+          },
+          "address_proof": {
+            "document_type": {
+              "required": true,
+              "type": "string",
+              "enum": ["aadhaar_card", "passport", "driving_license", "utility_bill", "rent_agreement"],
+              "description": "Type of address proof document",
+              "example": "aadhaar_card",
+              "validation": "Must be from predefined list",
+              "field_category": "documents"
+            },
+            "document_url": {
+              "required": true,
+              "type": "string",
+              "description": "URL/link to uploaded document",
+              "example": "https://storage.example.com/documents/address_proof_123.pdf",
+              "validation": "Must be valid document URL",
+              "field_category": "documents"
+            }
+          },
+          "income_proof": {
+            "document_type": {
+              "required": true,
+              "type": "string",
+              "enum": ["salary_slips", "bank_statements", "form_16", "itr_acknowledgment"],
+              "description": "Type of income proof document",
+              "example": "salary_slips",
+              "validation": "Must be from predefined list",
+              "field_category": "documents"
+            },
+            "document_url": {
+              "required": true,
+              "type": "string",
+              "description": "URL/link to uploaded document",
+              "example": "https://storage.example.com/documents/income_proof_123.pdf",
+              "validation": "Must be valid document URL",
+              "field_category": "documents"
+            }
+          },
+          "bank_statements": {
+            "document_type": {
+              "required": true,
+              "type": "string",
+              "enum": ["bank_statements", "passbook_entries"],
+              "description": "Type of banking document",
+              "example": "bank_statements",
+              "validation": "Must be from predefined list",
+              "field_category": "documents"
+            },
+            "document_url": {
+              "required": true,
+              "type": "string",
+              "description": "URL/link to uploaded document",
+              "example": "https://storage.example.com/documents/bank_statements_123.pdf",
+              "validation": "Must be valid document URL",
+              "field_category": "documents"
+            }
+          }
+        },
+        "additional_information": {
+          "loan_purpose_details": {
+            "required": true,
+            "type": "string",
+            "max_length": 500,
+            "description": "Detailed explanation of loan purpose",
+            "example": "Home renovation and furniture purchase",
+            "validation": "Must provide detailed explanation",
+            "field_category": "loan"
+          },
+          "repayment_source": {
+            "required": true,
+            "type": "string",
+            "enum": ["salary", "business_income", "rental_income", "investment_income", "other"],
+            "description": "Primary source of repayment",
+            "example": "salary",
+            "validation": "Must be from predefined list",
+            "field_category": "loan"
+          },
+          "preferred_tenure_months": {
+            "required": true,
+            "type": "number",
+            "minimum": 12,
+            "maximum": 84,
+            "description": "Preferred loan tenure in months",
+            "example": 36,
+            "validation": "Must be between 12-84 months",
+            "field_category": "loan"
+          },
+          "existing_relationship_with_bank": {
+            "required": true,
+            "type": "boolean",
+            "description": "Whether applicant has existing relationship with bank",
+            "example": true,
+            "validation": "Boolean value",
+            "field_category": "loan"
+          },
+          "co_applicant_required": {
+            "required": true,
+            "type": "boolean",
+            "description": "Whether co-applicant is required",
+            "example": false,
+            "validation": "Boolean value",
+            "field_category": "loan"
+          },
+          "property_owned": {
+            "required": true,
+            "type": "boolean",
+            "description": "Whether applicant owns property",
+            "example": true,
+            "validation": "Boolean value",
+            "field_category": "loan"
+          }
+        }
+      },
+      "system_processing": {
+        "automated_checks": [
+          "Document verification",
+          "Employment verification",
+          "Financial assessment",
+          "Banking analysis",
+          "Reference verification",
+          "Application scoring",
+          "Decision making"
+        ],
+        "external_integrations": [
+          "Document verification service",
+          "Employment verification service",
+          "Banking verification service",
+          "Reference verification service"
+        ]
+      },
+      "decision_criteria": {
+        "approved": {
+          "description": "Application approved for next stage",
+          "criteria": [
+            "All documents verified",
+            "Employment details confirmed",
+            "Financial assessment positive",
+            "Banking analysis satisfactory",
+            "References verified",
+            "Application score ≥ 70"
+          ]
+        },
+        "rejected": {
+          "description": "Application rejected",
+          "criteria": [
+            "Document verification failed",
+            "Employment verification failed",
+            "Financial assessment negative",
+            "Banking analysis unsatisfactory",
+            "References not verified",
+            "Application score < 50"
+          ]
+        },
+        "conditional": {
+          "description": "Approval with conditions",
+          "criteria": [
+            "Minor document issues",
+            "Employment verification pending",
+            "Financial assessment borderline",
+            "Application score 50-70"
+          ]
+        }
+      }
+    },
+
+    "field_statistics": {
+      "stage_1_total_fields": 8,
+      "stage_2_total_fields": 45,
+      "total_fields_both_stages": 53,
+      "required_fields_stage_1": 8,
+      "required_fields_stage_2": 45,
+      "optional_fields_stage_1": 0,
+      "optional_fields_stage_2": 1,
+      "field_categories": {
+        "identity": 6,
+        "contact": 2,
+        "address": 12,
+        "employment": 12,
+        "banking": 9,
+        "reference": 10,
+        "documents": 8,
+        "loan": 6,
+        "personal": 3
+      }
+    },
+
+    "data_validation_rules": {
+      "age_limits": {
+        "minimum": 21,
+        "maximum": 65,
+        "preferred_range": "25-55"
+      },
+      "income_limits": {
+        "minimum_monthly": 15000,
+        "maximum_monthly": 10000000,
+        "preferred_range": "25000-500000"
+      },
+      "loan_amount_limits": {
+        "minimum": 50000,
+        "maximum": 5000000,
+        "preferred_range": "100000-2000000"
+      },
+      "credit_score_requirements": {
+        "minimum": 650,
+        "good": 700,
+        "excellent": 800
+      }
+    },
+
+    "compliance_requirements": {
+      "kyc_documents": [
+        "PAN Card",
+        "Aadhaar Card",
+        "Address Proof"
+      ],
+      "income_documents": [
+        "Salary Slips",
+        "Bank Statements",
+        "Form 16",
+        "ITR Acknowledgment"
+      ],
+      "employment_documents": [
+        "Employment Certificate",
+        "Company ID Card",
+        "Appointment Letter"
+      ],
+      "regulatory_compliance": [
+        "RBI Guidelines",
+        "KYC/AML Requirements",
+        "Fair Practices Code",
+        "Data Privacy Regulations"
+      ]
+    }
+  }
+}

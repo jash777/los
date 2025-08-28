@@ -1,0 +1,83 @@
+{
+  "valid_responses": {
+    "ABCDE1234F": {
+      "success": true,
+      "status_code": 200,
+      "message": "PAN verification successful",
+      "data": {
+        "pan_number": "ABCDE1234F",
+        "name_on_pan": "RAJESH KUMAR SHARMA",
+        "date_of_birth": "1985-06-15",
+        "category": "Individual",
+        "pan_status": "Valid",
+        "last_updated": "2024-01-15",
+        "aadhaar_seeding_status": "Y",
+        "verification_timestamp": "2024-08-27T07:51:36.000Z"
+      },
+      "response_code": "1001",
+      "response_message": "Valid PAN"
+    },
+    "EMMPP2177M": {
+      "success": true,
+      "status_code": 200,
+      "message": "PAN verification successful",
+      "data": {
+        "pan_number": "EMMPP2177M",
+        "name_on_pan": "JASHUVA PEYYALA",
+        "date_of_birth": "1997-08-06",
+        "category": "Individual",
+        "pan_status": "Valid",
+        "last_updated": "2024-02-10",
+        "aadhaar_seeding_status": "Y",
+        "verification_timestamp": "2024-08-27T07:51:36.000Z"
+      },
+      "response_code": "1001",
+      "response_message": "Valid PAN"
+    },
+    "BXZPM1234C": {
+      "success": true,
+      "status_code": 200,
+      "message": "PAN verification successful",
+      "data": {
+        "pan_number": "BXZPM1234C",
+        "name_on_pan": "AMIT KUMAR SINGH",
+        "date_of_birth": "1990-12-25",
+        "category": "Individual",
+        "pan_status": "Valid",
+        "last_updated": "2024-03-05",
+        "aadhaar_seeding_status": "N",
+        "verification_timestamp": "2024-08-27T07:51:36.000Z"
+      },
+      "response_code": "1001",
+      "response_message": "Valid PAN"
+    }
+  },
+  "invalid_responses": {
+    "INVALID123": {
+      "success": false,
+      "status_code": 400,
+      "message": "Invalid PAN format",
+      "data": null,
+      "response_code": "1002",
+      "response_message": "Invalid PAN format"
+    },
+    "ABCDE1234Z": {
+      "success": false,
+      "status_code": 404,
+      "message": "PAN not found",
+      "data": null,
+      "response_code": "1003",
+      "response_message": "PAN not found in database"
+    }
+  },
+  "error_responses": {
+    "TIMEOUT001": {
+      "success": false,
+      "status_code": 500,
+      "message": "Service temporarily unavailable",
+      "data": null,
+      "response_code": "1004",
+      "response_message": "External service timeout"
+    }
+  }
+}

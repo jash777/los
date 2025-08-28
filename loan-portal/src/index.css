@@ -1,0 +1,229 @@
+/* Professional Design System - Color Palette & Typography */
+:root {
+  /* Primary Colors - Professional Navy & Gold */
+  --primary-navy: #1a365d;
+  --primary-navy-light: #2d4a6b;
+  --primary-navy-dark: #0f2537;
+  --primary-gold: #d4af37;
+  --primary-gold-light: #e6c659;
+  --primary-gold-dark: #b8941f;
+  
+  /* Secondary Colors - Elegant Grays */
+  --secondary-charcoal: #2d3748;
+  --secondary-slate: #4a5568;
+  --secondary-gray: #718096;
+  --secondary-light-gray: #a0aec0;
+  
+  /* Neutral Colors */
+  --neutral-white: #ffffff;
+  --neutral-off-white: #fafbfc;
+  --neutral-light: #f7fafc;
+  --neutral-border: #e2e8f0;
+  --neutral-divider: #cbd5e0;
+  
+  /* Status Colors */
+  --success-green: #38a169;
+  --success-light: #68d391;
+  --warning-amber: #d69e2e;
+  --warning-light: #f6e05e;
+  --error-red: #e53e3e;
+  --error-light: #fc8181;
+  --info-blue: #3182ce;
+  --info-light: #63b3ed;
+  
+  /* Typography Scale */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-secondary: 'Playfair Display', Georgia, serif;
+  
+  /* Font Sizes */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  --text-5xl: 3rem;      /* 48px */
+  
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Spacing Scale */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;  /* 4px */
+  --radius-md: 0.5rem;   /* 8px */
+  --radius-lg: 0.75rem;  /* 12px */
+  --radius-xl: 1rem;     /* 16px */
+  --radius-2xl: 1.5rem;  /* 24px */
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  line-height: 1.6;
+  color: var(--secondary-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--neutral-light) 0%, var(--neutral-off-white) 100%);
+  min-height: 100vh;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size: var(--text-sm);
+  background-color: var(--neutral-light);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--secondary-slate);
+}
+
+/* Custom scrollbar with design system colors */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-light);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-light-gray);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-gray);
+}
+
+/* Enhanced focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--primary-gold);
+  outline-offset: 2px;
+  transition: outline var(--transition-fast);
+}
+
+/* Button focus styles */
+button:focus {
+  outline: 2px solid var(--primary-gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+/* Input focus styles */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+/* Selection styles */
+::selection {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--primary-navy-dark);
+}
+
+/* Global typography improvements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-semibold);
+  line-height: 1.2;
+  color: var(--primary-navy);
+  margin: 0;
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Button base styles */
+button {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-medium);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+/* Input base styles */
+input, select, textarea {
+  font-family: var(--font-family-primary);
+  font-size: var(--text-base);
+  border: 2px solid var(--neutral-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--neutral-white);
+  color: var(--secondary-charcoal);
+  transition: all var(--transition-normal);
+}
+
+input:hover, select:hover, textarea:hover {
+  border-color: var(--secondary-light-gray);
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .app-header,
+  .status-message,
+  .processing-info {
+    display: none !important;
+  }
+  
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}

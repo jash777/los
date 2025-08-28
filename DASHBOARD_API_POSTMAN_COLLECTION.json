@@ -1,0 +1,668 @@
+{
+	"info": {
+		"_postman_id": "dashboard-api-collection",
+		"name": "Dashboard API Collection",
+		"description": "Complete collection of all Dashboard API endpoints for LOS and LMS systems",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "dashboard-api"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": "Unique request identifier"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Check if the dashboard API is healthy and running"
+			},
+			"response": []
+		},
+		{
+			"name": "LOS Dashboard",
+			"item": [
+				{
+					"name": "LOS Overview",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/los/overview",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"los",
+								"overview"
+							]
+						},
+						"description": "Get comprehensive overview data for the Loan Origination System dashboard"
+					},
+					"response": []
+				},
+				{
+					"name": "Applications List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/los/applications?status=approved&limit=10&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"los",
+								"applications"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "approved",
+									"description": "Filter by status: pending, approved, rejected, conditional_approval"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of records per page (default: 50, max: 100)"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Number of records to skip (default: 0)"
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "Search by application number, name, or mobile",
+									"disabled": true
+								},
+								{
+									"key": "stage",
+									"value": "",
+									"description": "Filter by stage: stage_1, stage_2",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get a paginated list of all loan applications with filtering options"
+					},
+					"response": []
+				},
+				{
+					"name": "Application Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/los/applications/{{application_number}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"los",
+								"applications",
+								"{{application_number}}"
+							]
+						},
+						"description": "Get detailed information for a specific application"
+					},
+					"response": []
+				},
+				{
+					"name": "Analytics - Applications Trend",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/los/analytics?type=applications_trend&period=7d",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"los",
+								"analytics"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "applications_trend",
+									"description": "Analytics type: applications_trend, cibil_distribution, processing_time"
+								},
+								{
+									"key": "period",
+									"value": "7d",
+									"description": "Time period: 7d, 30d, 90d"
+								}
+							]
+						},
+						"description": "Get applications trend data for charts"
+					},
+					"response": []
+				},
+				{
+					"name": "Analytics - CIBIL Distribution",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/los/analytics?type=cibil_distribution",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"los",
+								"analytics"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "cibil_distribution",
+									"description": "Analytics type: applications_trend, cibil_distribution, processing_time"
+								}
+							]
+						},
+						"description": "Get CIBIL score distribution analytics"
+					},
+					"response": []
+				},
+				{
+					"name": "Analytics - Processing Time",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/los/analytics?type=processing_time",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"los",
+								"analytics"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "processing_time",
+									"description": "Analytics type: applications_trend, cibil_distribution, processing_time"
+								}
+							]
+						},
+						"description": "Get processing time analytics"
+					},
+					"response": []
+				}
+			],
+			"description": "LOS (Loan Origination System) Dashboard endpoints"
+		},
+		{
+			"name": "LMS Dashboard",
+			"item": [
+				{
+					"name": "LMS Overview",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/lms/overview",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lms",
+								"overview"
+							]
+						},
+						"description": "Get comprehensive overview data for the Loan Management System dashboard"
+					},
+					"response": []
+				},
+				{
+					"name": "Loans List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/lms/loans?limit=10&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lms",
+								"loans"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of records per page (default: 50, max: 100)"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Number of records to skip (default: 0)"
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "Search by application number, name, or mobile",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get a paginated list of approved loans for portfolio management"
+					},
+					"response": []
+				},
+				{
+					"name": "Loan Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/lms/loans/{{application_number}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lms",
+								"loans",
+								"{{application_number}}"
+							]
+						},
+						"description": "Get detailed information for a specific loan"
+					},
+					"response": []
+				},
+				{
+					"name": "Analytics - Revenue Analytics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/lms/analytics?type=revenue_analytics",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lms",
+								"analytics"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "revenue_analytics",
+									"description": "Analytics type: revenue_analytics"
+								}
+							]
+						},
+						"description": "Get revenue and financial analytics for LMS"
+					},
+					"response": []
+				}
+			],
+			"description": "LMS (Loan Management System) Dashboard endpoints"
+		},
+		{
+			"name": "Legacy Dashboard",
+			"item": [
+				{
+					"name": "Recent Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/dashboard/recent-activities?limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dashboard",
+								"recent-activities"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of recent activities to fetch (default: 10)"
+								}
+							]
+						},
+						"description": "Get recent application activities with timestamps"
+					},
+					"response": []
+				},
+				{
+					"name": "Dashboard Stats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/dashboard/stats",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dashboard",
+								"stats"
+							]
+						},
+						"description": "Get comprehensive statistics combining LOS and LMS metrics"
+					},
+					"response": []
+				},
+				{
+					"name": "Status Distribution",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/dashboard/status-distribution",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dashboard",
+								"status-distribution"
+							]
+						},
+						"description": "Get application status breakdown and stage-wise distribution"
+					},
+					"response": []
+				},
+				{
+					"name": "Disbursement Trends",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/dashboard/disbursement-trends?period=30d",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dashboard",
+								"disbursement-trends"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "30d",
+									"description": "Time period: 7d, 30d, 90d"
+								}
+							]
+						},
+						"description": "Get time-series data for loan disbursements"
+					},
+					"response": []
+				},
+				{
+					"name": "Risk Distribution",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/dashboard/risk-distribution",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dashboard",
+								"risk-distribution"
+							]
+						},
+						"description": "Get CIBIL score-based risk categorization"
+					},
+					"response": []
+				}
+			],
+			"description": "Legacy Dashboard endpoints for backward compatibility"
+		},
+		{
+			"name": "Combined Dashboard",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/combined",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"combined"
+					]
+				},
+				"description": "Get both LOS and LMS dashboard data in a single request"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Set request ID if not already set",
+					"if (!pm.request.headers.has('X-Request-ID')) {",
+					"    pm.request.headers.add({",
+					"        key: 'X-Request-ID',",
+					"        value: 'postman-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9)",
+					"    });",
+					"}",
+					"",
+					"// Log request details",
+					"console.log('Request:', pm.request.method, pm.request.url.toString());"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Test response status",
+					"pm.test('Status code is 200', function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"// Test response structure",
+					"pm.test('Response has success field', function () {",
+					"    const responseJson = pm.response.json();",
+					"    pm.expect(responseJson).to.have.property('success');",
+					"});",
+					"",
+					"// Test response time",
+					"pm.test('Response time is less than 5000ms', function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+					"});",
+					"",
+					"// Log response details",
+					"const responseJson = pm.response.json();",
+					"console.log('Response Status:', pm.response.status);",
+					"console.log('Response Time:', pm.response.responseTime + 'ms');",
+					"console.log('Success:', responseJson.success);",
+					"",
+					"// Store application number for subsequent requests",
+					"if (responseJson.success && responseJson.data && responseJson.data.applications && responseJson.data.applications.length > 0) {",
+					"    pm.collectionVariables.set('application_number', responseJson.data.applications[0].application_number);",
+					"}"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/api/dashboard",
+			"type": "string",
+			"description": "Base URL for the Dashboard API"
+		},
+		{
+			"key": "application_number",
+			"value": "",
+			"type": "string",
+			"description": "Application number for detail requests (auto-populated)"
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+  "nbfc_ratio": 20,
+  "bank_ratio": 80,
+  "total_ratio": 100,
+  "nbfc_partner": "NBFC Partner",
+  "bank_partner": "Bank Partner",
+  "co_lending_agreement_date": "2025-08-28T07:58:58.172Z",
+  "last_updated": "2025-08-28T07:58:58.172Z",
+  "agreement_status": "active"
+}

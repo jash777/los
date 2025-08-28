@@ -1,0 +1,28 @@
+{
+  "accounts": [
+    {
+      "account_id": "ACC001",
+      "account_name": "Primary Operating Account",
+      "bank_name": "HDFC Bank",
+      "account_number": "XXXX1234",
+      "account_type": "Current",
+      "balance": 5000000,
+      "currency": "INR",
+      "status": "active",
+      "created_date": "2025-08-28T07:58:58.182Z"
+    },
+    {
+      "account_id": "ACC002",
+      "account_name": "Co-lending Escrow Account",
+      "bank_name": "ICICI Bank",
+      "account_number": "XXXX5678",
+      "account_type": "Escrow",
+      "balance": 15000000,
+      "currency": "INR",
+      "status": "active",
+      "created_date": "2025-08-28T07:58:58.182Z"
+    }
+  ],
+  "total_balance": 20000000,
+  "last_updated": "2025-08-28T07:58:58.182Z"
+}

@@ -1,0 +1,157 @@
+2025-08-27 19:32:42,513 - INFO - Running Stage 1 tests only
+2025-08-27 19:32:42,514 - INFO - Testing Stage 1: Pre-Qualification
+2025-08-27 19:32:42,561 - INFO - Test: Valid Pre-qualification - High Credit Score - FAIL
+2025-08-27 19:32:42,561 - ERROR - Error: Expected status 200, got 404
+2025-08-27 19:32:42,567 - INFO - Test: Valid Pre-qualification - Medium Credit Score - FAIL
+2025-08-27 19:32:42,567 - ERROR - Error: Expected status 200, got 404
+2025-08-27 19:32:42,571 - INFO - Test: Low Credit Score Rejection - FAIL
+2025-08-27 19:32:42,571 - ERROR - Error: Expected status 200, got 404
+2025-08-27 19:32:42,575 - INFO - Test: Invalid Phone Number - FAIL
+2025-08-27 19:32:42,576 - ERROR - Error: Expected status 400, got 404
+2025-08-27 19:32:42,579 - INFO - Test: Invalid PAN Number - FAIL
+2025-08-27 19:32:42,579 - ERROR - Error: Expected status 400, got 404
+2025-08-27 19:32:42,582 - INFO - Test: Missing Required Fields - FAIL
+2025-08-27 19:32:42,583 - ERROR - Error: Expected status 400, got 404
+2025-08-27 19:32:42,587 - INFO - Test: Empty Request Body - FAIL
+2025-08-27 19:32:42,587 - ERROR - Error: Expected status 400, got 404
+2025-08-27 19:36:59,662 - INFO - Running Stage 1 tests only
+2025-08-27 19:36:59,663 - INFO - Testing Stage 1: Pre-Qualification
+2025-08-27 19:36:59,692 - INFO - Test: Valid Pre-qualification - High Credit Score - FAIL
+2025-08-27 19:36:59,692 - ERROR - Error: Expected status 200, got 400
+2025-08-27 19:36:59,696 - INFO - Test: Valid Pre-qualification - Medium Credit Score - FAIL
+2025-08-27 19:36:59,696 - ERROR - Error: Expected status 200, got 400
+2025-08-27 19:36:59,700 - INFO - Test: Low Credit Score Rejection - FAIL
+2025-08-27 19:36:59,700 - ERROR - Error: Expected status 200, got 400
+2025-08-27 19:36:59,705 - INFO - Test: Invalid Phone Number - FAIL
+2025-08-27 19:36:59,705 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 19:36:59,708 - INFO - Test: Invalid PAN Number - FAIL
+2025-08-27 19:36:59,709 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 19:36:59,712 - INFO - Test: Missing Required Fields - FAIL
+2025-08-27 19:36:59,713 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 19:36:59,716 - INFO - Test: Empty Request Body - FAIL
+2025-08-27 19:36:59,717 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 22:24:24,962 - INFO - Starting Comprehensive LOS Test Suite
+2025-08-27 22:24:24,963 - INFO - Testing against: http://localhost:3000
+2025-08-27 22:24:24,976 - INFO - Testing Stage 1: Pre-Qualification
+2025-08-27 22:24:24,989 - INFO - Test: Valid Pre-qualification - High Credit Score - FAIL
+2025-08-27 22:24:24,989 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:24,992 - INFO - Test: Valid Pre-qualification - Medium Credit Score - FAIL
+2025-08-27 22:24:24,992 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:24,996 - INFO - Test: Low Credit Score Rejection - FAIL
+2025-08-27 22:24:24,996 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:24,999 - INFO - Test: Invalid Phone Number - FAIL
+2025-08-27 22:24:24,999 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 22:24:25,002 - INFO - Test: Invalid PAN Number - FAIL
+2025-08-27 22:24:25,002 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 22:24:25,007 - INFO - Test: Missing Required Fields - FAIL
+2025-08-27 22:24:25,007 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 22:24:25,011 - INFO - Test: Empty Request Body - FAIL
+2025-08-27 22:24:25,011 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 22:24:26,012 - INFO - Testing Stage 2: Loan Application
+2025-08-27 22:24:26,012 - WARNING - No valid application IDs from Stage 1. Creating test applications.
+2025-08-27 22:24:26,023 - INFO - Test: Complete Loan Application - Salaried - FAIL
+2025-08-27 22:24:26,023 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:26,028 - INFO - Test: Complete Loan Application - Self Employed - FAIL
+2025-08-27 22:24:26,028 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:26,033 - INFO - Test: Invalid Aadhaar Number - FAIL
+2025-08-27 22:24:26,033 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 22:24:26,037 - INFO - Test: Low Income Rejection - FAIL
+2025-08-27 22:24:26,037 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:26,041 - INFO - Test: Missing Required Fields - FAIL
+2025-08-27 22:24:26,041 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 22:24:27,042 - INFO - Testing Stage 3: Application Processing
+2025-08-27 22:24:27,056 - INFO - Test: Valid Application Processing - FAIL
+2025-08-27 22:24:27,057 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:27,065 - INFO - Test: Document Verification Failure - FAIL
+2025-08-27 22:24:27,065 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:27,068 - INFO - Test: Non-existent Application - FAIL
+2025-08-27 22:24:27,069 - ERROR - Error: Expected status 404, got 400
+2025-08-27 22:24:27,072 - INFO - Test: Missing Application ID - FAIL
+2025-08-27 22:24:27,073 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 22:24:28,074 - INFO - Testing Stage 4: Underwriting
+2025-08-27 22:24:28,081 - INFO - Test: High Score Auto-Approval - FAIL
+2025-08-27 22:24:28,081 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:28,086 - INFO - Test: Medium Score Conditional Approval - FAIL
+2025-08-27 22:24:28,086 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:28,091 - INFO - Test: Low Score Rejection - FAIL
+2025-08-27 22:24:28,091 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:28,094 - INFO - Test: High Risk Category - FAIL
+2025-08-27 22:24:28,094 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:28,097 - INFO - Test: Policy Violation - FAIL
+2025-08-27 22:24:28,097 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:29,098 - INFO - Testing Stage 5: Credit Decision
+2025-08-27 22:24:29,107 - INFO - Test: Final Credit Approval - FAIL
+2025-08-27 22:24:29,108 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:29,115 - INFO - Test: Credit Committee Manual Review - FAIL
+2025-08-27 22:24:29,115 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:29,119 - INFO - Test: Final Credit Rejection - FAIL
+2025-08-27 22:24:29,120 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:29,125 - INFO - Test: Terms Optimization - FAIL
+2025-08-27 22:24:29,125 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:29,133 - INFO - Test: Regulatory Compliance Failure - FAIL
+2025-08-27 22:24:29,134 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:30,135 - INFO - Testing Stage 6: Quality Check
+2025-08-27 22:24:30,139 - INFO - Test: Quality Check Pass - Grade A+ - FAIL
+2025-08-27 22:24:30,139 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:30,143 - INFO - Test: Quality Check Pass - Grade A - FAIL
+2025-08-27 22:24:30,143 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:30,147 - INFO - Test: Quality Check Fail - Low Score - FAIL
+2025-08-27 22:24:30,148 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:30,151 - INFO - Test: Document Completeness Issue - FAIL
+2025-08-27 22:24:30,151 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:30,156 - INFO - Test: Data Accuracy Issue - FAIL
+2025-08-27 22:24:30,156 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:30,159 - INFO - Test: Compliance Adherence Failure - FAIL
+2025-08-27 22:24:30,159 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:31,160 - INFO - Testing Stage 7: Loan Funding
+2025-08-27 22:24:31,170 - INFO - Test: Successful NEFT Disbursement - FAIL
+2025-08-27 22:24:31,171 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:31,178 - INFO - Test: Successful RTGS Disbursement - FAIL
+2025-08-27 22:24:31,178 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:31,183 - INFO - Test: Successful IMPS Disbursement - FAIL
+2025-08-27 22:24:31,183 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:31,187 - INFO - Test: Successful UPI Disbursement - FAIL
+2025-08-27 22:24:31,188 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:24:31,191 - INFO - Test: Account Setup Failure - FAIL
+2025-08-27 22:24:31,192 - ERROR - Error: Expected 'account setup failed' not found in response
+2025-08-27 22:24:31,194 - INFO - Test: Disbursement Failure - FAIL
+2025-08-27 22:24:31,194 - ERROR - Error: Expected 'disbursement failed' not found in response
+2025-08-27 22:24:31,196 - INFO - Test: Agreement Finalization Failure - FAIL
+2025-08-27 22:24:31,197 - ERROR - Error: Expected 'agreement failed' not found in response
+2025-08-27 22:24:32,198 - INFO - Testing Complete End-to-End Workflow
+2025-08-27 22:24:32,202 - INFO - Complete Workflow Test: FAIL
+2025-08-27 22:24:32,203 - ERROR - Workflow Error: Stage 1 failed: {'success': False, 'error': 'Validation failed', 'details': ['phone is required', 'email is required', 'dateOfBirth is required', 'loanAmount is required', 'loanPurpose is required', 'employmentType is required'], 'requestId': 'req_1756313672200_p25efvqsi', 'timestamp': '2025-08-27T16:54:32.201Z'}
+2025-08-27 22:24:33,204 - INFO - Testing Status Check Endpoints
+2025-08-27 22:24:33,214 - INFO - Test: Pre-qualification Status Check - FAIL
+2025-08-27 22:24:33,214 - ERROR - Error: Expected status 200, got 404
+2025-08-27 22:24:33,222 - INFO - Test: Loan Application Status Check - FAIL
+2025-08-27 22:24:33,223 - ERROR - Error: Expected status 200, got 404
+2025-08-27 22:24:33,229 - INFO - Test: Application Processing Status Check - FAIL
+2025-08-27 22:24:33,230 - ERROR - Error: Expected status 200, got 404
+2025-08-27 22:24:33,233 - INFO - Test: Underwriting Status Check - FAIL
+2025-08-27 22:24:33,233 - ERROR - Error: Expected status 200, got 404
+2025-08-27 22:24:33,236 - INFO - Test: Credit Decision Status Check - FAIL
+2025-08-27 22:24:33,236 - ERROR - Error: Expected status 200, got 404
+2025-08-27 22:24:33,241 - INFO - Test: Quality Check Status Check - FAIL
+2025-08-27 22:24:33,241 - ERROR - Error: Expected status 200, got 404
+2025-08-27 22:24:33,243 - INFO - Test: Loan Funding Status Check - FAIL
+2025-08-27 22:24:33,244 - ERROR - Error: Expected status 200, got 404
+2025-08-27 22:24:34,251 - INFO - Test report saved to: los_test_report_20250827_222434.txt
+2025-08-27 22:24:34,252 - INFO - Comprehensive LOS Test Suite Completed
+2025-08-27 22:46:07,998 - INFO - Running Stage workflow tests only
+2025-08-27 22:46:07,998 - INFO - Testing Complete End-to-End Workflow
+2025-08-27 22:46:08,028 - INFO - Complete Workflow Test: FAIL
+2025-08-27 22:46:08,028 - ERROR - Workflow Error: Stage 1 failed: {'success': False, 'error': 'Validation failed', 'details': ['phone is required', 'email is required', 'dateOfBirth is required', 'loanAmount is required', 'loanPurpose is required', 'employmentType is required'], 'requestId': 'req_1756314968022_3r73xg1cj', 'timestamp': '2025-08-27T17:16:08.023Z'}
+2025-08-27 22:46:15,568 - INFO - Running Stage 2 tests only
+2025-08-27 22:46:15,568 - INFO - Testing Stage 2: Loan Application
+2025-08-27 22:46:15,568 - WARNING - No valid application IDs from Stage 1. Creating test applications.
+2025-08-27 22:46:15,587 - INFO - Test: Complete Loan Application - Salaried - FAIL
+2025-08-27 22:46:15,588 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:46:15,595 - INFO - Test: Complete Loan Application - Self Employed - FAIL
+2025-08-27 22:46:15,596 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:46:15,601 - INFO - Test: Invalid Aadhaar Number - FAIL
+2025-08-27 22:46:15,601 - ERROR - Error: Expected 'validation error' not found in response
+2025-08-27 22:46:15,605 - INFO - Test: Low Income Rejection - FAIL
+2025-08-27 22:46:15,605 - ERROR - Error: Expected status 200, got 400
+2025-08-27 22:46:15,609 - INFO - Test: Missing Required Fields - FAIL
+2025-08-27 22:46:15,609 - ERROR - Error: Expected 'validation error' not found in response

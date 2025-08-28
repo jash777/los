@@ -1,0 +1,65 @@
+LOAN APPLICATION SUMMARY
+========================
+
+Application Number: EL_1756358155286_itgiitlzf
+Status: CONDITIONAL_APPROVAL
+Generated: 28/8/2025, 10:58:28 am
+
+PERSONAL INFORMATION
+-------------------
+Name: JASHUVA PEYYALA
+Mobile: 9876543210
+Email: jashuva.peyyala@gmail.com
+PAN: EMMPP2177M
+DOB: 1998-09-25
+
+LOAN DETAILS
+------------
+Amount: ₹5,00,000
+Purpose: personal
+Tenure: 36 months
+
+EMPLOYMENT
+----------
+Company: Tech Solutions Ltd
+Designation: Software Engineer
+Monthly Income: ₹75,000
+
+CREDIT ASSESSMENT
+-----------------
+CIBIL Score: 742
+Credit Grade: GOOD
+Decision Score: 67
+
+ELIGIBILITY ASSESSMENT
+---------------------
+• Age criteria met (within 21-65 years)
+• CIBIL score 742 meets minimum requirement
+• Valid PAN verification completed
+• Basic eligibility criteria satisfied
+
+BANKING DETAILS
+---------------
+Bank: HDFC Bank
+Account: 12345678901234
+IFSC: HDFC0000123
+
+RECOMMENDED TERMS
+-----------------
+Interest Rate: 12%
+Processing Fee: 1%
+
+NEXT STEPS
+----------
+✓ Good employment profile verified
+✓ Adequate financial capacity
+✓ Strong reference verification
+
+CONDITIONS
+----------
+• Subject to final document verification
+• Terms may be revised based on additional information
+
+---
+This is a computer-generated summary of the loan application.
+For detailed information, please refer to the complete application form.

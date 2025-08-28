@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "portfolio-api-collection",
+		"name": "Portfolio Management API Collection",
+		"description": "Complete collection of Portfolio Management and Co-lending API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "portfolio-api"
+	},
+	"item": [
+		{
+			"name": "Portfolio Overview",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": "Unique request identifier"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/overview",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"overview"
+					]
+				},
+				"description": "Get comprehensive portfolio overview including portfolio limits, co-lending configuration, and bank accounts summary"
+			},
+			"response": []
+		},
+		{
+			"name": "Portfolio Management",
+			"item": [
+				{
+					"name": "Portfolio Analytics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/analytics?period=30d",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"analytics"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "30d",
+									"description": "Analytics period: 7d, 30d, 90d"
+								}
+							]
+						},
+						"description": "Get detailed portfolio analytics including metrics, co-lending exposure, and risk analysis"
+					},
+					"response": []
+				},
+				{
+					"name": "Portfolio History",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/history?limit=20&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"history"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20",
+									"description": "Number of history entries per page (default: 50)"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Number of entries to skip (default: 0)"
+								}
+							]
+						},
+						"description": "Get portfolio limit change history with pagination"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Portfolio Limit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"new_limit\": 30000000,\n  \"reason\": \"Portfolio expansion for increased lending capacity\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/limit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"limit"
+							]
+						},
+						"description": "Update portfolio limit and track the change in history"
+					},
+					"response": []
+				}
+			],
+			"description": "Portfolio management endpoints for limit tracking and analytics"
+		},
+		{
+			"name": "Co-lending Management",
+			"item": [
+				{
+					"name": "Get Co-lending Configuration",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/co-lending/config",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"co-lending",
+								"config"
+							]
+						},
+						"description": "Get current co-lending configuration including NBFC and Bank ratios"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Co-lending Configuration",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nbfc_ratio\": 30,\n  \"bank_ratio\": 70,\n  \"nbfc_partner\": \"Updated NBFC Partner\",\n  \"bank_partner\": \"Updated Bank Partner\",\n  \"agreement_status\": \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/co-lending/config",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"co-lending",
+								"config"
+							]
+						},
+						"description": "Update co-lending configuration with new ratios and partner details"
+					},
+					"response": []
+				}
+			],
+			"description": "Co-lending configuration management endpoints"
+		},
+		{
+			"name": "Bank Accounts Management",
+			"item": [
+				{
+					"name": "Get Bank Accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/bank-accounts?status=active",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bank-accounts"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "active",
+									"description": "Filter by account status: active, inactive",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get all bank accounts with balance and status information"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Bank Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"account_name\": \"New Investment Account\",\n  \"bank_name\": \"Axis Bank\",\n  \"account_number\": \"XXXX9999\",\n  \"account_type\": \"Savings\",\n  \"balance\": 5000000,\n  \"currency\": \"INR\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bank-accounts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bank-accounts"
+							]
+						},
+						"description": "Add a new bank account to the portfolio"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bank Account Balance",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$timestamp}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"new_balance\": 6000000,\n  \"reason\": \"Monthly interest credit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bank-accounts/{{account_id}}/balance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bank-accounts",
+								"{{account_id}}",
+								"balance"
+							]
+						},
+						"description": "Update balance for a specific bank account"
+					},
+					"response": []
+				}
+			],
+			"description": "Bank accounts management endpoints"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Set request ID if not already set",
+					"if (!pm.request.headers.has('X-Request-ID')) {",
+					"    pm.request.headers.add({",
+					"        key: 'X-Request-ID',",
+					"        value: 'postman-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9)",
+					"    });",
+					"}",
+					"",
+					"// Log request details",
+					"console.log('Request:', pm.request.method, pm.request.url.toString());"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Test response status",
+					"pm.test('Status code is 200', function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"// Test response structure",
+					"pm.test('Response has success field', function () {",
+					"    const responseJson = pm.response.json();",
+					"    pm.expect(responseJson).to.have.property('success');",
+					"});",
+					"",
+					"// Test response time",
+					"pm.test('Response time is less than 5000ms', function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+					"});",
+					"",
+					"// Log response details",
+					"const responseJson = pm.response.json();",
+					"console.log('Response Status:', pm.response.status);",
+					"console.log('Response Time:', pm.response.responseTime + 'ms');",
+					"console.log('Success:', responseJson.success);",
+					"",
+					"// Store account ID for subsequent requests",
+					"if (responseJson.success && responseJson.data && responseJson.data.accounts && responseJson.data.accounts.length > 0) {",
+					"    pm.collectionVariables.set('account_id', responseJson.data.accounts[0].account_id);",
+					"}"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/api/portfolio",
+			"type": "string",
+			"description": "Base URL for the Portfolio API"
+		},
+		{
+			"key": "account_id",
+			"value": "",
+			"type": "string",
+			"description": "Bank account ID for balance update requests (auto-populated)"
+		}
+	]
+}

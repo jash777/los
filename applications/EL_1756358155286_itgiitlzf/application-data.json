@@ -1,0 +1,821 @@
+{
+  "application_info": {
+    "application_number": "EL_1756358155286_itgiitlzf",
+    "created_at": "2025-08-28T05:15:55.329Z",
+    "last_updated": "2025-08-28T05:16:03.282Z",
+    "current_stage": "loan_application",
+    "status": "conditional_approval"
+  },
+  "stage_1_data": {
+    "personal_details": {
+      "full_name": "JASHUVA PEYYALA",
+      "mobile": "9876543210",
+      "email": "jashuva.peyyala@gmail.com",
+      "pan_number": "EMMPP2177M",
+      "date_of_birth": "1998-09-25"
+    },
+    "loan_request": {
+      "loan_amount": 500000,
+      "loan_purpose": "personal",
+      "preferred_tenure_months": 36
+    },
+    "eligibility_result": {
+      "status": "approved",
+      "score": 60,
+      "decision": "approved",
+      "reasons": [
+        "Age criteria met (within 21-65 years)",
+        "CIBIL score 742 meets minimum requirement",
+        "Valid PAN verification completed",
+        "Basic eligibility criteria satisfied"
+      ]
+    }
+  },
+  "stage_2_data": {
+    "employment_details": {
+      "employment_type": "salaried",
+      "company_name": "Tech Solutions Ltd",
+      "designation": "Software Engineer",
+      "work_experience_years": 3,
+      "monthly_salary": null,
+      "company_address": null,
+      "hr_contact": null,
+      "monthly_gross_income": 75000,
+      "monthly_net_income": 65000,
+      "current_job_experience_years": 2,
+      "industry_type": "Information Technology",
+      "employment_status": "permanent",
+      "employee_name": "JASHUVA PEYYALA"
+    },
+    "income_details": {
+      "monthly_salary": 75000,
+      "other_income": 0,
+      "total_monthly_income": 75000,
+      "existing_emi": 0,
+      "net_monthly_income": 65000
+    },
+    "banking_details": {
+      "primary_bank": null,
+      "account_number": "12345678901234",
+      "account_type": null,
+      "average_monthly_balance": null,
+      "banking_relationship_years": null,
+      "mobile_number": "9876543210",
+      "ifsc_code": "HDFC0000123",
+      "bank_name": "HDFC Bank"
+    },
+    "address_details": {
+      "current_address": {
+        "street_address": "123 Main Street",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pincode": "400001",
+        "residence_type": "rented",
+        "years_at_address": 2
+      },
+      "permanent_address": {
+        "street_address": "456 Home Street",
+        "city": "Pune",
+        "state": "Maharashtra",
+        "pincode": "411001"
+      }
+    },
+    "references": {
+      "0": {
+        "name": "Rahul Sharma",
+        "mobile": "9876543211",
+        "relationship": "friend",
+        "address": "789 Friend Street, Mumbai, Maharashtra - 400002",
+        "years_known": 5
+      },
+      "1": {
+        "name": "Priya Patel",
+        "mobile": "9876543212",
+        "relationship": "colleague",
+        "address": "321 Colleague Avenue, Mumbai, Maharashtra - 400003",
+        "years_known": 3
+      },
+      "personal_reference_1": {
+        "name": null,
+        "relationship": null,
+        "mobile": null,
+        "email": null
+      },
+      "personal_reference_2": {
+        "name": null,
+        "relationship": null,
+        "mobile": null,
+        "email": null
+      },
+      "professional_reference": {
+        "name": null,
+        "designation": null,
+        "company": null,
+        "mobile": null,
+        "email": null
+      }
+    },
+    "financial_details": {
+      "monthly_expenses": 30000,
+      "existing_loans": [],
+      "credit_cards": [],
+      "investments": [],
+      "assets": []
+    },
+    "required_documents": {
+      "identity_proof": "Aadhaar Card",
+      "address_proof": "Rental Agreement",
+      "income_proof": "Salary Slips",
+      "bank_statements": "Bank Statements",
+      "employment_proof": "Employment Certificate"
+    },
+    "additional_information": {
+      "loan_purpose_details": "Personal loan for home renovation and furniture purchase",
+      "repayment_source": "Monthly salary from employment",
+      "preferred_tenure_months": 36,
+      "existing_relationship_with_bank": true,
+      "co_applicant_required": false,
+      "property_owned": false
+    },
+    "personal_details": {
+      "aadhaar_number": "123456789012",
+      "marital_status": "single",
+      "number_of_dependents": 0,
+      "education_level": "graduate"
+    },
+    "application_result": {
+      "decision": "conditional_approval",
+      "score": 67,
+      "recommended_terms": {
+        "status": "generated",
+        "interest_rate": {
+          "rate": 12,
+          "type": "reducing_balance",
+          "basis": "monthly"
+        },
+        "loan_amount": {
+          "maximum": 0,
+          "minimum": 50000,
+          "currency": "INR"
+        },
+        "tenure": {
+          "maximum_months": 48,
+          "minimum_months": 12,
+          "preferred_months": 48
+        },
+        "fees": {
+          "processing_fee_percentage": 1,
+          "prepayment_charges_percentage": 2,
+          "late_payment_fee": 500,
+          "bounce_charges": 750
+        },
+        "conditions": [
+          "Subject to final document verification",
+          "Terms may be revised based on additional information"
+        ],
+        "validity_days": 30,
+        "generated_at": "2025-08-28T05:16:03.254Z"
+      },
+      "positive_factors": [
+        "Good employment profile verified",
+        "Adequate financial capacity",
+        "Strong reference verification"
+      ],
+      "negative_factors": [
+        "Incomplete or poor quality documentation"
+      ],
+      "risk_factors": [
+        "Banking behavior concerns"
+      ]
+    }
+  },
+  "third_party_data": {
+    "cibil_data": {
+      "success": true,
+      "score": 742,
+      "grade": "GOOD",
+      "data": {
+        "success": true,
+        "status_code": 200,
+        "message": "Credit report generated successfully",
+        "data": {
+          "report_id": "CR2024082700002",
+          "report_date": "2024-08-27",
+          "consumer_info": {
+            "name": "JASHUVA PEYYALA",
+            "date_of_birth": "1998-09-25",
+            "gender": "M",
+            "pan": "EMMPP2177M",
+            "mobile": "9876543210"
+          },
+          "score_info": {
+            "cibil_score": 742,
+            "score_range": "300-900",
+            "score_grade": "GOOD",
+            "score_factors": {
+              "payment_history": "Good",
+              "credit_utilization": "Moderate",
+              "credit_history_length": "Fair",
+              "credit_mix": "Good",
+              "new_credit": "Moderate Impact"
+            },
+            "last_updated": "2024-08-20"
+          },
+          "account_summary": {
+            "total_accounts": 5,
+            "active_accounts": 4,
+            "closed_accounts": 1,
+            "credit_cards": 2,
+            "loans": 2,
+            "total_credit_limit": 450000,
+            "total_outstanding": 95000,
+            "credit_utilization_ratio": 21.1
+          },
+          "payment_history": {
+            "total_payments": 84,
+            "on_time_payments": 79,
+            "late_payments": 5,
+            "defaults": 0,
+            "settlements": 0,
+            "write_offs": 0,
+            "payment_performance": "94.0%"
+          },
+          "credit_accounts": [
+            {
+              "account_type": "Credit Card",
+              "bank_name": "ICICI Bank",
+              "account_number": "XXXX-XXXX-XXXX-5678",
+              "credit_limit": 150000,
+              "current_balance": 35000,
+              "payment_status": "Regular",
+              "account_status": "Active",
+              "opened_date": "2021-09-10"
+            },
+            {
+              "account_type": "Personal Loan",
+              "bank_name": "HDFC Bank",
+              "account_number": "XXXX-XXXX-9012",
+              "original_amount": 300000,
+              "current_balance": 120000,
+              "emi_amount": 12000,
+              "payment_status": "Regular",
+              "account_status": "Active",
+              "opened_date": "2023-02-15"
+            }
+          ],
+          "enquiries": {
+            "last_12_months": 5,
+            "last_6_months": 2,
+            "last_3_months": 1
+          }
+        },
+        "response_code": "2001",
+        "response_message": "Credit report generated successfully",
+        "credit_score": 742,
+        "credit_grade": "GOOD",
+        "existing_loans": [
+          {
+            "account_type": "Personal Loan",
+            "bank_name": "HDFC Bank",
+            "account_number": "XXXX-XXXX-9012",
+            "original_amount": 300000,
+            "current_balance": 120000,
+            "emi_amount": 12000,
+            "payment_status": "Regular",
+            "account_status": "Active",
+            "opened_date": "2023-02-15"
+          }
+        ],
+        "credit_cards": [
+          {
+            "account_type": "Credit Card",
+            "bank_name": "ICICI Bank",
+            "account_number": "XXXX-XXXX-XXXX-5678",
+            "credit_limit": 150000,
+            "current_balance": 35000,
+            "payment_status": "Regular",
+            "account_status": "Active",
+            "opened_date": "2021-09-10"
+          }
+        ],
+        "factors": {
+          "payment_history": "Good",
+          "credit_utilization": "Moderate",
+          "credit_history_length": "Fair",
+          "credit_mix": "Good",
+          "new_credit": "Moderate Impact"
+        }
+      }
+    },
+    "pan_verification": {
+      "success": true,
+      "panData": {
+        "pan_number": "EMMPP2177M",
+        "name": "JASHUVA PEYYALA",
+        "status": "active"
+      },
+      "nameMatch": {
+        "isMatch": true,
+        "matchPercentage": 95
+      },
+      "dobMatch": {
+        "isMatch": true,
+        "verified": true
+      }
+    },
+    "employment_verification": {
+      "success": true,
+      "employment_verification": {
+        "success": true,
+        "status_code": 200,
+        "message": "Employment verification successful",
+        "data": {
+          "employee_info": {
+            "employee_id": "EMP001",
+            "employee_name": "JASHUVA PEYYALA",
+            "designation": "Software Engineer",
+            "department": "Development"
+          },
+          "company_info": {
+            "company_name": "Tech Solutions Ltd",
+            "company_type": "Public Limited",
+            "industry": "Information Technology",
+            "employee_count": "100000+"
+          },
+          "employment_details": {
+            "employment_status": "Active",
+            "employment_type": "Permanent",
+            "joining_date": "2021-07-01",
+            "current_ctc": 600000,
+            "monthly_gross_salary": 50000,
+            "monthly_net_salary": 42000
+          },
+          "verification_details": {
+            "verified_by": "HR Department",
+            "verification_date": "2024-08-27",
+            "confidence_score": 90
+          }
+        },
+        "response_code": "4001",
+        "response_message": "Employment verification successful",
+        "employee_id": "EMP001",
+        "company_name": "Tech Solutions Ltd",
+        "employee_name": "JASHUVA PEYYALA",
+        "designation": "Software Engineer",
+        "employment_status": "Active",
+        "joining_date": "2021-07-01",
+        "current_salary": 50000,
+        "employment_type": "Permanent",
+        "department": "Development",
+        "company_details": {
+          "company_type": "Public Limited",
+          "industry": "Information Technology",
+          "employee_count": "100000+"
+        },
+        "verification_timestamp": "2025-08-28T05:16:03.245Z",
+        "verified_by": "HR Department"
+      },
+      "employee_info": {
+        "employee_id": "EMP001",
+        "employee_name": "JASHUVA PEYYALA",
+        "designation": "Software Engineer",
+        "department": "Development"
+      },
+      "company_info": {
+        "company_name": "Tech Solutions Ltd",
+        "company_type": "Public Limited",
+        "industry": "Information Technology",
+        "employee_count": "100000+"
+      },
+      "verification_status": "verified",
+      "overall_score": 75,
+      "status": "verified"
+    },
+    "bank_statement_analysis": {
+      "success": true,
+      "bank_statements": {
+        "success": true,
+        "status_code": 200,
+        "message": "Bank statement retrieved successfully",
+        "data": {
+          "account_info": {
+            "account_number": "12345678901234",
+            "account_holder_name": "JASHUVA PEYYALA",
+            "bank_name": "HDFC Bank",
+            "branch_name": "Mumbai Main Branch",
+            "ifsc_code": "HDFC0000123",
+            "account_type": "Savings",
+            "currency": "INR"
+          },
+          "statement_period": {
+            "from_date": "2025-05-30",
+            "to_date": "2025-08-28",
+            "total_days": 92
+          },
+          "account_summary": {
+            "opening_balance": 85000,
+            "closing_balance": 125000,
+            "total_credits": 450000,
+            "total_debits": 410000,
+            "net_change": 40000,
+            "average_balance": 105000,
+            "minimum_balance": 25000,
+            "maximum_balance": 185000
+          },
+          "transaction_summary": {
+            "total_transactions": 156,
+            "credit_transactions": 68,
+            "debit_transactions": 88,
+            "average_credit_amount": 6617.65,
+            "average_debit_amount": 4659.09,
+            "largest_credit": 75000,
+            "largest_debit": 45000
+          },
+          "monthly_analysis": [
+            {
+              "month": "2024-05",
+              "credits": 150000,
+              "debits": 135000,
+              "net_flow": 15000,
+              "avg_balance": 95000,
+              "transaction_count": 52
+            },
+            {
+              "month": "2024-06",
+              "credits": 150000,
+              "debits": 140000,
+              "net_flow": 10000,
+              "avg_balance": 110000,
+              "transaction_count": 48
+            },
+            {
+              "month": "2024-07",
+              "credits": 150000,
+              "debits": 135000,
+              "net_flow": 15000,
+              "avg_balance": 115000,
+              "transaction_count": 56
+            }
+          ],
+          "income_analysis": {
+            "salary_credits": [
+              {
+                "date": "2024-05-01",
+                "amount": 75000,
+                "description": "SALARY CREDIT - TECH SOLUTIONS PVT LTD",
+                "regularity": "Monthly"
+              },
+              {
+                "date": "2024-06-01",
+                "amount": 75000,
+                "description": "SALARY CREDIT - TECH SOLUTIONS PVT LTD",
+                "regularity": "Monthly"
+              },
+              {
+                "date": "2024-07-01",
+                "amount": 75000,
+                "description": "SALARY CREDIT - TECH SOLUTIONS PVT LTD",
+                "regularity": "Monthly"
+              }
+            ],
+            "other_credits": [
+              {
+                "date": "2024-05-15",
+                "amount": 5000,
+                "description": "INTEREST CREDIT",
+                "category": "Interest"
+              },
+              {
+                "date": "2024-06-20",
+                "amount": 10000,
+                "description": "REFUND - INSURANCE",
+                "category": "Refund"
+              }
+            ],
+            "total_monthly_income": 75000,
+            "income_stability": "Stable",
+            "income_growth_trend": "Stable"
+          },
+          "expense_analysis": {
+            "major_categories": [
+              {
+                "category": "EMI/Loan Payments",
+                "total_amount": 37000,
+                "percentage": 27,
+                "transactions": 9
+              },
+              {
+                "category": "Utilities & Bills",
+                "total_amount": 25000,
+                "percentage": 18.2,
+                "transactions": 24
+              },
+              {
+                "category": "Food & Dining",
+                "total_amount": 18000,
+                "percentage": 13.1,
+                "transactions": 36
+              },
+              {
+                "category": "Shopping",
+                "total_amount": 15000,
+                "percentage": 10.9,
+                "transactions": 18
+              },
+              {
+                "category": "Transportation",
+                "total_amount": 12000,
+                "percentage": 8.7,
+                "transactions": 15
+              }
+            ],
+            "total_monthly_expenses": 45667,
+            "expense_stability": "Stable"
+          },
+          "banking_behavior": {
+            "bounce_count": 0,
+            "minimum_balance_violations": 0,
+            "overdraft_usage": 0,
+            "cheque_returns": 0,
+            "digital_transaction_ratio": 85.5,
+            "cash_withdrawal_frequency": "Low",
+            "account_maintenance": "Excellent"
+          },
+          "risk_indicators": {
+            "gambling_transactions": false,
+            "suspicious_cash_deposits": false,
+            "frequent_round_amounts": false,
+            "unusual_transaction_patterns": false,
+            "high_cash_usage": false,
+            "risk_score": 15
+          },
+          "recent_transactions": [
+            {
+              "date": "2024-07-31",
+              "description": "UPI-SWIGGY-FOOD ORDER",
+              "debit": 450,
+              "credit": 0,
+              "balance": 125000,
+              "category": "Food & Dining"
+            },
+            {
+              "date": "2024-07-30",
+              "description": "NEFT-HDFC CREDIT CARD PAYMENT",
+              "debit": 15000,
+              "credit": 0,
+              "balance": 125450,
+              "category": "Credit Card Payment"
+            },
+            {
+              "date": "2024-07-29",
+              "description": "ATM WITHDRAWAL",
+              "debit": 5000,
+              "credit": 0,
+              "balance": 140450,
+              "category": "Cash Withdrawal"
+            }
+          ]
+        },
+        "response_code": "3001",
+        "response_message": "Bank statement retrieved successfully",
+        "account_number": "12345678901234",
+        "ifsc_code": "HDFC0000123",
+        "account_holder_name": "JASHUVA PEYYALA",
+        "bank_name": "HDFC Bank",
+        "branch_name": "Mumbai Main Branch",
+        "statement_period": {
+          "from_date": "2025-05-30",
+          "to_date": "2025-08-28",
+          "total_days": 92
+        },
+        "summary": {
+          "opening_balance": 85000,
+          "closing_balance": 125000,
+          "total_credits": 450000,
+          "total_debits": 410000,
+          "net_change": 40000,
+          "average_balance": 105000,
+          "minimum_balance": 25000,
+          "maximum_balance": 185000
+        },
+        "transactions": [
+          {
+            "date": "2024-07-31",
+            "description": "UPI-SWIGGY-FOOD ORDER",
+            "debit": 450,
+            "credit": 0,
+            "balance": 125000,
+            "category": "Food & Dining"
+          },
+          {
+            "date": "2024-07-30",
+            "description": "NEFT-HDFC CREDIT CARD PAYMENT",
+            "debit": 15000,
+            "credit": 0,
+            "balance": 125450,
+            "category": "Credit Card Payment"
+          },
+          {
+            "date": "2024-07-29",
+            "description": "ATM WITHDRAWAL",
+            "debit": 5000,
+            "credit": 0,
+            "balance": 140450,
+            "category": "Cash Withdrawal"
+          }
+        ],
+        "analysis": {
+          "monthly_income": 75000,
+          "monthly_expenses": 45667,
+          "banking_behavior": "Excellent",
+          "bounce_count": 0,
+          "minimum_balance_violations": 0
+        }
+      },
+      "account_info": {
+        "account_number": "12345678901234",
+        "account_holder_name": "JASHUVA PEYYALA",
+        "bank_name": "HDFC Bank",
+        "branch_name": "Mumbai Main Branch",
+        "ifsc_code": "HDFC0000123",
+        "account_type": "Savings",
+        "currency": "INR"
+      },
+      "transaction_summary": {
+        "opening_balance": 85000,
+        "closing_balance": 125000,
+        "total_credits": 450000,
+        "total_debits": 410000,
+        "net_change": 40000,
+        "average_balance": 105000,
+        "minimum_balance": 25000,
+        "maximum_balance": 185000
+      },
+      "income_analysis": {
+        "salary_credits": [
+          {
+            "date": "2024-05-01",
+            "amount": 75000,
+            "description": "SALARY CREDIT - TECH SOLUTIONS PVT LTD",
+            "regularity": "Monthly"
+          },
+          {
+            "date": "2024-06-01",
+            "amount": 75000,
+            "description": "SALARY CREDIT - TECH SOLUTIONS PVT LTD",
+            "regularity": "Monthly"
+          },
+          {
+            "date": "2024-07-01",
+            "amount": 75000,
+            "description": "SALARY CREDIT - TECH SOLUTIONS PVT LTD",
+            "regularity": "Monthly"
+          }
+        ],
+        "other_credits": [
+          {
+            "date": "2024-05-15",
+            "amount": 5000,
+            "description": "INTEREST CREDIT",
+            "category": "Interest"
+          },
+          {
+            "date": "2024-06-20",
+            "amount": 10000,
+            "description": "REFUND - INSURANCE",
+            "category": "Refund"
+          }
+        ],
+        "total_monthly_income": 75000,
+        "income_stability": "Stable",
+        "income_growth_trend": "Stable"
+      },
+      "expense_analysis": {
+        "major_categories": [
+          {
+            "category": "EMI/Loan Payments",
+            "total_amount": 37000,
+            "percentage": 27,
+            "transactions": 9
+          },
+          {
+            "category": "Utilities & Bills",
+            "total_amount": 25000,
+            "percentage": 18.2,
+            "transactions": 24
+          },
+          {
+            "category": "Food & Dining",
+            "total_amount": 18000,
+            "percentage": 13.1,
+            "transactions": 36
+          },
+          {
+            "category": "Shopping",
+            "total_amount": 15000,
+            "percentage": 10.9,
+            "transactions": 18
+          },
+          {
+            "category": "Transportation",
+            "total_amount": 12000,
+            "percentage": 8.7,
+            "transactions": 15
+          }
+        ],
+        "total_monthly_expenses": 45667,
+        "expense_stability": "Stable"
+      },
+      "banking_behavior": {
+        "bounce_count": 0,
+        "minimum_balance_violations": 0,
+        "overdraft_usage": 0,
+        "cheque_returns": 0,
+        "digital_transaction_ratio": 85.5,
+        "cash_withdrawal_frequency": "Low",
+        "account_maintenance": "Excellent"
+      }
+    }
+  },
+  "processing_stages": {
+    "stage_3_application_processing": {
+      "status": null,
+      "processed_at": null,
+      "result": null,
+      "notes": null
+    },
+    "stage_4_underwriting": {
+      "status": null,
+      "processed_at": null,
+      "risk_assessment": null,
+      "underwriter_notes": null,
+      "recommended_amount": null,
+      "recommended_terms": null
+    },
+    "stage_5_credit_decision": {
+      "status": null,
+      "processed_at": null,
+      "final_decision": null,
+      "approved_amount": null,
+      "approved_terms": null,
+      "conditions": []
+    },
+    "stage_6_quality_check": {
+      "status": null,
+      "processed_at": null,
+      "document_completeness": null,
+      "data_accuracy": null,
+      "compliance_check": null,
+      "quality_score": null
+    },
+    "stage_7_loan_funding": {
+      "status": null,
+      "processed_at": null,
+      "disbursement_details": null,
+      "loan_agreement": null,
+      "funding_date": null
+    }
+  },
+  "documents": {
+    "uploaded_documents": [],
+    "generated_documents": [],
+    "verification_documents": []
+  },
+  "audit_trail": {
+    "created_by": null,
+    "created_at": null,
+    "stage_transitions": [
+      {
+        "from_stage": "initiated",
+        "to_stage": "pre_qualification",
+        "timestamp": "2025-08-28T05:15:59.540Z",
+        "data_updated": "stage_1_data"
+      },
+      {
+        "from_stage": "pre_qualification",
+        "to_stage": "loan_application",
+        "timestamp": "2025-08-28T05:16:03.277Z",
+        "data_updated": "stage_2_data"
+      }
+    ],
+    "modifications": [
+      {
+        "type": "third_party_data_update",
+        "timestamp": "2025-08-28T05:15:59.547Z",
+        "data_sources": [
+          "cibil_data",
+          "pan_verification"
+        ]
+      },
+      {
+        "type": "third_party_data_update",
+        "timestamp": "2025-08-28T05:16:03.286Z",
+        "data_sources": [
+          "bank_statement_analysis",
+          "employment_verification"
+        ]
+      }
+    ],
+    "approvals": []
+  }
+}

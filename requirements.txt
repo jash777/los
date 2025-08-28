@@ -1,0 +1,8 @@
+# Python dependencies for LOS Test Suite
+# Install with: pip install -r requirements.txt
+
+requests>=2.28.0
+dataclasses>=0.6
+logging>=0.4.9.6
+enum34>=1.1.10
+argparse>=1.4.0

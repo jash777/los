@@ -1,32 +1,31 @@
 {
-  "name": "loan-management-system",
-  "version": "2.0.0",
-  "description": "Modern Loan Management System with Multi-Phase Origination Workflow",
+  "name": "loan-origination-system",
+  "version": "1.0.0",
+  "description": "Complete 7-Stage Loan Origination System with MySQL",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "start:all": "node start-all.js",
+    "start:simulator": "cd third-party-simulator && npm start",
     "dev": "nodemon server.js",
-    "migrate": "node database/migrations/run-migrations.js",
-    "seed": "node database/seeds/run-seeds.js",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix"
+    "test": "node src/tests/enhanced-system-test.js",
+    "test:workflow": "node src/tests/complete-workflow-test.js",
+    "quick-start": "node quick-start.js",
+    "db:setup": "node setup-database.js",
+    "cleanup": "node cleanup-project.js"
   },
   "keywords": [
-    "loan-management",
-    "fintech",
     "loan-origination",
+    "fintech",
+    "mysql",
     "nodejs",
     "express",
-    "postgresql"
+    "loan-processing"
   ],
-  "author": "Loan Management Team",
+  "author": "LOS Development Team",
   "license": "MIT",
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
     "axios": "^1.11.0",
-    "bcryptjs": "^2.4.3",
     "compression": "^1.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -35,25 +34,18 @@
     "express-validator": "^7.2.1",
     "helmet": "^8.1.0",
     "joi": "^18.0.1",
-    "jsonwebtoken": "^9.0.2",
-    "multer": "^1.4.5-lts.1",
-    "pg": "^8.11.3",
+    "multer": "^2.0.2",
+    "mysql2": "^3.6.5",
+    "puppeteer": "^24.17.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "jest": "^29.7.0",
-    "nodemon": "^3.0.1",
-    "supertest": "^6.3.3"
+    "nodemon": "^3.0.1"
   },
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=8.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/your-org/loan-management-system.git"
   }
 }

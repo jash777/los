@@ -1,0 +1,361 @@
+{
+  "loan_origination_rules_engine": {
+    "version": "1.0.0",
+    "description": "Comprehensive business rules engine for 7-stage Loan Origination System",
+    "last_updated": "2025-01-27",
+    "stages": {
+      "stage_1_pre_qualification": {
+        "stage_name": "Pre-Qualification",
+        "description": "Initial eligibility assessment with basic KYC validation",
+        "business_rules": {
+          "age_validation": {
+            "min_age": 18,
+            "max_age": 70,
+            "preferred_age_range": {
+              "min": 21,
+              "max": 65
+            },
+            "age_multiplier": {
+              "25_to_45": 1.2,
+              "above_55": 0.9
+            }
+          },
+          "pan_validation": {
+            "format_regex": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$",
+            "required": true,
+            "dob_cross_verification": true
+          },
+          "mobile_validation": {
+            "format_regex": "^[6-9]\\d{9}$",
+            "required": true,
+            "indian_numbers_only": true
+          },
+          "cibil_score_thresholds": {
+            "minimum_score": 650,
+            "good_score": 700,
+            "excellent_score": 800,
+            "risk_categories": {
+              "800_plus": "low",
+              "750_to_799": "low",
+              "700_to_749": "medium",
+              "650_to_699": "high",
+              "below_650": "critical"
+            }
+          },
+          "loan_amount_estimation": {
+            "base_amount": 200000,
+            "excellent_cibil": 1500000,
+            "good_cibil": 800000,
+            "minimum_cibil": 300000
+          },
+          "interest_rate_matrix": {
+            "800_plus": 10.5,
+            "750_to_799": 11.5,
+            "700_to_749": 12.5,
+            "650_to_699": 13.5,
+            "below_650": 15.0
+          },
+          "fraud_detection": {
+            "suspicious_name_patterns": ["test", "dummy", "sample", "example", "fake", "temp"],
+            "suspicious_mobile_patterns": ["1234567890", "0123456789", "9876543210", "1111111111"],
+            "risk_score_thresholds": {
+              "critical": 80,
+              "high": 50,
+              "medium": 25,
+              "low": 0
+            }
+          }
+        },
+        "decision_criteria": {
+          "auto_approve": {
+            "conditions": [
+              "age >= 21 AND age <= 65",
+              "cibil_score >= 650",
+              "pan_verified = true",
+              "fraud_risk_level != 'critical'"
+            ]
+          },
+          "auto_reject": {
+            "conditions": [
+              "age < 18 OR age > 70",
+              "cibil_score < 650",
+              "pan_verification_failed = true",
+              "fraud_risk_level = 'critical'"
+            ]
+          }
+        }
+      },
+      "stage_2_loan_application": {
+        "stage_name": "Loan Application",
+        "description": "Detailed loan application processing with comprehensive data collection",
+        "business_rules": {
+          "employment_verification": {
+            "required_employment_types": ["salaried", "self_employed", "business_owner"],
+            "minimum_experience_months": 12,
+            "salary_verification_required": true
+          },
+          "income_verification": {
+            "minimum_monthly_income": 25000,
+            "income_stability_check": true,
+            "bank_statement_months": 6,
+            "salary_credit_verification": true
+          },
+          "banking_behavior": {
+            "minimum_banking_relationship_months": 6,
+            "bounce_check_tolerance": 2,
+            "average_balance_requirement": 10000
+          },
+          "aadhaar_verification": {
+            "required": true,
+            "address_matching_required": true,
+            "biometric_verification": false
+          },
+          "reference_checks": {
+            "minimum_references": 2,
+            "reference_types": ["personal", "professional"],
+            "verification_required": true
+          }
+        },
+        "loan_eligibility_matrix": {
+          "debt_to_income_ratio": {
+            "maximum_allowed": 0.5,
+            "preferred_maximum": 0.4
+          },
+          "loan_to_income_multiplier": {
+            "salaried": 10,
+            "self_employed": 8,
+            "business_owner": 6
+          }
+        }
+      },
+      "stage_3_application_processing": {
+        "stage_name": "Application Processing",
+        "description": "Document verification, data validation, and external service integration",
+        "business_rules": {
+          "document_verification": {
+            "required_documents": {
+              "identity": ["pan_card", "aadhar_card"],
+              "address": ["utility_bill", "bank_statement"],
+              "income": ["salary_slips", "bank_statements"],
+              "employment": ["employment_letter"]
+            },
+            "minimum_confidence_score": 85,
+            "document_authenticity_check": true
+          },
+          "data_validation": {
+            "cross_verification_required": true,
+            "consistency_checks": [
+              "name_matching_across_documents",
+              "date_of_birth_consistency",
+              "address_verification",
+              "income_cross_verification"
+            ],
+            "minimum_validation_score": 85
+          },
+          "external_verifications": {
+            "employment_verification": true,
+            "bank_statement_analysis": true,
+            "credit_bureau_check": true,
+            "address_verification": true
+          }
+        },
+        "processing_score_weights": {
+          "document_verification": 0.3,
+          "data_validation": 0.3,
+          "external_verifications": 0.25,
+          "compliance_checks": 0.15
+        }
+      },
+      "stage_4_underwriting": {
+        "stage_name": "Underwriting",
+        "description": "Comprehensive risk assessment, credit analysis, and underwriting decision",
+        "business_rules": {
+          "risk_assessment_weights": {
+            "credit_score": 0.25,
+            "income_stability": 0.20,
+            "employment_history": 0.15,
+            "debt_to_income": 0.15,
+            "banking_behavior": 0.10,
+            "loan_to_value": 0.10,
+            "external_factors": 0.05
+          },
+          "credit_analysis": {
+            "minimum_credit_history_months": 12,
+            "maximum_credit_utilization": 70,
+            "debt_service_coverage_ratio": 1.25,
+            "stress_test_scenarios": [
+              "income_reduction_20_percent",
+              "interest_rate_increase_2_percent",
+              "emergency_expense_scenario"
+            ]
+          },
+          "policy_compliance": {
+            "maximum_loan_amount": 2000000,
+            "minimum_loan_amount": 50000,
+            "maximum_tenure_months": 84,
+            "minimum_tenure_months": 12,
+            "regulatory_compliance_checks": true
+          }
+        },
+        "underwriting_decision_matrix": {
+          "auto_approve_threshold": 85,
+          "conditional_approval_threshold": 75,
+          "manual_review_threshold": 65,
+          "auto_reject_threshold": 50
+        },
+        "risk_categories": {
+          "low_risk": {
+            "score_range": "85-100",
+            "interest_rate_adjustment": 0,
+            "additional_conditions": []
+          },
+          "medium_risk": {
+            "score_range": "75-84",
+            "interest_rate_adjustment": 0.5,
+            "additional_conditions": ["enhanced_monitoring"]
+          },
+          "high_risk": {
+            "score_range": "65-74",
+            "interest_rate_adjustment": 1.0,
+            "additional_conditions": ["guarantor_required", "enhanced_monitoring"]
+          }
+        }
+      },
+      "stage_5_credit_decision": {
+        "stage_name": "Credit Decision",
+        "description": "Final credit approval/rejection with terms finalization",
+        "business_rules": {
+          "credit_committee_thresholds": {
+            "auto_approve": 85,
+            "manual_review": 70,
+            "auto_reject": 50
+          },
+          "final_risk_assessment": {
+            "portfolio_concentration_check": true,
+            "regulatory_limit_check": true,
+            "economic_factor_consideration": true
+          },
+          "terms_optimization": {
+            "interest_rate_bands": {
+              "prime": "10.5-12.0",
+              "standard": "12.0-14.0",
+              "sub_prime": "14.0-18.0"
+            },
+            "processing_fee_matrix": {
+              "percentage": 1.0,
+              "maximum_amount": 25000,
+              "minimum_amount": 1000
+            },
+            "tenure_optimization": {
+              "based_on_age": true,
+              "based_on_income_stability": true,
+              "maximum_allowed": 84
+            }
+          }
+        },
+        "decision_factors": {
+          "positive_factors": [
+            "excellent_credit_score",
+            "stable_employment",
+            "low_debt_to_income_ratio",
+            "strong_banking_relationship",
+            "good_repayment_history"
+          ],
+          "negative_factors": [
+            "high_debt_burden",
+            "unstable_income",
+            "poor_credit_history",
+            "insufficient_documentation",
+            "high_risk_profile"
+          ]
+        }
+      },
+      "stage_6_quality_check": {
+        "stage_name": "Quality Check",
+        "description": "Final quality assurance and compliance validation",
+        "business_rules": {
+          "quality_assurance_checks": {
+            "document_completeness": true,
+            "data_accuracy_verification": true,
+            "process_compliance_check": true,
+            "regulatory_compliance_validation": true
+          },
+          "final_validation_criteria": {
+            "all_mandatory_documents_verified": true,
+            "no_outstanding_queries": true,
+            "compliance_score_minimum": 95,
+            "audit_trail_complete": true
+          }
+        }
+      },
+      "stage_7_loan_funding": {
+        "stage_name": "Loan Funding",
+        "description": "Final loan disbursement and account activation",
+        "business_rules": {
+          "disbursement_methods": {
+            "supported_methods": ["NEFT", "RTGS", "IMPS", "UPI"],
+            "amount_based_routing": {
+              "RTGS_minimum": 200000,
+              "NEFT_maximum": 1000000,
+              "IMPS_maximum": 500000
+            }
+          },
+          "account_setup": {
+            "loan_account_creation": true,
+            "repayment_schedule_generation": true,
+            "auto_debit_mandate_setup": true
+          },
+          "final_compliance": {
+            "aml_final_check": true,
+            "regulatory_reporting": true,
+            "audit_documentation": true
+          }
+        }
+      }
+    },
+    "global_business_rules": {
+      "regulatory_compliance": {
+        "rbi_guidelines": true,
+        "kyc_compliance": "full_kyc_required",
+        "aml_checks": true,
+        "data_privacy": "gdpr_and_dpdp_compliant"
+      },
+      "risk_management": {
+        "maximum_exposure_per_customer": 5000000,
+        "portfolio_concentration_limits": {
+          "single_industry": 0.25,
+          "single_geography": 0.30
+        },
+        "stress_testing_frequency": "monthly"
+      },
+      "audit_and_monitoring": {
+        "transaction_logging": "comprehensive",
+        "decision_audit_trail": true,
+        "performance_monitoring": true,
+        "exception_reporting": true
+      }
+    },
+    "decision_flow": {
+      "stage_progression": {
+        "pre_qualification": "loan_application",
+        "loan_application": "application_processing",
+        "application_processing": "underwriting",
+        "underwriting": "credit_decision",
+        "credit_decision": "quality_check",
+        "quality_check": "loan_funding",
+        "loan_funding": "completed"
+      },
+      "rejection_handling": {
+        "appeal_process": true,
+        "reapplication_cooling_period_days": 30,
+        "rejection_reason_categories": [
+          "insufficient_income",
+          "poor_credit_history",
+          "incomplete_documentation",
+          "policy_violation",
+          "fraud_risk"
+        ]
+      }
+    }
+  }
+}

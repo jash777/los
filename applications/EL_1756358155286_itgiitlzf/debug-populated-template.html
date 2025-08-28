@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Loan Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            padding: 20px;
+        }
+        
+        .application-form {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            border: 2px solid #000;
+        }
+        
+        .header {
+            background: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #000;
+        }
+        
+        .bank-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 5px;
+        }
+        
+        .form-title {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 10px 0 5px 0;
+        }
+        
+        .form-subtitle {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .application-number {
+            float: right;
+            border: 1px solid #000;
+            padding: 5px 10px;
+            background: #fff;
+            margin-top: 10px;
+        }
+        
+        .section {
+            margin: 0;
+        }
+        
+        .section-header {
+            background: #e0e0e0;
+            padding: 8px 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            font-size: 13px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 0;
+        }
+        
+        td, th {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: top;
+        }
+        
+        .label-col {
+            width: 25%;
+            background: #f8f8f8;
+            font-weight: bold;
+        }
+        
+        .input-col {
+            width: 25%;
+            min-height: 25px;
+        }
+        
+        .full-width {
+            width: 100%;
+        }
+        
+        .checkbox-row {
+            text-align: left;
+        }
+        
+        .checkbox {
+            margin-right: 5px;
+        }
+        
+        .signature-box {
+            height: 50px;
+            border: 1px solid #000;
+            margin: 5px 0;
+        }
+        
+        .date-box {
+            width: 150px;
+            height: 25px;
+            border: 1px solid #000;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .amount-box {
+            background: #fffacd;
+        }
+        
+        .important-note {
+            background: #fff2cc;
+            border: 2px solid #d4af37;
+            padding: 10px;
+            margin: 15px;
+            font-weight: bold;
+        }
+        
+        .declaration {
+            margin: 15px;
+            font-size: 11px;
+            text-align: justify;
+        }
+        
+        .footer {
+            background: #f0f0f0;
+            padding: 10px 15px;
+            border-top: 2px solid #000;
+            font-size: 10px;
+            text-align: center;
+        }
+        
+        @media print {
+            body { padding: 0; }
+            .application-form { border: none; }
+        }
+        
+        .mandatory {
+            color: red;
+            font-weight: bold;
+        }
+        
+        .income-table td {
+            text-align: center;
+        }
+        
+        .address-section td {
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="application-form">
+        <!-- Header -->
+        <div class="header">
+            <div class="bank-logo">Neon Capital NBFC</div>
+            <div class="form-title">Personal Loan Application Form</div>
+            <!-- <div class="form-subtitle">Please fill in BLOCK LETTERS using BLACK INK only</div> -->
+            <div class="application-number">
+                Application No: <strong>EL_1756358155286_itgiitlzf</strong>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <!-- Personal Information -->
+        <div class="section">
+            <div class="section-header">Section A: Personal Information <span class="mandatory">(*Mandatory Fields)</span></div>
+            <table>
+                <tr>
+                    <td class="label-col">Full Name <span class="mandatory">*</span></td>
+                    <td class="input-col">JASHUVA PEYYALA</td>
+                    <td class="label-col">Date of Birth <span class="mandatory">*</span></td>
+                    <td class="input-col">1998-09-25</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Father's Name <span class="mandatory">*</span></td>
+                    <td class="input-col"></td>
+                    <td class="label-col">Mother's Name</td>
+                    <td class="input-col"></td>
+                </tr>
+                <tr>
+                    <td class="label-col">Gender <span class="mandatory">*</span></td>
+                    <td class="input-col checkbox-row">
+                        ☐ Male ☐ Female ☐ Other
+                    </td>
+                    <td class="label-col">Marital Status <span class="mandatory">*</span></td>
+                    <td class="input-col checkbox-row">
+                        ☐ Single ☐ Married ☐ Divorced ☐ Widow/er <strong>(single)</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-col">PAN Number <span class="mandatory">*</span></td>
+                    <td class="input-col">EMMPP2177M</td>
+                    <td class="label-col">Aadhaar Number <span class="mandatory">*</span></td>
+                    <td class="input-col">123456789012</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Mobile Number <span class="mandatory">*</span></td>
+                    <td class="input-col">9876543210</td>
+                    <td class="label-col">Email Address <span class="mandatory">*</span></td>
+                    <td class="input-col">jashuva.peyyala@gmail.com</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Qualification</td>
+                    <td class="input-col"></td>
+                    <td class="label-col">No. of Dependents</td>
+                    <td class="input-col"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Address Details -->
+        <div class="section">
+            <div class="section-header">Section B: Address Details</div>
+            <table class="address-section">
+                <tr>
+                    <td class="label-col">Current Address <span class="mandatory">*</span><br><small>(Residence)</small></td>
+                    <td colspan="3">123 Main Street, Mumbai, Maharashtra - 400001</td>
+                </tr>
+                <tr>
+                    <td class="label-col">City <span class="mandatory">*</span></td>
+                    <td class="input-col">Mumbai</td>
+                    <td class="label-col">State <span class="mandatory">*</span></td>
+                    <td class="input-col">Maharashtra</td>
+                </tr>
+                <tr>
+                    <td class="label-col">PIN Code <span class="mandatory">*</span></td>
+                    <td class="input-col">400001</td>
+                    <td class="label-col">Residence Type</td>
+                    <td class="input-col checkbox-row">☐ Owned ☐ Rented ☐ Company ☐ Parental</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Years at Current Address</td>
+                    <td class="input-col"></td>
+                    <td class="label-col">Permanent Address Same?</td>
+                    <td class="input-col checkbox-row">☐ Yes ☐ No</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Employment Details -->
+        <div class="section">
+            <div class="section-header">Section C: Employment & Income Details</div>
+            <table>
+                <tr>
+                    <td class="label-col">Employment Type <span class="mandatory">*</span></td>
+                    <td colspan="3" class="checkbox-row">
+                        ☐ Salaried ☐ Self-Employed Professional ☐ Self-Employed Business ☐ Pensioner ☐ Others: ____________ <strong>(salaried)</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-col">Company/Business Name <span class="mandatory">*</span></td>
+                    <td class="input-col">Tech Solutions Ltd</td>
+                    <td class="label-col">Designation <span class="mandatory">*</span></td>
+                    <td class="input-col">Software Engineer</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Office Address</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td class="label-col">Total Work Experience</td>
+                    <td class="input-col">3 Years _____ Months</td>
+                    <td class="label-col">Current Job Experience</td>
+                    <td class="input-col">_____ Years _____ Months</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Official Email ID</td>
+                    <td class="input-col"></td>
+                    <td class="label-col">Office Phone</td>
+                    <td class="input-col"></td>
+                </tr>
+            </table>
+            
+            <!-- Income Table -->
+            <table class="income-table">
+                <tr>
+                    <th style="width: 40%;">Income Details (Monthly)</th>
+                    <th style="width: 20%;">Amount (₹)</th>
+                    <th style="width: 40%;">Existing Liabilities (Monthly EMI)</th>
+                    <th style="width: 20%;">Amount (₹)</th>
+                </tr>
+                <tr >
+                    <td >Basic Salary <span class="mandatory">*</span></td>
+                <td class="amount-box">₹ 75,000</td>
+                    <td>Home Loan</td>
+                    <td class="amount-box"></td>
+                </tr>
+                <tr>
+                    <td>HRA</td>
+                    <td class="amount-box"></td>
+                    <td>Car Loan</td>
+                    <td class="amount-box"></td>
+                </tr>
+                <tr>
+                    <td>Other Allowances</td>
+                    <td class="amount-box"></td>
+                    <td>Personal Loan</td>
+                    <td class="amount-box"></td>
+                </tr>
+                <tr>
+                    <td>Other Income</td>
+                    <td class="amount-box"></td>
+                    <td>Credit Card</td>
+                    <td class="amount-box"></td>
+                </tr>
+                <tr style="font-weight: bold; background: #f0f0f0;">
+                    <td>Total Monthly Income <span class="mandatory">*</span></td>
+                    <td class="amount-box"></td>
+                    <td>Total Monthly EMI</td>
+                    <td class="amount-box"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Loan Details -->
+        <div class="section">
+            <div class="section-header">Section D: Loan Requirement Details</div>
+            <table>
+                <tr>
+                    <td class="label-col">Loan Amount Required <span class="mandatory">*</span></td>
+                    <td class="input-col amount-box">₹ 5,00,000</td>
+                    <td class="label-col">Preferred Tenure <span class="mandatory">*</span></td>
+                    <td class="input-col">36 Months</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Purpose of Loan <span class="mandatory">*</span></td>
+                    <td colspan="3" class="checkbox-row">
+                        ☐ Wedding ☐ Medical Emergency ☐ Home Renovation ☐ Education ☐ Travel ☐ Business ☐ Debt Consolidation ☐ Others: __________ <strong>(personal)</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Banking Details -->
+        <div class="section">
+            <div class="section-header">Section E: Banking Details</div>
+            <table>
+                <tr>
+                    <td class="label-col">Primary Bank Name <span class="mandatory">*</span></td>
+                    <td class="input-col">HDFC Bank</td>
+                    <td class="label-col">Account Type <span class="mandatory">*</span></td>
+                    <td class="input-col checkbox-row">☐ Savings ☐ Current <strong>(Savings)</strong></td>
+                </tr>
+                <tr>
+                    <td class="label-col">Account Number <span class="mandatory">*</span></td>
+                    <td class="input-col">12345678901234</td>
+                    <td class="label-col">IFSC Code <span class="mandatory">*</span></td>
+                    <td class="input-col">HDFC0000123</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Account Opening Date</td>
+                    <td class="input-col">DD/MM/YYYY</td>
+                    <td class="label-col">Average Monthly Balance</td>
+                    <td class="input-col amount-box">₹ ___________</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- References -->
+        <div class="section">
+            <div class="section-header">Section F: References (2 Required)</div>
+            <table>
+                <tr>
+                    <th style="width: 50%;">Reference 1</th>
+                    <th style="width: 50%;">Reference 2</th>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Name:</strong> Rahul Sharma<br><br>
+                        <strong>Relationship:</strong> friend<br><br>
+                        <strong>Mobile:</strong> 9876543211<br><br>
+                        <strong>Address:</strong> 789 Friend Street, Mumbai, Maharashtra - 400002<br>
+                        _______________________________________
+                    </td>
+                    <td>
+                        <strong>Name:</strong> Priya Patel<br><br>
+                        <strong>Relationship:</strong> colleague<br><br>
+                        <strong>Mobile:</strong> 9876543212<br><br>
+                        <strong>Address:</strong> 321 Colleague Avenue, Mumbai, Maharashtra - 400003<br>
+                        _______________________________________
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Documents Checklist -->
+        <div class="section">
+            <div class="section-header">Section G: Documents Checklist</div>
+            <table>
+                <tr>
+                    <td style="width: 50%;"><strong>Mandatory Documents</strong></td>
+                    <td style="width: 25%;"><strong>Submitted</strong></td>
+                    <td style="width: 25%;"><strong>Verified</strong></td>
+                </tr>
+                <tr>
+                    <td>1. Duly filled Application Form</td>
+                    <td style="text-align: center;">☐</td>
+                    <td style="text-align: center;">☐</td>
+                </tr>
+                <tr>
+                    <td>2. Identity Proof (Aadhaar/Passport/Voter ID)</td>
+                    <td style="text-align: center;">☐</td>
+                    <td style="text-align: center;">☐</td>
+                </tr>
+                <tr>
+                    <td>3. Address Proof (Aadhaar/Passport/Utility Bill)</td>
+                    <td style="text-align: center;">☐</td>
+                    <td style="text-align: center;">☐</td>
+                </tr>
+                <tr>
+                    <td>4. Income Proof (Salary Slips - Last 3 months)</td>
+                    <td style="text-align: center;">☐</td>
+                    <td style="text-align: center;">☐</td>
+                </tr>
+                <tr>
+                    <td>5. Bank Statements (Last 6 months)</td>
+                    <td style="text-align: center;">☐</td>
+                    <td style="text-align: center;">☐</td>
+                </tr>
+                <tr>
+                    <td>6. PAN Card Copy</td>
+                    <td style="text-align: center;">☐</td>
+                    <td style="text-align: center;">☐</td>
+                </tr>
+                <tr>
+                    <td>7. Form 16 (Latest)</td>
+                    <td style="text-align: center;">☐</td>
+                    <td style="text-align: center;">☐</td>
+                </tr>
+                <tr>
+                    <td>8. Passport Size Photographs (2)</td>
+                    <td style="text-align: center;">☐</td>
+                    <td style="text-align: center;">☐</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Important Notes -->
+        <div class="important-note">
+            <strong>IMPORTANT NOTES:</strong><br>
+            • Processing fee: ₹999 + GST (Non-refundable)<br>
+            • Interest rate: Starting from 10.50% p.a. (Subject to profile assessment)<br>
+            • Loan processing time: 3-7 working days post document verification<br>
+            • Pre-payment charges: Nil after 12 months, 2%+GST before 12 months
+        </div>
+
+        <!-- Declaration -->
+        <div class="declaration">
+            <strong>DECLARATION BY APPLICANT:</strong><br><br>
+            I hereby declare that the information furnished above is true, complete and correct to the best of my knowledge and belief. I understand that any incorrect/false information will lead to rejection of my application and/or cancellation of the loan. I authorize the Bank to verify all information from any source deemed necessary and conduct any enquiries to assess my creditworthiness. I understand that the Bank reserves the right to reject the application without assigning any reason. I have read and understood the terms and conditions mentioned in this application form and agree to be bound by them.
+            <br><br>
+            <table style="border: none;">
+                <tr>
+                    <td style="border: none; width: 50%;">
+                        <strong>Applicant's Signature:</strong><br>
+                        <div class="signature-box"></div>
+                    </td>
+                    <td style="border: none; width: 25%;">
+                        <strong>Date:</strong><br>
+                        <div class="date-box"></div>
+                    </td>
+                    <td style="border: none; width: 25%;">
+                        <strong>Place:</strong><br>
+                        ___________________
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Bank Use Only -->
+        <div class="section">
+            <div class="section-header">For Bank Use Only</div>
+            <table>
+                <tr>
+                    <td class="label-col">Application Received By</td>
+                    <td class="input-col"></td>
+                    <td class="label-col">Date</td>
+                    <td class="input-col"></td>
+                </tr>
+                <tr>
+                    <td class="label-col">Documents Verified By</td>
+                    <td class="input-col"></td>
+                    <td class="label-col">CIBIL Score</td>
+                    <td class="input-col">742</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Credit Decision</td>
+                    <td class="input-col checkbox-row">☐ Approved ☐ Rejected</td>
+                    <td class="label-col">Sanctioned Amount</td>
+                    <td class="input-col amount-box">₹ 5,00,000</td>
+                </tr>
+                <tr>
+                    <td class="label-col">Manager's Signature</td>
+                    <td class="input-col"></td>
+                    <td class="label-col">Date</td>
+                    <td class="input-col"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>National Commercial Bank - Personal Loan Application Form</strong></p>
+            <p>Customer Care: 1800-XXX-XXXX | Email: loans@nationalbank.com | Website: www.nationalbank.com</p>
+            <p>Generated on: 28/8/2025, 11:06:09 am | Subject to Terms & Conditions | This form is valid for 30 days from date of issue</p>
+        </div>
+    </div>
+</body>
+</html>

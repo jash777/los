@@ -1,0 +1,236 @@
+{
+  "hdfc_account": {
+    "success": true,
+    "status_code": 200,
+    "message": "Bank statement retrieved successfully",
+    "data": {
+      "account_info": {
+        "account_number": "12345678901234",
+        "account_holder_name": "JASHUVA PEYYALA",
+        "bank_name": "HDFC Bank",
+        "branch_name": "Mumbai Main Branch",
+        "ifsc_code": "HDFC0000123",
+        "account_type": "Savings",
+        "currency": "INR"
+      },
+      "statement_period": {
+        "from_date": "2024-05-01",
+        "to_date": "2024-07-31",
+        "total_days": 92
+      },
+      "account_summary": {
+        "opening_balance": 85000.00,
+        "closing_balance": 125000.00,
+        "total_credits": 450000.00,
+        "total_debits": 410000.00,
+        "net_change": 40000.00,
+        "average_balance": 105000.00,
+        "minimum_balance": 25000.00,
+        "maximum_balance": 185000.00
+      },
+      "transaction_summary": {
+        "total_transactions": 156,
+        "credit_transactions": 68,
+        "debit_transactions": 88,
+        "average_credit_amount": 6617.65,
+        "average_debit_amount": 4659.09,
+        "largest_credit": 75000.00,
+        "largest_debit": 45000.00
+      },
+      "monthly_analysis": [
+        {
+          "month": "2024-05",
+          "credits": 150000.00,
+          "debits": 135000.00,
+          "net_flow": 15000.00,
+          "avg_balance": 95000.00,
+          "transaction_count": 52
+        },
+        {
+          "month": "2024-06",
+          "credits": 150000.00,
+          "debits": 140000.00,
+          "net_flow": 10000.00,
+          "avg_balance": 110000.00,
+          "transaction_count": 48
+        },
+        {
+          "month": "2024-07",
+          "credits": 150000.00,
+          "debits": 135000.00,
+          "net_flow": 15000.00,
+          "avg_balance": 115000.00,
+          "transaction_count": 56
+        }
+      ],
+      "income_analysis": {
+        "salary_credits": [
+          {
+            "date": "2024-05-01",
+            "amount": 75000.00,
+            "description": "SALARY CREDIT - TECH SOLUTIONS PVT LTD",
+            "regularity": "Monthly"
+          },
+          {
+            "date": "2024-06-01",
+            "amount": 75000.00,
+            "description": "SALARY CREDIT - TECH SOLUTIONS PVT LTD",
+            "regularity": "Monthly"
+          },
+          {
+            "date": "2024-07-01",
+            "amount": 75000.00,
+            "description": "SALARY CREDIT - TECH SOLUTIONS PVT LTD",
+            "regularity": "Monthly"
+          }
+        ],
+        "other_credits": [
+          {
+            "date": "2024-05-15",
+            "amount": 5000.00,
+            "description": "INTEREST CREDIT",
+            "category": "Interest"
+          },
+          {
+            "date": "2024-06-20",
+            "amount": 10000.00,
+            "description": "REFUND - INSURANCE",
+            "category": "Refund"
+          }
+        ],
+        "total_monthly_income": 75000.00,
+        "income_stability": "Stable",
+        "income_growth_trend": "Stable"
+      },
+      "expense_analysis": {
+        "major_categories": [
+          {
+            "category": "EMI/Loan Payments",
+            "total_amount": 37000.00,
+            "percentage": 27.0,
+            "transactions": 9
+          },
+          {
+            "category": "Utilities & Bills",
+            "total_amount": 25000.00,
+            "percentage": 18.2,
+            "transactions": 24
+          },
+          {
+            "category": "Food & Dining",
+            "total_amount": 18000.00,
+            "percentage": 13.1,
+            "transactions": 36
+          },
+          {
+            "category": "Shopping",
+            "total_amount": 15000.00,
+            "percentage": 10.9,
+            "transactions": 18
+          },
+          {
+            "category": "Transportation",
+            "total_amount": 12000.00,
+            "percentage": 8.7,
+            "transactions": 15
+          }
+        ],
+        "total_monthly_expenses": 45667.00,
+        "expense_stability": "Stable"
+      },
+      "banking_behavior": {
+        "bounce_count": 0,
+        "minimum_balance_violations": 0,
+        "overdraft_usage": 0,
+        "cheque_returns": 0,
+        "digital_transaction_ratio": 85.5,
+        "cash_withdrawal_frequency": "Low",
+        "account_maintenance": "Excellent"
+      },
+      "risk_indicators": {
+        "gambling_transactions": false,
+        "suspicious_cash_deposits": false,
+        "frequent_round_amounts": false,
+        "unusual_transaction_patterns": false,
+        "high_cash_usage": false,
+        "risk_score": 15
+      },
+      "recent_transactions": [
+        {
+          "date": "2024-07-31",
+          "description": "UPI-SWIGGY-FOOD ORDER",
+          "debit": 450.00,
+          "credit": 0.00,
+          "balance": 125000.00,
+          "category": "Food & Dining"
+        },
+        {
+          "date": "2024-07-30",
+          "description": "NEFT-HDFC CREDIT CARD PAYMENT",
+          "debit": 15000.00,
+          "credit": 0.00,
+          "balance": 125450.00,
+          "category": "Credit Card Payment"
+        },
+        {
+          "date": "2024-07-29",
+          "description": "ATM WITHDRAWAL",
+          "debit": 5000.00,
+          "credit": 0.00,
+          "balance": 140450.00,
+          "category": "Cash Withdrawal"
+        }
+      ]
+    },
+    "response_code": "3001",
+    "response_message": "Bank statement retrieved successfully"
+  },
+  "icici_account": {
+    "success": true,
+    "status_code": 200,
+    "message": "Bank statement retrieved successfully",
+    "data": {
+      "account_info": {
+        "account_number": "98765432109876",
+        "account_holder_name": "JASHUVA PEYYALA",
+        "bank_name": "ICICI Bank",
+        "branch_name": "Hyderabad Branch",
+        "ifsc_code": "ICIC0000123",
+        "account_type": "Savings"
+      },
+      "statement_period": {
+        "from_date": "2024-05-01",
+        "to_date": "2024-07-31"
+      },
+      "account_summary": {
+        "opening_balance": 45000.00,
+        "closing_balance": 65000.00,
+        "total_credits": 225000.00,
+        "total_debits": 205000.00,
+        "average_balance": 55000.00
+      },
+      "income_analysis": {
+        "total_monthly_income": 50000.00,
+        "income_stability": "Stable"
+      },
+      "expense_analysis": {
+        "total_monthly_expenses": 35000.00
+      },
+      "banking_behavior": {
+        "bounce_count": 1,
+        "minimum_balance_violations": 2,
+        "risk_score": 35
+      }
+    },
+    "response_code": "3001",
+    "response_message": "Bank statement retrieved successfully"
+  },
+  "error_response": {
+    "success": false,
+    "status_code": 400,
+    "message": "Invalid account details",
+    "data": null,
+    "response_code": "3002",
+    "response_message": "Account not found or access denied"
+  }
+}

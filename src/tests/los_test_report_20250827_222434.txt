@@ -1,0 +1,308 @@
+================================================================================
+LOAN ORIGINATION SYSTEM - COMPREHENSIVE TEST REPORT
+================================================================================
+Test Execution Date: 2025-08-27 22:24:34
+Base URL: http://localhost:3000
+
+
+Stage 1: Pre-Qualification
+--------------------------
+❌ Valid Pre-qualification - High Credit Score
+   Description: Test pre-qualification with valid data and high credit score
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Valid Pre-qualification - Medium Credit Score
+   Description: Test pre-qualification with medium credit score
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Low Credit Score Rejection
+   Description: Test rejection due to low credit score
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Invalid Phone Number
+   Description: Test with invalid phone number format
+   Execution Time: 0.00s
+   Error: Expected 'validation error' not found in response
+
+❌ Invalid PAN Number
+   Description: Test with invalid PAN number format
+   Execution Time: 0.00s
+   Error: Expected 'validation error' not found in response
+
+❌ Missing Required Fields
+   Description: Test with missing required fields
+   Execution Time: 0.00s
+   Error: Expected 'validation error' not found in response
+
+❌ Empty Request Body
+   Description: Test with empty request body
+   Execution Time: 0.00s
+   Error: Expected 'validation error' not found in response
+
+Stage Summary: 0 passed, 7 failed, 0 skipped
+Stage Execution Time: 0.03s
+
+
+Stage 2: Loan Application
+-------------------------
+❌ Complete Loan Application - Salaried
+   Description: Test complete loan application for salaried employee
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Complete Loan Application - Self Employed
+   Description: Test complete loan application for self-employed
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Invalid Aadhaar Number
+   Description: Test with invalid Aadhaar number
+   Execution Time: 0.00s
+   Error: Expected 'validation error' not found in response
+
+❌ Low Income Rejection
+   Description: Test rejection due to low income
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Missing Required Fields
+   Description: Test with missing employment details
+   Execution Time: 0.00s
+   Error: Expected 'validation error' not found in response
+
+Stage Summary: 0 passed, 5 failed, 0 skipped
+Stage Execution Time: 0.03s
+
+
+Stage 3: Application Processing
+-------------------------------
+❌ Valid Application Processing
+   Description: Test application processing with valid data
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Document Verification Failure
+   Description: Test processing with document verification issues
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Non-existent Application
+   Description: Test processing with non-existent application ID
+   Execution Time: 0.00s
+   Error: Expected status 404, got 400
+
+❌ Missing Application ID
+   Description: Test processing without application ID
+   Execution Time: 0.00s
+   Error: Expected 'validation error' not found in response
+
+Stage Summary: 0 passed, 4 failed, 0 skipped
+Stage Execution Time: 0.03s
+
+
+Stage 4: Underwriting
+---------------------
+❌ High Score Auto-Approval
+   Description: Test underwriting with high score for auto-approval
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Medium Score Conditional Approval
+   Description: Test underwriting with medium score for conditional approval
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Low Score Rejection
+   Description: Test underwriting with low score for rejection
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ High Risk Category
+   Description: Test underwriting with high risk factors
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Policy Violation
+   Description: Test underwriting with policy violations
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+Stage Summary: 0 passed, 5 failed, 0 skipped
+Stage Execution Time: 0.02s
+
+
+Stage 5: Credit Decision
+------------------------
+❌ Final Credit Approval
+   Description: Test final credit decision approval
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Credit Committee Manual Review
+   Description: Test credit decision requiring manual review
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Final Credit Rejection
+   Description: Test final credit decision rejection
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Terms Optimization
+   Description: Test credit decision with optimized terms
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Regulatory Compliance Failure
+   Description: Test credit decision with regulatory compliance issues
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+Stage Summary: 0 passed, 5 failed, 0 skipped
+Stage Execution Time: 0.03s
+
+
+Stage 6: Quality Check
+----------------------
+❌ Quality Check Pass - Grade A+
+   Description: Test quality check with excellent quality (A+ grade)
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Quality Check Pass - Grade A
+   Description: Test quality check with good quality (A grade)
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Quality Check Fail - Low Score
+   Description: Test quality check failure due to low overall score
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Document Completeness Issue
+   Description: Test quality check with document completeness below threshold
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Data Accuracy Issue
+   Description: Test quality check with data accuracy below threshold
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Compliance Adherence Failure
+   Description: Test quality check with compliance adherence failure
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+Stage Summary: 0 passed, 6 failed, 0 skipped
+Stage Execution Time: 0.02s
+
+
+Stage 7: Loan Funding
+---------------------
+❌ Successful NEFT Disbursement
+   Description: Test successful loan funding via NEFT
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Successful RTGS Disbursement
+   Description: Test successful loan funding via RTGS
+   Execution Time: 0.01s
+   Error: Expected status 200, got 400
+
+❌ Successful IMPS Disbursement
+   Description: Test successful loan funding via IMPS
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Successful UPI Disbursement
+   Description: Test successful loan funding via UPI
+   Execution Time: 0.00s
+   Error: Expected status 200, got 400
+
+❌ Account Setup Failure
+   Description: Test loan funding failure due to account setup issues
+   Execution Time: 0.00s
+   Error: Expected 'account setup failed' not found in response
+
+❌ Disbursement Failure
+   Description: Test loan funding failure during disbursement
+   Execution Time: 0.00s
+   Error: Expected 'disbursement failed' not found in response
+
+❌ Agreement Finalization Failure
+   Description: Test loan funding failure during agreement finalization
+   Execution Time: 0.00s
+   Error: Expected 'agreement failed' not found in response
+
+Stage Summary: 0 passed, 7 failed, 0 skipped
+Stage Execution Time: 0.03s
+
+
+Complete Workflow Tests
+-----------------------
+❌ Complete Successful Workflow
+   Description: Test complete workflow from pre-qualification to funding
+   Execution Time: 0.00s
+   Error: Stage 1 failed: {'success': False, 'error': 'Validation failed', 'details': ['phone is required', 'email is required', 'dateOfBirth is required', 'loanAmount is required', 'loanPurpose is required', 'employmentType is required'], 'requestId': 'req_1756313672200_p25efvqsi', 'timestamp': '2025-08-27T16:54:32.201Z'}
+
+Stage Summary: 0 passed, 1 failed, 0 skipped
+Stage Execution Time: 0.00s
+
+
+Status Endpoint Tests
+---------------------
+❌ Pre-qualification Status Check
+   Description: Test pre-qualification status endpoint
+   Execution Time: 0.01s
+   Error: Expected status 200, got 404
+
+❌ Loan Application Status Check
+   Description: Test loan application status endpoint
+   Execution Time: 0.01s
+   Error: Expected status 200, got 404
+
+❌ Application Processing Status Check
+   Description: Test application processing status endpoint
+   Execution Time: 0.01s
+   Error: Expected status 200, got 404
+
+❌ Underwriting Status Check
+   Description: Test underwriting status endpoint
+   Execution Time: 0.00s
+   Error: Expected status 200, got 404
+
+❌ Credit Decision Status Check
+   Description: Test credit decision status endpoint
+   Execution Time: 0.00s
+   Error: Expected status 200, got 404
+
+❌ Quality Check Status Check
+   Description: Test quality check status endpoint
+   Execution Time: 0.00s
+   Error: Expected status 200, got 404
+
+❌ Loan Funding Status Check
+   Description: Test loan funding status endpoint
+   Execution Time: 0.00s
+   Error: Expected status 200, got 404
+
+Stage Summary: 0 passed, 7 failed, 0 skipped
+Stage Execution Time: 0.03s
+
+================================================================================
+OVERALL TEST SUMMARY
+================================================================================
+Total Tests: 47
+Passed: 0 (0.0%)
+Failed: 47 (100.0%)
+Skipped: 0 (0.0%)
+Total Execution Time: 0.23s
+
+TEST ENVIRONMENT
+----------------
+Python Version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+Requests Version: 2.32.4
