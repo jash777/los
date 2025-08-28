@@ -1,7 +1,7 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-const databaseConfig = require('./src/config/database');
+const databaseConfig = require('../src/config/database');
 const { v4: uuidv4 } = require('uuid');
 
 async function migrateToProperDatabase() {

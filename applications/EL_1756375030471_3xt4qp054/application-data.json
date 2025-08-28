@@ -1,0 +1,338 @@
+{
+  "application_info": {
+    "application_number": "EL_1756375030471_3xt4qp054",
+    "created_at": "2025-08-28T09:57:10.486Z",
+    "last_updated": "2025-08-28T09:57:13.176Z",
+    "current_stage": "pre_qualification",
+    "status": "approved"
+  },
+  "stage_1_data": {
+    "personal_details": {
+      "full_name": "JASHUVA PEYYALA",
+      "mobile": "9876543210",
+      "email": "jashuva.peyyala@gmail.com",
+      "pan_number": "EMMPP2177A",
+      "date_of_birth": "1998-09-25"
+    },
+    "loan_request": {
+      "loan_amount": 300000,
+      "loan_purpose": "education",
+      "preferred_tenure_months": 36
+    },
+    "eligibility_result": {
+      "status": "approved",
+      "score": 60,
+      "decision": "approved",
+      "reasons": [
+        "Age criteria met (within 21-65 years)",
+        "CIBIL score 742 meets minimum requirement",
+        "Valid PAN verification completed",
+        "Basic eligibility criteria satisfied"
+      ]
+    }
+  },
+  "stage_2_data": {
+    "employment_details": {
+      "employment_type": null,
+      "company_name": null,
+      "designation": null,
+      "work_experience_years": null,
+      "monthly_salary": null,
+      "company_address": null,
+      "hr_contact": null
+    },
+    "income_details": {
+      "monthly_salary": null,
+      "other_income": null,
+      "total_monthly_income": null,
+      "existing_emi": null,
+      "net_monthly_income": null
+    },
+    "banking_details": {
+      "primary_bank": null,
+      "account_number": null,
+      "account_type": null,
+      "average_monthly_balance": null,
+      "banking_relationship_years": null
+    },
+    "address_details": {
+      "current_address": {
+        "address_line_1": null,
+        "address_line_2": null,
+        "city": null,
+        "state": null,
+        "pincode": null,
+        "residence_type": null,
+        "years_at_current_address": null
+      },
+      "permanent_address": {
+        "address_line_1": null,
+        "address_line_2": null,
+        "city": null,
+        "state": null,
+        "pincode": null,
+        "same_as_current": null
+      }
+    },
+    "references": {
+      "personal_reference_1": {
+        "name": null,
+        "relationship": null,
+        "mobile": null,
+        "email": null
+      },
+      "personal_reference_2": {
+        "name": null,
+        "relationship": null,
+        "mobile": null,
+        "email": null
+      },
+      "professional_reference": {
+        "name": null,
+        "designation": null,
+        "company": null,
+        "mobile": null,
+        "email": null
+      }
+    },
+    "financial_details": {
+      "monthly_expenses": null,
+      "existing_loans": [],
+      "credit_cards": [],
+      "investments": [],
+      "assets": []
+    },
+    "required_documents": {
+      "identity_proof": null,
+      "address_proof": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "employment_proof": null
+    },
+    "additional_information": {
+      "loan_purpose_details": null,
+      "repayment_source": null,
+      "preferred_tenure_months": null,
+      "existing_relationship_with_bank": null,
+      "co_applicant_required": null,
+      "property_owned": null
+    }
+  },
+  "third_party_data": {
+    "cibil_data": {
+      "success": true,
+      "score": 742,
+      "grade": "GOOD",
+      "data": {
+        "success": true,
+        "status_code": 200,
+        "message": "Credit report generated successfully",
+        "data": {
+          "report_id": "CR2024082700002",
+          "report_date": "2024-08-27",
+          "consumer_info": {
+            "name": "JASHUVA PEYYALA",
+            "date_of_birth": "1998-09-25",
+            "gender": "M",
+            "pan": "EMMPP2177A",
+            "mobile": "9876543210"
+          },
+          "score_info": {
+            "cibil_score": 742,
+            "score_range": "300-900",
+            "score_grade": "GOOD",
+            "score_factors": {
+              "payment_history": "Good",
+              "credit_utilization": "Moderate",
+              "credit_history_length": "Fair",
+              "credit_mix": "Good",
+              "new_credit": "Moderate Impact"
+            },
+            "last_updated": "2024-08-20"
+          },
+          "account_summary": {
+            "total_accounts": 5,
+            "active_accounts": 4,
+            "closed_accounts": 1,
+            "credit_cards": 2,
+            "loans": 2,
+            "total_credit_limit": 450000,
+            "total_outstanding": 95000,
+            "credit_utilization_ratio": 21.1
+          },
+          "payment_history": {
+            "total_payments": 84,
+            "on_time_payments": 79,
+            "late_payments": 5,
+            "defaults": 0,
+            "settlements": 0,
+            "write_offs": 0,
+            "payment_performance": "94.0%"
+          },
+          "credit_accounts": [
+            {
+              "account_type": "Credit Card",
+              "bank_name": "ICICI Bank",
+              "account_number": "XXXX-XXXX-XXXX-5678",
+              "credit_limit": 150000,
+              "current_balance": 35000,
+              "payment_status": "Regular",
+              "account_status": "Active",
+              "opened_date": "2021-09-10"
+            },
+            {
+              "account_type": "Personal Loan",
+              "bank_name": "HDFC Bank",
+              "account_number": "XXXX-XXXX-9012",
+              "original_amount": 300000,
+              "current_balance": 120000,
+              "emi_amount": 12000,
+              "payment_status": "Regular",
+              "account_status": "Active",
+              "opened_date": "2023-02-15"
+            }
+          ],
+          "enquiries": {
+            "last_12_months": 5,
+            "last_6_months": 2,
+            "last_3_months": 1
+          }
+        },
+        "response_code": "2001",
+        "response_message": "Credit report generated successfully",
+        "credit_score": 742,
+        "credit_grade": "GOOD",
+        "existing_loans": [
+          {
+            "account_type": "Personal Loan",
+            "bank_name": "HDFC Bank",
+            "account_number": "XXXX-XXXX-9012",
+            "original_amount": 300000,
+            "current_balance": 120000,
+            "emi_amount": 12000,
+            "payment_status": "Regular",
+            "account_status": "Active",
+            "opened_date": "2023-02-15"
+          }
+        ],
+        "credit_cards": [
+          {
+            "account_type": "Credit Card",
+            "bank_name": "ICICI Bank",
+            "account_number": "XXXX-XXXX-XXXX-5678",
+            "credit_limit": 150000,
+            "current_balance": 35000,
+            "payment_status": "Regular",
+            "account_status": "Active",
+            "opened_date": "2021-09-10"
+          }
+        ],
+        "factors": {
+          "payment_history": "Good",
+          "credit_utilization": "Moderate",
+          "credit_history_length": "Fair",
+          "credit_mix": "Good",
+          "new_credit": "Moderate Impact"
+        }
+      }
+    },
+    "pan_verification": {
+      "success": true,
+      "panData": {
+        "pan_number": "EMMPP2177A",
+        "name": "JASHUVA PEYYALA",
+        "status": "active"
+      },
+      "nameMatch": {
+        "isMatch": true,
+        "matchPercentage": 100
+      },
+      "dobMatch": {
+        "isMatch": true,
+        "verified": true
+      }
+    },
+    "employment_verification": {
+      "verified": null,
+      "company_verified": null,
+      "salary_verified": null,
+      "verification_date": null,
+      "hr_response": null
+    },
+    "bank_statement_analysis": {
+      "average_balance": null,
+      "salary_credits": [],
+      "bounce_count": null,
+      "irregular_transactions": [],
+      "analysis_period": null,
+      "financial_behavior_score": null
+    }
+  },
+  "processing_stages": {
+    "stage_3_application_processing": {
+      "status": null,
+      "processed_at": null,
+      "result": null,
+      "notes": null
+    },
+    "stage_4_underwriting": {
+      "status": null,
+      "processed_at": null,
+      "risk_assessment": null,
+      "underwriter_notes": null,
+      "recommended_amount": null,
+      "recommended_terms": null
+    },
+    "stage_5_credit_decision": {
+      "status": null,
+      "processed_at": null,
+      "final_decision": null,
+      "approved_amount": null,
+      "approved_terms": null,
+      "conditions": []
+    },
+    "stage_6_quality_check": {
+      "status": null,
+      "processed_at": null,
+      "document_completeness": null,
+      "data_accuracy": null,
+      "compliance_check": null,
+      "quality_score": null
+    },
+    "stage_7_loan_funding": {
+      "status": null,
+      "processed_at": null,
+      "disbursement_details": null,
+      "loan_agreement": null,
+      "funding_date": null
+    }
+  },
+  "documents": {
+    "uploaded_documents": [],
+    "generated_documents": [],
+    "verification_documents": []
+  },
+  "audit_trail": {
+    "created_by": null,
+    "created_at": null,
+    "stage_transitions": [
+      {
+        "from_stage": "initiated",
+        "to_stage": "pre_qualification",
+        "timestamp": "2025-08-28T09:57:13.174Z",
+        "data_updated": "stage_1_data"
+      }
+    ],
+    "modifications": [
+      {
+        "type": "third_party_data_update",
+        "timestamp": "2025-08-28T09:57:13.181Z",
+        "data_sources": [
+          "cibil_data",
+          "pan_verification"
+        ]
+      }
+    ],
+    "approvals": []
+  }
+}

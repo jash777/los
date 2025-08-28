@@ -57,7 +57,7 @@ const config = {
                 '*'
             ],
         rateLimitWindow: 15 * 60 * 1000, // 15 minutes
-        rateLimitMax: 100
+        rateLimitMax: 1000 // Increased from 100 to 1000 for smoother frontend experience
     },
 
     // File Upload Configuration
@@ -90,7 +90,7 @@ const config = {
     features: {
         enableAuditLogging: true,
         enableSwaggerDocs: true,
-        enableRateLimiting: true,
+        enableRateLimiting: false, // Disabled for smoother frontend development
         enableCompression: true
     },
 

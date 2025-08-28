@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "score": 742,
+  "grade": "good",
+  "data": {
+    "credit_score": 742,
+    "status": "active",
+    "existing_loans": 0,
+    "payment_history": "good"
+  }
+}

@@ -48,7 +48,7 @@ class ApplicationProcessingService {
             const applicationId = existingApp.id;
 
             // Update stage to application_processing
-            await databaseService.updateApplicationStage(applicationId, 'application_processing', 'under_review');
+            await databaseService.updateApplicationStage(applicationId, 'application_processing', 'in_progress');
 
             // Step 1: Document verification
             const documentResult = await this.performDocumentVerification(applicationId, requestId);

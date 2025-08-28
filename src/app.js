@@ -49,19 +49,39 @@ class EnhancedLOSApp {
             this.app.use(compression());
         }
 
-        // Rate limiting
+        // Rate limiting - More flexible configuration for development
         if (config.features.enableRateLimiting) {
-            const limiter = rateLimit({
-                windowMs: config.security.rateLimitWindow,
-                max: config.security.rateLimitMax,
+            // General API rate limiter (more lenient)
+            const generalLimiter = rateLimit({
+                windowMs: 15 * 60 * 1000, // 15 minutes
+                max: 1000, // 1000 requests per 15 minutes
                 message: {
                     success: false,
                     error: 'Too many requests',
                     message: 'Rate limit exceeded. Please try again later.',
                     timestamp: new Date().toISOString()
-                }
+                },
+                standardHeaders: true,
+                legacyHeaders: false
             });
-            this.app.use('/api', limiter);
+
+            // Dashboard-specific rate limiter (very lenient for frontend)
+            const dashboardLimiter = rateLimit({
+                windowMs: 15 * 60 * 1000, // 15 minutes
+                max: 2000, // 2000 requests per 15 minutes for dashboard
+                message: {
+                    success: false,
+                    error: 'Too many requests',
+                    message: 'Dashboard rate limit exceeded. Please try again later.',
+                    timestamp: new Date().toISOString()
+                },
+                standardHeaders: true,
+                legacyHeaders: false
+            });
+
+            // Apply rate limiting
+            this.app.use('/api', generalLimiter);
+            this.app.use('/api/dashboard', dashboardLimiter);
         }
 
         // Body parsing
@@ -110,6 +130,14 @@ class EnhancedLOSApp {
         // Portfolio routes
         const portfolioRoutes = require('./routes/portfolio-routes');
         this.app.use('/api/portfolio', portfolioRoutes);
+
+        // Manual workflow routes
+        const manualWorkflowRoutes = require('./routes/manual-workflow-routes');
+        this.app.use('/api/manual-workflow', manualWorkflowRoutes);
+
+        // Rules engine routes
+        const rulesEngineRoutes = require('./routes/rules-engine-routes');
+        this.app.use('/api/rules-engine', rulesEngineRoutes);
 
         // Root endpoint
         this.app.get('/', (req, res) => {

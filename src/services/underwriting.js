@@ -42,7 +42,7 @@ class UnderwritingService {
             const applicationId = existingApp.id;
 
             // Update stage to underwriting
-            await databaseService.updateApplicationStage(applicationId, 'underwriting', 'under_review');
+            await databaseService.updateApplicationStage(applicationId, 'underwriting', 'in_progress');
 
             // Debug: Log the application data structure
             logger.info(`[${requestId}] Application data keys:`, Object.keys(existingApp));

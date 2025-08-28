@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "panData": {
+    "pan_number": "ARUNK5678A",
+    "name": "ARUN KUMAR",
+    "status": "active"
+  },
+  "nameMatch": {
+    "isMatch": true,
+    "matchPercentage": 95
+  },
+  "dobMatch": {
+    "isMatch": true,
+    "verified": true
+  }
+}

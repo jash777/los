@@ -1,7 +1,7 @@
 /**
  * Dashboard Controller
  * Handles dashboard data for LOS and LMS systems
- * Updated to use database instead of filesystem
+ * Updated to use correct database tables (loan_applications instead of applications)
  */
 
 const databaseConfig = require('../config/database');
@@ -59,7 +59,7 @@ class DashboardController {
 
             const connection = await this.pool.getConnection();
             
-            // Get basic metrics
+            // Get basic metrics from loan_applications table
             const [metricsResult] = await connection.execute(`
                 SELECT 
                     COUNT(*) as total_applications,
@@ -68,24 +68,28 @@ class DashboardController {
                     COUNT(CASE WHEN status = 'rejected' THEN 1 END) as rejected_applications,
                     COUNT(CASE WHEN status = 'conditional_approval' THEN 1 END) as conditional_approval_applications,
                     COUNT(CASE WHEN current_stage = 'pre_qualification' THEN 1 END) as pre_qualification_count,
-                    COUNT(CASE WHEN current_stage = 'loan_application' THEN 1 END) as loan_application_count
-                FROM applications
+                    COUNT(CASE WHEN current_stage = 'application_processing' THEN 1 END) as loan_application_count
+                FROM loan_applications
             `);
 
-            // Get recent applications
+            // Get recent applications from loan_applications table
             const [recentApps] = await connection.execute(`
                 SELECT 
-                    a.application_number,
-                    a.current_stage,
-                    a.status,
-                    a.created_at,
-                    a.last_updated,
-                    s1.full_name,
-                    s1.loan_amount,
-                    s1.loan_purpose
-                FROM applications a
-                LEFT JOIN stage_1_data s1 ON a.id = s1.application_id
-                ORDER BY a.created_at DESC
+                    application_number,
+                    applicant_name,
+                    email,
+                    phone,
+                    pan_number,
+                    loan_amount,
+                    loan_purpose,
+                    employment_type,
+                    monthly_income,
+                    current_stage,
+                    status,
+                    created_at,
+                    updated_at
+                FROM loan_applications
+                ORDER BY created_at DESC
                 LIMIT 10
             `);
 
@@ -94,43 +98,86 @@ class DashboardController {
                 SELECT 
                     status,
                     COUNT(*) as count
-                FROM applications
+                FROM loan_applications
                 GROUP BY status
                 ORDER BY count DESC
+            `);
+
+            // Get stage distribution
+            const [stageDistribution] = await connection.execute(`
+                SELECT 
+                    current_stage,
+                    COUNT(*) as count
+                FROM loan_applications
+                GROUP BY current_stage
+                ORDER BY count DESC
+            `);
+
+            // Get recent credit decisions
+            const [recentDecisions] = await connection.execute(`
+                SELECT 
+                    application_number,
+                    decision,
+                    approved_amount,
+                    interest_rate,
+                    risk_score,
+                    decided_at
+                FROM credit_decisions
+                ORDER BY decided_at DESC
+                LIMIT 5
             `);
 
             connection.release();
 
             const overview = {
                 metrics: {
-                    total_applications: metricsResult[0].total_applications,
-                    pending_applications: metricsResult[0].pending_applications,
-                    approved_applications: metricsResult[0].approved_applications,
-                    rejected_applications: metricsResult[0].rejected_applications,
-                    conditional_approval_applications: metricsResult[0].conditional_approval_applications,
-                    pre_qualification_count: metricsResult[0].pre_qualification_count,
-                    loan_application_count: metricsResult[0].loan_application_count
+                    total_applications: metricsResult[0].total_applications || 0,
+                    pending_applications: metricsResult[0].pending_applications || 0,
+                    approved_applications: metricsResult[0].approved_applications || 0,
+                    rejected_applications: metricsResult[0].rejected_applications || 0,
+                    conditional_approval_applications: metricsResult[0].conditional_approval_applications || 0,
+                    pre_qualification_count: metricsResult[0].pre_qualification_count || 0,
+                    loan_application_count: metricsResult[0].loan_application_count || 0
                 },
                 recent_applications: recentApps.map(app => ({
                     application_number: app.application_number,
+                    applicant_name: app.applicant_name,
+                    email: app.email,
+                    phone: app.phone,
+                    pan_number: app.pan_number,
+                    loan_amount: app.loan_amount,
+                    loan_purpose: app.loan_purpose,
+                    employment_type: app.employment_type,
+                    monthly_income: app.monthly_income,
                     current_stage: app.current_stage,
                     status: app.status,
                     created_at: app.created_at,
-                    last_updated: app.last_updated,
-                    applicant_name: app.full_name,
-                    loan_amount: app.loan_amount,
-                    loan_purpose: app.loan_purpose
+                    updated_at: app.updated_at
                 })),
                 status_distribution: statusDistribution.map(item => ({
                     status: item.status,
                     count: item.count
+                })),
+                stage_distribution: stageDistribution.map(item => ({
+                    stage: item.current_stage,
+                    count: item.count
+                })),
+                recent_decisions: recentDecisions.map(decision => ({
+                    application_number: decision.application_number,
+                    decision: decision.decision,
+                    approved_amount: decision.approved_amount,
+                    interest_rate: decision.interest_rate,
+                    risk_score: decision.risk_score,
+                    decided_at: decision.decided_at
                 }))
             };
 
             res.json({
                 success: true,
                 data: {
-                    overview
+                    overview,
+                    timestamp: new Date().toISOString(),
+                    total_records: metricsResult[0].total_applications || 0
                 }
             });
 
@@ -153,81 +200,116 @@ class DashboardController {
 
             const connection = await this.pool.getConnection();
             
-            // Simple query without pagination for now
+            // Get applications from loan_applications table with pagination
+            const page = parseInt(req.query.page) || 1;
+            const limit = parseInt(req.query.limit) || 20;
+            const offset = (page - 1) * limit;
+            
             const [applications] = await connection.execute(`
                 SELECT 
-                    a.id,
-                    a.application_number,
-                    a.current_stage,
-                    a.status,
-                    a.created_at,
-                    a.last_updated,
-                    a.source_channel,
-                    a.priority_level,
-                    s1.full_name,
-                    s1.mobile,
-                    s1.email,
-                    s1.pan_number,
-                    s1.loan_amount,
-                    s1.loan_purpose,
-                    s1.preferred_tenure_months,
-                    s1.eligibility_status,
-                    s1.eligibility_score,
-                    s1.eligibility_decision
-                FROM applications a
-                LEFT JOIN stage_1_data s1 ON a.id = s1.application_id
-                ORDER BY a.created_at DESC
-                LIMIT 10
+                    id,
+                    application_number,
+                    applicant_name,
+                    email,
+                    phone,
+                    pan_number,
+                    loan_amount,
+                    loan_purpose,
+                    employment_type,
+                    monthly_income,
+                    current_stage,
+                    status,
+                    created_at,
+                    updated_at
+                FROM loan_applications
+                ORDER BY created_at DESC
+                LIMIT ${limit} OFFSET ${offset}
             `);
 
             // Get total count
             const [countResult] = await connection.execute(`
                 SELECT COUNT(*) as total
-                FROM applications a
-                LEFT JOIN stage_1_data s1 ON a.id = s1.application_id
+                FROM loan_applications
             `);
+
+            // Get additional data from related tables
+            const applicationNumbers = applications.map(app => app.application_number);
+            let stageProcessingData = [];
+            let creditDecisionsData = [];
+            
+            if (applicationNumbers.length > 0) {
+                // Get stage processing data
+                const [stageProcessing] = await connection.execute(`
+                    SELECT 
+                        application_number,
+                        stage_name,
+                        status,
+                        started_at,
+                        completed_at,
+                        processing_time_ms
+                    FROM stage_processing
+                    WHERE application_number IN (${applicationNumbers.map(app => `'${app}'`).join(',')})
+                    ORDER BY started_at DESC
+                `);
+
+                // Get credit decisions data
+                const [creditDecisions] = await connection.execute(`
+                    SELECT 
+                        application_number,
+                        decision,
+                        approved_amount,
+                        interest_rate,
+                        risk_score,
+                        decided_at
+                    FROM credit_decisions
+                    WHERE application_number IN (${applicationNumbers.map(app => `'${app}'`).join(',')})
+                    ORDER BY decided_at DESC
+                `);
+
+                stageProcessingData = stageProcessing;
+                creditDecisionsData = creditDecisions;
+            }
 
             connection.release();
 
             const total = countResult[0].total;
 
+            // Combine data
+            const enrichedApplications = applications.map(app => {
+                const stageData = stageProcessingData.find(sp => sp.application_number === app.application_number);
+                const decisionData = creditDecisionsData.find(cd => cd.application_number === app.application_number);
+                
+                return {
+                    id: app.id,
+                    application_number: app.application_number,
+                    applicant_name: app.applicant_name,
+                    email: app.email,
+                    phone: app.phone,
+                    pan_number: app.pan_number,
+                    loan_amount: app.loan_amount,
+                    loan_purpose: app.loan_purpose,
+                    employment_type: app.employment_type,
+                    monthly_income: app.monthly_income,
+                    current_stage: app.current_stage,
+                    status: app.status,
+                    created_at: app.created_at,
+                    updated_at: app.updated_at,
+                    stage_processing: stageData || null,
+                    credit_decision: decisionData || null
+                };
+            });
+
             res.json({
                 success: true,
                 data: {
-                    applications: applications.map(app => ({
-                        id: app.id,
-                        application_number: app.application_number,
-                        current_stage: app.current_stage,
-                        status: app.status,
-                        created_at: app.created_at,
-                        last_updated: app.last_updated,
-                        source_channel: app.source_channel,
-                        priority_level: app.priority_level,
-                        applicant: {
-                            full_name: app.full_name,
-                            mobile: app.mobile,
-                            email: app.email,
-                            pan_number: app.pan_number
-                        },
-                        loan_details: {
-                            amount: app.loan_amount,
-                            purpose: app.loan_purpose,
-                            tenure_months: app.preferred_tenure_months
-                        },
-                        eligibility: {
-                            status: app.eligibility_status,
-                            score: app.eligibility_score,
-                            decision: app.eligibility_decision
-                        }
-                    })),
+                    applications: enrichedApplications,
                     pagination: {
-                        current_page: 1,
-                        total_pages: 1,
-                        total: total,
-                        limit: 10,
-                        has_next: false,
-                        has_prev: false
-                    }
+                        page,
+                        limit,
+                        total,
+                        total_pages: Math.ceil(total / limit)
+                    },
+                    timestamp: new Date().toISOString()
                 }
             });
 
@@ -249,17 +331,13 @@ class DashboardController {
             }
 
             const { applicationNumber } = req.params;
-
             const connection = await this.pool.getConnection();
-            
-            // Get application details
+
+            // Get main application data
             const [applications] = await connection.execute(`
-                SELECT 
-                    a.*,
-                    s1.*
-                FROM applications a
-                LEFT JOIN stage_1_data s1 ON a.id = s1.application_id
-                WHERE a.application_number = ?
+                SELECT *
+                FROM loan_applications
+                WHERE application_number = ?
             `, [applicationNumber]);
 
             if (applications.length === 0) {
@@ -270,60 +348,71 @@ class DashboardController {
                 });
             }
 
-            const app = applications[0];
+            const application = applications[0];
+
+            // Get stage processing data
+            const [stageProcessing] = await connection.execute(`
+                SELECT *
+                FROM stage_processing
+                WHERE application_number = ?
+                ORDER BY started_at DESC
+            `, [applicationNumber]);
+
+            // Get credit decisions
+            const [creditDecisions] = await connection.execute(`
+                SELECT *
+                FROM credit_decisions
+                WHERE application_number = ?
+                ORDER BY decided_at DESC
+            `, [applicationNumber]);
 
             // Get audit logs
             const [auditLogs] = await connection.execute(`
-                SELECT * FROM audit_logs 
-                WHERE application_number = ? 
+                SELECT *
+                FROM audit_logs
+                WHERE application_number = ?
                 ORDER BY created_at DESC
                 LIMIT 20
             `, [applicationNumber]);
 
+            // Get external verifications
+            const [verifications] = await connection.execute(`
+                SELECT *
+                FROM external_verifications
+                WHERE application_number = ?
+                ORDER BY created_at DESC
+            `, [applicationNumber]);
+
             connection.release();
 
-            const applicationDetails = {
-                id: app.id,
-                application_number: app.application_number,
-                current_stage: app.current_stage,
-                status: app.status,
-                created_at: app.created_at,
-                last_updated: app.last_updated,
-                source_channel: app.source_channel,
-                priority_level: app.priority_level,
-                applicant: {
-                    full_name: app.full_name,
-                    mobile: app.mobile,
-                    email: app.email,
-                    pan_number: app.pan_number,
-                    date_of_birth: app.date_of_birth
+            const details = {
+                application: {
+                    id: application.id,
+                    application_number: application.application_number,
+                    applicant_name: application.applicant_name,
+                    email: application.email,
+                    phone: application.phone,
+                    pan_number: application.pan_number,
+                    aadhar_number: application.aadhar_number,
+                    loan_amount: application.loan_amount,
+                    loan_purpose: application.loan_purpose,
+                    employment_type: application.employment_type,
+                    monthly_income: application.monthly_income,
+                    current_stage: application.current_stage,
+                    status: application.status,
+                    created_at: application.created_at,
+                    updated_at: application.updated_at
                 },
-                loan_details: {
-                    amount: app.loan_amount,
-                    purpose: app.loan_purpose,
-                    tenure_months: app.preferred_tenure_months
-                },
-                eligibility: {
-                    status: app.eligibility_status,
-                    score: app.eligibility_score,
-                    decision: app.eligibility_decision,
-                    reasons: app.eligibility_reasons ? JSON.parse(app.eligibility_reasons) : []
-                },
-                audit_logs: auditLogs.map(log => ({
-                    action: log.action,
-                    stage: log.stage,
-                    user_id: log.user_id,
-                    created_at: log.created_at,
-                    request_data: log.request_data ? JSON.parse(log.request_data) : {},
-                    response_data: log.response_data ? JSON.parse(log.response_data) : {}
-                }))
+                stage_processing: stageProcessing,
+                credit_decisions: creditDecisions,
+                audit_logs: auditLogs,
+                verifications: verifications
             };
 
             res.json({
                 success: true,
-                data: {
-                    application: applicationDetails
-                }
+                data: details,
+                timestamp: new Date().toISOString()
             });
 
         } catch (error) {
@@ -336,7 +425,7 @@ class DashboardController {
         }
     };
 
-    // LMS Overview
+    // LMS Overview (for approved loans)
     getLMSOverview = async (req, res) => {
         try {
             if (!this.pool) {
@@ -344,16 +433,33 @@ class DashboardController {
             }
 
             const connection = await this.pool.getConnection();
-            
-            // Get loan metrics
-            const [loanMetrics] = await connection.execute(`
+
+            // Get approved loans metrics
+            const [metricsResult] = await connection.execute(`
                 SELECT 
-                    COUNT(*) as total_loans,
-                    SUM(loan_amount) as total_loan_amount,
-                    AVG(loan_amount) as avg_loan_amount,
-                    COUNT(CASE WHEN eligibility_status = 'approved' THEN 1 END) as approved_loans,
-                    COUNT(CASE WHEN eligibility_status = 'rejected' THEN 1 END) as rejected_loans
-                FROM stage_1_data
+                    COUNT(*) as total_approved_loans,
+                    SUM(loan_amount) as total_disbursed_amount,
+                    AVG(loan_amount) as average_loan_amount,
+                    COUNT(CASE WHEN status = 'approved' THEN 1 END) as active_loans
+                FROM loan_applications
+                WHERE status IN ('approved', 'conditional_approval')
+            `);
+
+            // Get recent approved loans
+            const [recentLoans] = await connection.execute(`
+                SELECT 
+                    application_number,
+                    applicant_name,
+                    loan_amount,
+                    loan_purpose,
+                    employment_type,
+                    monthly_income,
+                    created_at,
+                    status
+                FROM loan_applications
+                WHERE status IN ('approved', 'conditional_approval')
+                ORDER BY created_at DESC
+                LIMIT 10
             `);
 
             // Get loan purpose distribution
@@ -362,7 +468,8 @@ class DashboardController {
                     loan_purpose,
                     COUNT(*) as count,
                     SUM(loan_amount) as total_amount
-                FROM stage_1_data
+                FROM loan_applications
+                WHERE status IN ('approved', 'conditional_approval')
                 GROUP BY loan_purpose
                 ORDER BY count DESC
             `);
@@ -371,23 +478,20 @@ class DashboardController {
 
             const overview = {
                 metrics: {
-                    total_loans: loanMetrics[0].total_loans,
-                    total_loan_amount: loanMetrics[0].total_loan_amount,
-                    avg_loan_amount: loanMetrics[0].avg_loan_amount,
-                    approved_loans: loanMetrics[0].approved_loans,
-                    rejected_loans: loanMetrics[0].rejected_loans
+                    total_approved_loans: metricsResult[0].total_approved_loans || 0,
+                    total_disbursed_amount: metricsResult[0].total_disbursed_amount || 0,
+                    average_loan_amount: metricsResult[0].average_loan_amount || 0,
+                    active_loans: metricsResult[0].active_loans || 0
                 },
-                purpose_distribution: purposeDistribution.map(item => ({
-                    purpose: item.loan_purpose,
-                    count: item.count,
-                    total_amount: item.total_amount
-                }))
+                recent_loans: recentLoans,
+                purpose_distribution: purposeDistribution
             };
 
             res.json({
                 success: true,
                 data: {
-                    overview
+                    overview,
+                    timestamp: new Date().toISOString()
                 }
             });
 
@@ -401,48 +505,51 @@ class DashboardController {
         }
     };
 
-    // Legacy dashboard endpoints for backward compatibility
+    // Recent Activities
     getRecentActivities = async (req, res) => {
         try {
             if (!this.pool) {
                 await this.initialize();
             }
 
-            const { limit = 10 } = req.query;
-
             const connection = await this.pool.getConnection();
-            
-            const [activities] = await connection.execute(`
+
+            // Get recent audit logs
+            const [recentLogs] = await connection.execute(`
                 SELECT 
-                    a.application_number,
-                    a.current_stage,
-                    a.status,
-                    a.created_at,
-                    a.last_updated,
-                    s1.full_name,
-                    s1.loan_amount
-                FROM applications a
-                LEFT JOIN stage_1_data s1 ON a.id = s1.application_id
-                ORDER BY a.last_updated DESC
-                LIMIT ?
-            `, [parseInt(limit)]);
+                    application_number,
+                    action,
+                    stage,
+                    created_at
+                FROM audit_logs
+                ORDER BY created_at DESC
+                LIMIT 20
+            `);
+
+            // Get recent stage processing updates
+            const [recentStages] = await connection.execute(`
+                SELECT 
+                    application_number,
+                    stage_name,
+                    status,
+                    started_at,
+                    completed_at
+                FROM stage_processing
+                ORDER BY started_at DESC
+                LIMIT 10
+            `);
 
             connection.release();
 
-            const recentActivities = activities.map(activity => ({
-                application_number: activity.application_number,
-                activity_type: this.getActivityType(activity.current_stage),
-                activity_description: this.getActivityDescription(activity.current_stage, activity.status),
-                timestamp: activity.last_updated,
-                applicant_name: activity.full_name,
-                loan_amount: activity.loan_amount
-            }));
+            const activities = {
+                audit_logs: recentLogs,
+                stage_updates: recentStages,
+                timestamp: new Date().toISOString()
+            };
 
             res.json({
                 success: true,
-                data: {
-                    activities: recentActivities
-                }
+                data: activities
             });
 
         } catch (error) {
@@ -455,6 +562,7 @@ class DashboardController {
         }
     };
 
+    // Dashboard Stats
     getDashboardStats = async (req, res) => {
         try {
             if (!this.pool) {
@@ -462,35 +570,55 @@ class DashboardController {
             }
 
             const connection = await this.pool.getConnection();
-            
-            const [stats] = await connection.execute(`
+
+            // Get comprehensive stats
+            const [statsResult] = await connection.execute(`
                 SELECT 
                     COUNT(*) as total_applications,
                     COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,
                     COUNT(CASE WHEN status = 'approved' THEN 1 END) as approved,
                     COUNT(CASE WHEN status = 'rejected' THEN 1 END) as rejected,
-                    COUNT(CASE WHEN status = 'conditional_approval' THEN 1 END) as conditional_approval,
-                    SUM(s1.loan_amount) as total_loan_amount,
-                    AVG(s1.loan_amount) as avg_loan_amount
-                FROM applications a
-                LEFT JOIN stage_1_data s1 ON a.id = s1.application_id
+                    COUNT(CASE WHEN status = 'conditional_approval' THEN 1 END) as conditional,
+                    SUM(loan_amount) as total_loan_amount,
+                    AVG(loan_amount) as avg_loan_amount,
+                    COUNT(CASE WHEN current_stage = 'pre_qualification' THEN 1 END) as stage1_count,
+                    COUNT(CASE WHEN current_stage = 'application_processing' THEN 1 END) as stage2_count
+                FROM loan_applications
+            `);
+
+            // Get daily application trends (last 7 days)
+            const [dailyTrends] = await connection.execute(`
+                SELECT 
+                    DATE(created_at) as date,
+                    COUNT(*) as applications,
+                    SUM(loan_amount) as total_amount
+                FROM loan_applications
+                WHERE created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)
+                GROUP BY DATE(created_at)
+                ORDER BY date DESC
             `);
 
             connection.release();
 
+            const stats = {
+                overview: {
+                    total_applications: statsResult[0].total_applications || 0,
+                    pending: statsResult[0].pending || 0,
+                    approved: statsResult[0].approved || 0,
+                    rejected: statsResult[0].rejected || 0,
+                    conditional: statsResult[0].conditional || 0,
+                    total_loan_amount: statsResult[0].total_loan_amount || 0,
+                    avg_loan_amount: statsResult[0].avg_loan_amount || 0,
+                    stage1_count: statsResult[0].stage1_count || 0,
+                    stage2_count: statsResult[0].stage2_count || 0
+                },
+                daily_trends: dailyTrends,
+                timestamp: new Date().toISOString()
+            };
+
             res.json({
                 success: true,
-                data: {
-                    stats: {
-                        total_applications: stats[0].total_applications,
-                        pending: stats[0].pending,
-                        approved: stats[0].approved,
-                        rejected: stats[0].rejected,
-                        conditional_approval: stats[0].conditional_approval,
-                        total_loan_amount: stats[0].total_loan_amount,
-                        avg_loan_amount: stats[0].avg_loan_amount
-                    }
-                }
+                data: stats
             });
 
         } catch (error) {
@@ -502,30 +630,6 @@ class DashboardController {
             });
         }
     };
-
-    // Helper methods
-    getActivityType = (stage) => {
-        const stageMapping = {
-            'pre_qualification': 'Pre-qualification',
-            'loan_application': 'Loan Application',
-            'application_processing': 'Application Processing',
-            'underwriting': 'Underwriting',
-            'credit_decision': 'Credit Decision',
-            'quality_check': 'Quality Check',
-            'loan_funding': 'Loan Funding'
-        };
-        return stageMapping[stage] || 'Unknown';
-    };
-
-    getActivityDescription = (stage, status) => {
-        if (stage === 'pre_qualification') {
-            return `Pre-qualification ${status}`;
-        } else if (stage === 'loan_application') {
-            return `Loan application ${status}`;
-        }
-        return `${stage} ${status}`;
-    };
 }
 
-const dashboardController = new DashboardController();
-module.exports = dashboardController;
+module.exports = new DashboardController();

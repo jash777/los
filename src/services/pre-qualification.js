@@ -78,7 +78,7 @@ class PreQualificationService {
             }
 
             // Step 3: Update stage to in-progress
-            await databaseService.updateApplicationStage(applicationId, 'pre_qualification', 'under_review');
+            await databaseService.updateApplicationStage(applicationId, 'pre_qualification', 'in_progress');
 
             // Step 3: Basic validation
             const validationResult = this.performBasicValidation(applicationData, requestId);

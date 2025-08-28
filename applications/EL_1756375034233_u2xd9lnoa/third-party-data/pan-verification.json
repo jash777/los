@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "panData": {
+    "pan_number": "SUNIT1234D",
+    "name": "SUNITA DEVI",
+    "status": "active"
+  },
+  "nameMatch": {
+    "isMatch": true,
+    "matchPercentage": 95
+  },
+  "dobMatch": {
+    "isMatch": true,
+    "verified": true
+  }
+}

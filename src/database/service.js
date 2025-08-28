@@ -5,10 +5,13 @@
 
 const databaseConfig = require('../config/database');
 const logger = require('../utils/logger');
+const fs = require('fs').promises;
+const path = require('path');
 
 class DatabaseService {
     constructor() {
         this.pool = null;
+        this.applicationsDir = path.join(__dirname, '../../applications');
     }
 
     /**
@@ -25,7 +28,7 @@ class DatabaseService {
     // =====================================================
 
     /**
-     * Create new application
+     * Create new application with dual storage (DB + File)
      */
     async createApplication(applicationData) {
         const connection = await this.pool.getConnection();
@@ -71,7 +74,10 @@ class DatabaseService {
             
             await connection.commit();
             
-            logger.info(`Created application: ${applicationNumber}`);
+            // Create file-based storage
+            await this.createApplicationFile(applicationNumber, applicationData);
+            
+            logger.info(`Created application: ${applicationNumber} (DB + File)`);
             return {
                 success: true,
                 applicationId,
@@ -89,7 +95,7 @@ class DatabaseService {
     }
 
     /**
-     * Update application stage and status
+     * Update application stage and status with dual storage
      */
     async updateApplicationStage(applicationId, newStage, newStatus, stageResult = null) {
         const connection = await this.pool.getConnection();
@@ -97,9 +103,9 @@ class DatabaseService {
         try {
             await connection.beginTransaction();
             
-            // Get current stage/status
+            // Get current stage/status and application number
             const [currentApp] = await connection.execute(
-                'SELECT current_stage, status FROM loan_applications WHERE id = ?',
+                'SELECT current_stage, status, application_number FROM loan_applications WHERE id = ?',
                 [applicationId]
             );
             
@@ -109,6 +115,7 @@ class DatabaseService {
             
             const oldStage = currentApp[0].current_stage;
             const oldStatus = currentApp[0].status;
+            const applicationNumber = currentApp[0].application_number;
             
             // Update application
             await connection.execute(`
@@ -116,6 +123,16 @@ class DatabaseService {
                 SET current_stage = ?, status = ?, updated_at = CURRENT_TIMESTAMP
                 WHERE id = ?
             `, [newStage, newStatus, applicationId]);
+            
+            // Map application status to stage processing status
+            const stageProcessingStatus = this.mapApplicationStatusToStageStatus(newStatus);
+            
+            // Update stage processing
+            await connection.execute(`
+                UPDATE stage_processing 
+                SET status = ?, completed_at = CURRENT_TIMESTAMP, result_data = ?
+                WHERE application_number = ? AND stage_name = ?
+            `, [stageProcessingStatus, JSON.stringify(stageResult), applicationNumber, newStage]);
             
             // Create audit log
             await this.createAuditLog(connection, applicationId, 'stage_updated', newStage,
@@ -125,7 +142,10 @@ class DatabaseService {
             
             await connection.commit();
             
-            logger.info(`Updated application ${applicationId} stage: ${oldStage} -> ${newStage}`);
+            // Update file-based storage
+            await this.updateApplicationFile(applicationNumber, newStage, newStatus, stageResult);
+            
+            logger.info(`Updated application ${applicationId} stage: ${oldStage} -> ${newStage} (DB + File)`);
             return { success: true };
             
         } catch (error) {
@@ -291,7 +311,7 @@ class DatabaseService {
     }
 
     /**
-     * Get complete application data
+     * Get complete application data from database
      */
     async getCompleteApplication(applicationNumber) {
         const connection = await this.pool.getConnection();
@@ -309,9 +329,9 @@ class DatabaseService {
             
             const application = applications[0];
             
-            // Get stage processing data
+            // Get stage processing data (using correct column name)
             const [stageProcessing] = await connection.execute(
-                'SELECT * FROM stage_processing WHERE application_number = ? ORDER BY created_at DESC',
+                'SELECT * FROM stage_processing WHERE application_number = ? ORDER BY started_at DESC',
                 [applicationNumber]
             );
             
@@ -358,7 +378,7 @@ class DatabaseService {
         
         try {
             const [applications] = await connection.execute(
-                'SELECT * FROM v_application_summary WHERE application_number = ?',
+                'SELECT * FROM loan_applications WHERE application_number = ?',
                 [applicationNumber]
             );
             
@@ -377,6 +397,195 @@ class DatabaseService {
     }
 
     // =====================================================
+    // FILE-BASED STORAGE
+    // =====================================================
+
+    /**
+     * Create application file structure
+     */
+    async createApplicationFile(applicationNumber, applicationData) {
+        try {
+            const appDir = path.join(this.applicationsDir, applicationNumber);
+            
+            // Create directory structure
+            await fs.mkdir(appDir, { recursive: true });
+            await fs.mkdir(path.join(appDir, 'documents'), { recursive: true });
+            await fs.mkdir(path.join(appDir, 'third-party-data'), { recursive: true });
+            await fs.mkdir(path.join(appDir, 'communications'), { recursive: true });
+            await fs.mkdir(path.join(appDir, 'processing-logs'), { recursive: true });
+            
+            // Create initial application data file
+            const appData = {
+                application_info: {
+                    application_number: applicationNumber,
+                    created_at: new Date().toISOString(),
+                    last_updated: new Date().toISOString(),
+                    current_stage: 'pre_qualification',
+                    status: 'pending'
+                },
+                stage_1_data: {
+                    personal_details: {
+                        full_name: applicationData.applicant_name,
+                        mobile: applicationData.phone,
+                        email: applicationData.email,
+                        pan_number: applicationData.pan_number,
+                        date_of_birth: applicationData.dateOfBirth
+                    },
+                    loan_request: {
+                        loan_amount: applicationData.loan_amount,
+                        loan_purpose: applicationData.loan_purpose,
+                        preferred_tenure_months: 36
+                    }
+                },
+                stage_2_data: {
+                    employment_details: {
+                        employment_type: null,
+                        company_name: null,
+                        designation: null,
+                        work_experience_years: null,
+                        monthly_salary: null,
+                        company_address: null,
+                        hr_contact: null
+                    },
+                    income_details: {
+                        monthly_salary: null,
+                        other_income: null,
+                        total_monthly_income: null,
+                        existing_emi: null,
+                        net_monthly_income: null
+                    },
+                    banking_details: {
+                        primary_bank: null,
+                        account_number: null,
+                        account_type: null,
+                        average_monthly_balance: null,
+                        banking_relationship_years: null
+                    },
+                    address_details: {
+                        current_address: {
+                            address_line_1: null,
+                            address_line_2: null,
+                            city: null,
+                            state: null,
+                            pincode: null,
+                            residence_type: null,
+                            years_at_current_address: null
+                        },
+                        permanent_address: {
+                            address_line_1: null,
+                            address_line_2: null,
+                            city: null,
+                            state: null,
+                            pincode: null,
+                            same_as_current: null
+                        }
+                    },
+                    references: {
+                        personal_reference_1: {
+                            name: null,
+                            relationship: null,
+                            mobile: null,
+                            email: null
+                        },
+                        personal_reference_2: {
+                            name: null,
+                            relationship: null,
+                            mobile: null,
+                            email: null
+                        },
+                        professional_reference: {
+                            name: null,
+                            designation: null,
+                            company: null,
+                            mobile: null,
+                            email: null
+                        }
+                    },
+                    financial_details: {
+                        monthly_expenses: null,
+                        existing_loans: [],
+                        credit_cards: [],
+                        investments: [],
+                        assets: []
+                    }
+                },
+                processing_history: [],
+                verification_results: {},
+                decision_data: {}
+            };
+            
+            await fs.writeFile(
+                path.join(appDir, 'application-data.json'),
+                JSON.stringify(appData, null, 2)
+            );
+            
+            logger.info(`Created application file: ${applicationNumber}`);
+            
+        } catch (error) {
+            logger.error(`Error creating application file for ${applicationNumber}:`, error);
+            // Don't throw error - file storage is secondary to database
+        }
+    }
+
+    /**
+     * Update application file with new data
+     */
+    async updateApplicationFile(applicationNumber, stage, status, stageResult) {
+        try {
+            const appDataPath = path.join(this.applicationsDir, applicationNumber, 'application-data.json');
+            
+            // Read existing data
+            const existingData = JSON.parse(await fs.readFile(appDataPath, 'utf8'));
+            
+            // Update application info
+            existingData.application_info.last_updated = new Date().toISOString();
+            existingData.application_info.current_stage = stage;
+            existingData.application_info.status = status;
+            
+            // Add processing history
+            existingData.processing_history.push({
+                stage: stage,
+                status: status,
+                timestamp: new Date().toISOString(),
+                result: stageResult
+            });
+            
+            // Update stage-specific data
+            if (stage === 'pre_qualification' && stageResult) {
+                existingData.stage_1_data.eligibility_result = {
+                    status: status,
+                    score: stageResult.decision_score || 0,
+                    decision: status,
+                    reasons: stageResult.decision_reason ? [stageResult.decision_reason] : []
+                };
+            }
+            
+            // Write updated data
+            await fs.writeFile(appDataPath, JSON.stringify(existingData, null, 2));
+            
+            logger.info(`Updated application file: ${applicationNumber}`);
+            
+        } catch (error) {
+            logger.error(`Error updating application file for ${applicationNumber}:`, error);
+            // Don't throw error - file storage is secondary to database
+        }
+    }
+
+    /**
+     * Get application data from file
+     */
+    async getApplicationFile(applicationNumber) {
+        try {
+            const appDataPath = path.join(this.applicationsDir, applicationNumber, 'application-data.json');
+            const data = await fs.readFile(appDataPath, 'utf8');
+            return JSON.parse(data);
+        } catch (error) {
+            logger.error(`Error reading application file for ${applicationNumber}:`, error);
+            return null;
+        }
+    }
+
+    // =====================================================
     // HELPER METHODS
     // =====================================================
 
@@ -390,6 +599,21 @@ class DatabaseService {
     }
 
     /**
+     * Map application status to stage processing status
+     */
+    mapApplicationStatusToStageStatus(applicationStatus) {
+        const statusMapping = {
+            'pending': 'pending',
+            'in_progress': 'in_progress', 
+            'approved': 'completed',
+            'rejected': 'failed',
+            'under_review': 'in_progress'
+        };
+        
+        return statusMapping[applicationStatus] || 'pending';
+    }
+
+    /**
      * Create audit log entry
      */
     async createAuditLog(connection, applicationId, actionType, stageName, oldValues = null, newValues = null) {
@@ -399,21 +623,24 @@ class DatabaseService {
             [applicationId]
         );
         
-        if (app.length > 0) {
-            await connection.execute(`
-                INSERT INTO audit_logs (
-                    application_number, action, stage, 
-                    user_id, request_data, response_data
-                ) VALUES (?, ?, ?, ?, ?, ?)
-            `, [
-                app[0].application_number,
-                actionType.substring(0, 100), // Truncate action to fit VARCHAR(100)
-                stageName.substring(0, 50), // Truncate stage to fit VARCHAR(50)
-                'system',
-                JSON.stringify(oldValues || {}),
-                JSON.stringify(newValues || {})
-            ]);
+        if (app.length === 0) {
+            logger.warn(`Cannot create audit log - application ${applicationId} not found`);
+            return;
         }
+        
+        const applicationNumber = app[0].application_number;
+        
+        await connection.execute(`
+            INSERT INTO audit_logs (
+                application_number, action, stage, request_data, response_data
+            ) VALUES (?, ?, ?, ?, ?)
+        `, [
+            applicationNumber,
+            actionType,
+            stageName,
+            oldValues ? JSON.stringify(oldValues) : null,
+            newValues ? JSON.stringify(newValues) : null
+        ]);
     }
 
     /**
@@ -452,14 +679,14 @@ class DatabaseService {
     }
 
     /**
-     * Close database connections
+     * Close database connection pool
      */
     async close() {
-        await databaseConfig.close();
-        logger.info('Database service closed');
+        if (this.pool) {
+            await this.pool.end();
+            logger.info('📊 MySQL database connection pool closed');
+        }
     }
 }
 
-// Export singleton instance
-const databaseService = new DatabaseService();
-module.exports = databaseService;
+module.exports = new DatabaseService();

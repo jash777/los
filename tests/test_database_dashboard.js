@@ -1,5 +1,5 @@
 const axios = require('axios');
-const databaseConfig = require('./src/config/database');
+const databaseConfig = require('../src/config/database');
 
 // Configure axios
 const api = axios.create({

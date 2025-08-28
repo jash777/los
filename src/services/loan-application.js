@@ -43,7 +43,7 @@ class LoanApplicationService {
             const applicationId = existingApp.id;
 
             // Update stage to application-processing
-            await databaseService.updateApplicationStage(applicationId, 'application_processing', 'under_review');
+            await databaseService.updateApplicationStage(applicationId, 'application_processing', 'in_progress');
 
             // Step 1: Validate loan application data with enhanced error handling
             const validationResult = this.validateLoanApplicationData(loanApplicationData);
