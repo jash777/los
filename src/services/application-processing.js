@@ -41,14 +41,16 @@ class ApplicationProcessingService {
                 throw new Error('Application not found');
             }
 
-            if (existingApp.current_stage !== 'loan_application' || existingApp.current_status !== 'approved') {
-                throw new Error(`Application must complete comprehensive loan application to proceed to application processing. Current: ${existingApp.current_stage}/${existingApp.current_status}`);
+            // Allow both loan_application and application_processing stages for flexibility
+            if ((existingApp.current_stage !== 'loan_application' && existingApp.current_stage !== 'application_processing') || 
+                existingApp.current_status !== 'approved') {
+                throw new Error(`Application must complete loan application to proceed to application processing. Current: ${existingApp.current_stage}/${existingApp.current_status}`);
             }
 
             const applicationId = existingApp.id;
 
             // Update stage to application_processing
-            await databaseService.updateApplicationStage(applicationId, 'application_processing', 'in_progress');
+            await databaseService.updateApplicationStage(applicationId, 'application_processing', 'under_review');
 
             // Step 1: Document verification
             const documentResult = await this.performDocumentVerification(applicationId, requestId);

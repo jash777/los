@@ -10,8 +10,17 @@ const router = express.Router();
 const loanApplicationController = new LoanApplicationController();
 
 /**
- * @route POST /api/loan-application/:applicationNumber
+ * @route POST /api/loan-application/process/:applicationNumber
  * @desc Process comprehensive loan application (Stage 2)
+ * @access Public
+ */
+router.post('/process/:applicationNumber', async (req, res) => {
+    await loanApplicationController.processLoanApplication(req, res);
+});
+
+/**
+ * @route POST /api/loan-application/:applicationNumber
+ * @desc Process comprehensive loan application (Stage 2) - Legacy endpoint
  * @access Public
  */
 router.post('/:applicationNumber', async (req, res) => {

@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "panData": {
+    "pan_number": "EMMPP2177A",
+    "name_on_pan": "JASHUVA PEYYALA",
+    "status": "VALID",
+    "verification_date": "2025-08-29T08:41:01.698Z"
+  },
+  "nameMatch": {
+    "isMatch": true,
+    "matchPercentage": 1,
+    "providedName": "JASHUVA PEYYALA",
+    "panName": "JASHUVA PEYYALA"
+  },
+  "errors": []
+}

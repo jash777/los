@@ -9,8 +9,17 @@ const router = express.Router();
 const applicationProcessingController = new ApplicationProcessingController();
 
 /**
+ * @route POST /api/application-processing/process/:applicationNumber
+ * @desc Process loan application (Stage 3)
+ * @access Public
+ */
+router.post('/process/:applicationNumber', async (req, res) => {
+    await applicationProcessingController.processApplication(req, res);
+});
+
+/**
  * @route POST /api/application-processing/:applicationNumber
- * @desc Process loan application (Stage 2)
+ * @desc Process loan application (Stage 3) - Legacy endpoint
  * @access Public
  */
 router.post('/:applicationNumber', async (req, res) => {

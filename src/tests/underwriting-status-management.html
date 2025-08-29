@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwriting Status Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .btn:hover {
+            background: #5a67d8;
+        }
+        
+        .btn-success {
+            background: #48bb78;
+        }
+        
+        .btn-success:hover {
+            background: #38a169;
+        }
+        
+        .btn-danger {
+            background: #f56565;
+        }
+        
+        .btn-danger:hover {
+            background: #e53e3e;
+        }
+        
+        .btn-warning {
+            background: #ed8936;
+        }
+        
+        .btn-warning:hover {
+            background: #dd6b20;
+        }
+        
+        .applications-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .applications-table th,
+        .applications-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .applications-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-pending { background: #fed7d7; color: #c53030; }
+        .status-under_review { background: #feebc8; color: #c05621; }
+        .status-approved { background: #c6f6d5; color: #22543d; }
+        .status-rejected { background: #fed7d7; color: #c53030; }
+        .status-in_progress { background: #bee3f8; color: #2c5282; }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .success-message {
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .error-message {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .checkbox-group {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 5px;
+        }
+        
+        .checkbox-item input {
+            width: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏦 Underwriting Status Management</h1>
+            <p>Manage application statuses for the underwriting dashboard</p>
+        </div>
+
+        <!-- Statistics Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>📊 Dashboard Statistics</h2>
+            </div>
+            <div class="card-body">
+                <div id="stats-loading" class="loading">Loading statistics...</div>
+                <div id="stats-content" class="hidden">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span id="total-apps" class="stat-number">0</span>
+                            <span class="stat-label">Total Applications</span>
+                        </div>
+                        <div class="stat-card">
+                            <span id="in-underwriting" class="stat-number">0</span>
+                            <span class="stat-label">In Underwriting</span>
+                        </div>
+                        <div class="stat-card">
+                            <span id="pending-count" class="stat-number">0</span>
+                            <span class="stat-label">Pending</span>
+                        </div>
+                        <div class="stat-card">
+                            <span id="under-review-count" class="stat-number">0</span>
+                            <span class="stat-label">Under Review</span>
+                        </div>
+                        <div class="stat-card">
+                            <span id="approved-count" class="stat-number">0</span>
+                            <span class="stat-label">Approved</span>
+                        </div>
+                        <div class="stat-card">
+                            <span id="rejected-count" class="stat-number">0</span>
+                            <span class="stat-label">Rejected</span>
+                        </div>
+                    </div>
+                    <button class="btn" onclick="loadStats()">🔄 Refresh Stats</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>⚡ Quick Actions</h2>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-success" onclick="setupDemo()">🎭 Setup Demo Data</button>
+                <button class="btn" onclick="loadApplications()">📋 Load Applications</button>
+                <button class="btn" onclick="showBulkActions()">📦 Bulk Actions</button>
+            </div>
+        </div>
+
+        <!-- Applications List Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>📋 Applications</h2>
+                <div style="margin-top: 10px;">
+                    <select id="stage-filter" onchange="loadApplications()">
+                        <option value="underwriting">Underwriting</option>
+                        <option value="pre_qualification">Pre-Qualification</option>
+                        <option value="credit_decision">Credit Decision</option>
+                    </select>
+                    <select id="status-filter" onchange="loadApplications()" style="margin-left: 10px;">
+                        <option value="">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="under_review">Under Review</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                        <option value="in_progress">In Progress</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="applications-loading" class="loading hidden">Loading applications...</div>
+                <div id="applications-content">
+                    <p>Click "Load Applications" to view applications</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulk Actions Modal -->
+        <div id="bulk-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 10px; max-width: 600px; width: 90%;">
+                <h3>📦 Bulk Actions</h3>
+                <div class="form-group">
+                    <label>Action Type:</label>
+                    <select id="bulk-action">
+                        <option value="move">Move to Underwriting</option>
+                        <option value="update">Update Status</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Target Status:</label>
+                    <select id="bulk-status">
+                        <option value="pending">Pending</option>
+                        <option value="under_review">Under Review</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Application Numbers (one per line):</label>
+                    <textarea id="bulk-applications" rows="6" placeholder="EL_1756357120212_vqutijowi&#10;EL_1756357646700_m671scq93&#10;EL_1756358155286_itgiitlzf"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Comments (optional):</label>
+                    <input type="text" id="bulk-comments" placeholder="Batch update via web interface">
+                </div>
+                <div>
+                    <button class="btn btn-success" onclick="executeBulkAction()">Execute</button>
+                    <button class="btn" onclick="hideBulkActions()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div id="message-container"></div>
+    </div>
+
+    <script>
+        const API_BASE = '/api/underwriting-status';
+        
+        // Load statistics on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStats();
+        });
+
+        async function loadStats() {
+            document.getElementById('stats-loading').classList.remove('hidden');
+            document.getElementById('stats-content').classList.add('hidden');
+            
+            try {
+                const response = await fetch(`${API_BASE}/stats`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    const stats = data.stats;
+                    document.getElementById('total-apps').textContent = stats.total_applications;
+                    document.getElementById('in-underwriting').textContent = stats.in_underwriting;
+                    document.getElementById('pending-count').textContent = stats.pending;
+                    document.getElementById('under-review-count').textContent = stats.under_review;
+                    document.getElementById('approved-count').textContent = stats.approved;
+                    document.getElementById('rejected-count').textContent = stats.rejected;
+                    
+                    document.getElementById('stats-loading').classList.add('hidden');
+                    document.getElementById('stats-content').classList.remove('hidden');
+                } else {
+                    showMessage('Error loading statistics: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showMessage('Error loading statistics: ' + error.message, 'error');
+            }
+        }
+
+        async function loadApplications() {
+            const stage = document.getElementById('stage-filter').value;
+            const status = document.getElementById('status-filter').value;
+            
+            document.getElementById('applications-loading').classList.remove('hidden');
+            
+            try {
+                let url = `${API_BASE}/applications?stage=${stage}`;
+                if (status) {
+                    url += `&status=${status}`;
+                }
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayApplications(data.applications);
+                } else {
+                    showMessage('Error loading applications: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showMessage('Error loading applications: ' + error.message, 'error');
+            } finally {
+                document.getElementById('applications-loading').classList.add('hidden');
+            }
+        }
+
+        function displayApplications(applications) {
+            const container = document.getElementById('applications-content');
+            
+            if (applications.length === 0) {
+                container.innerHTML = '<p>No applications found for the selected criteria.</p>';
+                return;
+            }
+            
+            let html = `
+                <table class="applications-table">
+                    <thead>
+                        <tr>
+                            <th>Application Number</th>
+                            <th>Status</th>
+                            <th>Applicant</th>
+                            <th>Loan Amount</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            applications.forEach(app => {
+                html += `
+                    <tr>
+                        <td>${app.application_number}</td>
+                        <td><span class="status-badge status-${app.status}">${app.status}</span></td>
+                        <td>${app.applicant_name || 'N/A'}</td>
+                        <td>₹${(app.loan_amount || 0).toLocaleString()}</td>
+                        <td>${new Date(app.created_at).toLocaleDateString()}</td>
+                    </tr>
+                `;
+            });
+            
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+
+        async function setupDemo() {
+            if (!confirm('This will setup demo data with applications in various underwriting statuses. Continue?')) {
+                return;
+            }
+            
+            showMessage('Setting up demo data...', 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE}/setup-demo`, {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    showMessage('Demo setup completed successfully!', 'success');
+                    loadStats();
+                    loadApplications();
+                } else {
+                    showMessage('Demo setup failed: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showMessage('Error setting up demo: ' + error.message, 'error');
+            }
+        }
+
+        function showBulkActions() {
+            document.getElementById('bulk-modal').classList.remove('hidden');
+        }
+
+        function hideBulkActions() {
+            document.getElementById('bulk-modal').classList.add('hidden');
+        }
+
+        async function executeBulkAction() {
+            const action = document.getElementById('bulk-action').value;
+            const status = document.getElementById('bulk-status').value;
+            const applicationsText = document.getElementById('bulk-applications').value;
+            const comments = document.getElementById('bulk-comments').value;
+            
+            if (!applicationsText.trim()) {
+                alert('Please enter application numbers');
+                return;
+            }
+            
+            const applicationNumbers = applicationsText.split('\n').map(s => s.trim()).filter(s => s);
+            
+            if (applicationNumbers.length === 0) {
+                alert('Please enter valid application numbers');
+                return;
+            }
+            
+            const endpoint = action === 'move' ? '/move-to-underwriting' : '/update-status';
+            const payload = {
+                applicationNumbers,
+                status,
+                comments: comments || 'Batch update via web interface'
+            };
+            
+            showMessage(`Processing ${applicationNumbers.length} applications...`, 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE}${endpoint}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showMessage(`Bulk action completed: ${data.successful} successful, ${data.failed} failed`, 'success');
+                    hideBulkActions();
+                    loadStats();
+                    loadApplications();
+                } else {
+                    showMessage('Bulk action failed: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showMessage('Error executing bulk action: ' + error.message, 'error');
+            }
+        }
+
+        function showMessage(message, type = 'info') {
+            const container = document.getElementById('message-container');
+            const messageClass = type === 'success' ? 'success-message' : type === 'error' ? 'error-message' : 'success-message';
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = messageClass;
+            messageDiv.textContent = message;
+            
+            container.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

@@ -77,8 +77,8 @@ class PreQualificationService {
                 logger.warn(`[${requestId}] Failed to create application template: ${templateError.message}`);
             }
 
-            // Step 3: Update stage to in-progress
-            await databaseService.updateApplicationStage(applicationId, 'pre_qualification', 'in_progress');
+            // Step 3: Update stage to under review
+            await databaseService.updateApplicationStage(applicationId, 'pre_qualification', 'under_review');
 
             // Step 3: Basic validation
             const validationResult = this.performBasicValidation(applicationData, requestId);
@@ -686,6 +686,132 @@ class PreQualificationService {
         }
 
         return age;
+    }
+
+    // Third-party verification methods
+    async performPANVerification(applicationData, requestId) {
+        try {
+            logger.info(`[${requestId}] Performing PAN verification for ${applicationData.panNumber}`);
+            
+            // Simulate PAN verification API call
+            await new Promise(resolve => setTimeout(resolve, 500)); // Simulate API delay
+            
+            // Mock PAN verification response based on the pattern
+            const panData = {
+                pan_number: applicationData.panNumber,
+                name_on_pan: applicationData.applicantName.toUpperCase(),
+                status: 'VALID',
+                verification_date: new Date().toISOString()
+            };
+
+            const nameMatch = this.performNameMatch(applicationData.applicantName, panData.name_on_pan);
+
+            return {
+                success: true,
+                panData: panData,
+                nameMatch: nameMatch,
+                errors: []
+            };
+
+        } catch (error) {
+            logger.error(`[${requestId}] PAN verification failed:`, error);
+            return {
+                success: false,
+                errors: ['PAN verification service temporarily unavailable']
+            };
+        }
+    }
+
+    async performCIBILCheck(applicationData, requestId) {
+        try {
+            logger.info(`[${requestId}] Performing CIBIL check for ${applicationData.panNumber}`);
+            
+            // Simulate CIBIL API call
+            await new Promise(resolve => setTimeout(resolve, 800)); // Simulate API delay
+            
+            // Use the actual CIBIL data if PAN matches, otherwise generate mock data
+            let cibilScore = 750; // Default good score
+            let cibilData = null;
+
+            // Check if we have real CIBIL data for this PAN
+            if (applicationData.panNumber === 'EMMPP2177A') {
+                // Use the real CIBIL data from the attached file
+                const fs = require('fs');
+                const path = require('path');
+                try {
+                    const cibilFilePath = path.join(__dirname, '../../third-party-simulator/data/cibil_verification.json');
+                    const cibilFileData = JSON.parse(fs.readFileSync(cibilFilePath, 'utf8'));
+                    cibilScore = cibilFileData.data.score;
+                    cibilData = cibilFileData.data;
+                } catch (fileError) {
+                    logger.warn(`[${requestId}] Could not load CIBIL data file, using mock data`);
+                }
+            } else {
+                // Generate mock CIBIL score based on PAN pattern
+                const panDigits = applicationData.panNumber.replace(/[A-Z]/g, '');
+                const lastDigit = parseInt(panDigits.slice(-1));
+                cibilScore = 600 + (lastDigit * 20); // Score between 600-780
+            }
+
+            const grade = this.getCibilGrade(cibilScore);
+
+            return {
+                success: true,
+                score: cibilScore,
+                grade: grade,
+                data: cibilData,
+                errors: []
+            };
+
+        } catch (error) {
+            logger.error(`[${requestId}] CIBIL check failed:`, error);
+            return {
+                success: false,
+                errors: ['CIBIL verification service temporarily unavailable']
+            };
+        }
+    }
+
+    async performFraudDetection(applicationData, requestId) {
+        try {
+            logger.info(`[${requestId}] Performing fraud detection checks`);
+            
+            // Simple fraud detection logic
+            const indicators = [];
+            let riskLevel = RISK_CATEGORIES.LOW;
+
+            // Check for suspicious patterns
+            if (applicationData.phone && applicationData.phone.includes('0000')) {
+                indicators.push('Suspicious phone number pattern');
+                riskLevel = RISK_CATEGORIES.MEDIUM;
+            }
+
+            if (applicationData.email && applicationData.email.includes('temp')) {
+                indicators.push('Temporary email address detected');
+                riskLevel = RISK_CATEGORIES.MEDIUM;
+            }
+
+            // Age-based checks
+            const age = this.calculateAge(applicationData.dateOfBirth);
+            if (age < 18 || age > 80) {
+                indicators.push('Age outside normal range');
+                riskLevel = RISK_CATEGORIES.HIGH;
+            }
+
+            return {
+                riskLevel: riskLevel,
+                indicators: indicators,
+                score: indicators.length * 10 // Simple scoring
+            };
+
+        } catch (error) {
+            logger.error(`[${requestId}] Fraud detection failed:`, error);
+            return {
+                riskLevel: RISK_CATEGORIES.LOW,
+                indicators: [],
+                score: 0
+            };
+        }
     }
 
     performNameMatch(providedName, panName) {

@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "panData": {
+    "pan_number": "XYZAB5678C",
+    "name_on_pan": "SURESH KUMAR",
+    "status": "VALID",
+    "verification_date": "2025-08-29T08:15:09.618Z"
+  },
+  "nameMatch": {
+    "isMatch": true,
+    "matchPercentage": 1,
+    "providedName": "SURESH KUMAR",
+    "panName": "SURESH KUMAR"
+  },
+  "errors": []
+}

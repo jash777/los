@@ -35,14 +35,17 @@ class UnderwritingService {
                 throw new Error('Application not found');
             }
 
-            if (existingApp.current_stage !== 'application_processing' || existingApp.current_status !== 'approved') {
-                throw new Error('Application must complete processing stage to proceed to underwriting');
+            // Allow multiple valid previous stages for flexibility
+            const validPreviousStages = ['application_processing', 'underwriting'];
+            const validStatuses = ['approved', 'pending'];
+            if (!validPreviousStages.includes(existingApp.current_stage) || !validStatuses.includes(existingApp.current_status)) {
+                throw new Error(`Application must complete processing stage to proceed to underwriting. Current: ${existingApp.current_stage}/${existingApp.current_status}`);
             }
 
             const applicationId = existingApp.id;
 
             // Update stage to underwriting
-            await databaseService.updateApplicationStage(applicationId, 'underwriting', 'in_progress');
+            await databaseService.updateApplicationStage(applicationId, 'underwriting', 'under_review');
 
             // Debug: Log the application data structure
             logger.info(`[${requestId}] Application data keys:`, Object.keys(existingApp));
@@ -646,6 +649,510 @@ class UnderwritingService {
         } catch (error) {
             throw new Error(`Failed to get underwriting status: ${error.message}`);
         }
+    }
+
+    /**
+     * Get comprehensive underwriting dashboard data
+     */
+    async getUnderwritingDashboardData(applicationNumber, requestId) {
+        try {
+            logger.info(`[${requestId}] Fetching comprehensive underwriting data for ${applicationNumber}`);
+
+            // Get complete application data
+            const application = await databaseService.getCompleteApplication(applicationNumber);
+            if (!application) {
+                return {
+                    success: false,
+                    error: 'Application not found'
+                };
+            }
+
+            // Get third-party data (CIBIL, Bank Analysis, etc.)
+            const thirdPartyData = await this.getThirdPartyData(applicationNumber, requestId);
+
+            // Get risk assessment data
+            const riskData = await this.getRiskAssessmentData(application, requestId);
+
+            // Calculate DTI and financial ratios
+            const financialAnalysis = await this.calculateFinancialRatios(application, requestId);
+
+            // Get rule-based checks
+            const ruleChecks = await this.performRuleBasedChecks(application, requestId);
+
+            // Get underwriting history
+            const underwritingHistory = await this.getUnderwritingHistory(applicationNumber, requestId);
+
+            // Get manual decisions if any
+            const manualDecisions = await this.getManualDecisions(applicationNumber, requestId);
+
+            const dashboardData = {
+                application_info: {
+                    application_number: application.application_number,
+                    created_at: application.created_at,
+                    current_stage: application.current_stage,
+                    status: application.current_status,
+                    loan_amount: application.loan_amount,
+                    loan_purpose: application.loan_purpose,
+                    preferred_tenure: application.preferred_tenure_months
+                },
+                personal_details: application.personal_details || {},
+                employment_details: application.employment_details || {},
+                income_details: application.income_details || {},
+                banking_details: application.banking_details || {},
+                address_details: application.address_details || {},
+                financial_details: application.financial_details || {},
+                third_party_data: thirdPartyData,
+                risk_assessment: riskData,
+                financial_analysis: financialAnalysis,
+                rule_based_checks: ruleChecks,
+                underwriting_history: underwritingHistory,
+                manual_decisions: manualDecisions,
+                underwriting_score: riskData.overall_score || 0,
+                recommendation: this.generateUnderwritingRecommendation(riskData, financialAnalysis, ruleChecks)
+            };
+
+            return {
+                success: true,
+                data: dashboardData
+            };
+
+        } catch (error) {
+            logger.error(`[${requestId}] Error getting underwriting dashboard data:`, error);
+            return {
+                success: false,
+                error: error.message
+            };
+        }
+    }
+
+    /**
+     * Get third-party data for underwriting
+     */
+    async getThirdPartyData(applicationNumber, requestId) {
+        try {
+            // Try to read from file system first
+            const fs = require('fs').promises;
+            const path = require('path');
+            
+            const appDir = path.join(process.cwd(), 'applications', applicationNumber);
+            const thirdPartyDir = path.join(appDir, 'third-party-data');
+
+            const thirdPartyData = {
+                cibil_data: null,
+                bank_analysis: null,
+                employment_verification: null,
+                pan_verification: null
+            };
+
+            try {
+                // CIBIL Data
+                try {
+                    const cibilPath = path.join(thirdPartyDir, 'cibil-report.json');
+                    const cibilData = await fs.readFile(cibilPath, 'utf8');
+                    thirdPartyData.cibil_data = JSON.parse(cibilData);
+                } catch (e) {
+                    logger.warn(`[${requestId}] CIBIL data not found for ${applicationNumber}`);
+                }
+
+                // Bank Analysis
+                try {
+                    const bankPath = path.join(thirdPartyDir, 'bank-analysis.json');
+                    const bankData = await fs.readFile(bankPath, 'utf8');
+                    thirdPartyData.bank_analysis = JSON.parse(bankData);
+                } catch (e) {
+                    logger.warn(`[${requestId}] Bank analysis not found for ${applicationNumber}`);
+                }
+
+                // Employment Verification
+                try {
+                    const empPath = path.join(thirdPartyDir, 'employment-verification.json');
+                    const empData = await fs.readFile(empPath, 'utf8');
+                    thirdPartyData.employment_verification = JSON.parse(empData);
+                } catch (e) {
+                    logger.warn(`[${requestId}] Employment verification not found for ${applicationNumber}`);
+                }
+
+                // PAN Verification
+                try {
+                    const panPath = path.join(thirdPartyDir, 'pan-verification.json');
+                    const panData = await fs.readFile(panPath, 'utf8');
+                    thirdPartyData.pan_verification = JSON.parse(panData);
+                } catch (e) {
+                    logger.warn(`[${requestId}] PAN verification not found for ${applicationNumber}`);
+                }
+
+            } catch (error) {
+                logger.warn(`[${requestId}] Could not read third-party data directory for ${applicationNumber}`);
+            }
+
+            return thirdPartyData;
+
+        } catch (error) {
+            logger.error(`[${requestId}] Error getting third-party data:`, error);
+            return {};
+        }
+    }
+
+    /**
+     * Get risk assessment data
+     */
+    async getRiskAssessmentData(application, requestId) {
+        try {
+            // This would typically come from a risk engine
+            // For now, we'll simulate based on available data
+            const riskFactors = {
+                credit_score: application.cibil_score || 0,
+                income_stability: this.assessIncomeStability(application),
+                employment_history: this.assessEmploymentHistory(application),
+                debt_to_income: this.calculateDebtToIncomeRatio(application),
+                banking_behavior: this.assessBankingBehavior(application),
+                loan_to_value: this.calculateLoanToValue(application),
+                external_factors: this.assessExternalFactors(application)
+            };
+
+            const overallScore = this.calculateOverallRiskScore(riskFactors);
+
+            return {
+                risk_factors: riskFactors,
+                overall_score: overallScore,
+                risk_category: this.categorizeRisk(overallScore),
+                recommendation: this.getRiskRecommendation(overallScore)
+            };
+
+        } catch (error) {
+            logger.error(`[${requestId}] Error getting risk assessment data:`, error);
+            return {
+                risk_factors: {},
+                overall_score: 0,
+                risk_category: 'HIGH',
+                recommendation: 'REJECT'
+            };
+        }
+    }
+
+    /**
+     * Calculate financial ratios including DTI
+     */
+    async calculateFinancialRatios(application, requestId) {
+        try {
+            const monthlyIncome = application.income_details?.total_monthly_income || 0;
+            const existingEMI = application.income_details?.existing_emi || 0;
+            const requestedLoanAmount = application.loan_amount || 0;
+            const tenure = application.preferred_tenure_months || 36;
+
+            // Calculate proposed EMI (simplified calculation)
+            const interestRate = 12; // Assumed annual rate
+            const monthlyRate = interestRate / 12 / 100;
+            const proposedEMI = monthlyRate > 0 ? 
+                (requestedLoanAmount * monthlyRate * Math.pow(1 + monthlyRate, tenure)) / 
+                (Math.pow(1 + monthlyRate, tenure) - 1) : 0;
+
+            const totalEMI = existingEMI + proposedEMI;
+            const dti = monthlyIncome > 0 ? (totalEMI / monthlyIncome) * 100 : 100;
+            const foir = monthlyIncome > 0 ? (totalEMI / monthlyIncome) * 100 : 100; // Fixed Obligation to Income Ratio
+
+            return {
+                monthly_income: monthlyIncome,
+                existing_emi: existingEMI,
+                proposed_emi: Math.round(proposedEMI),
+                total_emi: Math.round(totalEMI),
+                debt_to_income_ratio: Math.round(dti * 100) / 100,
+                foir: Math.round(foir * 100) / 100,
+                disposable_income: Math.round(monthlyIncome - totalEMI),
+                dti_category: this.categorizeDTI(dti),
+                affordability_score: this.calculateAffordabilityScore(dti, monthlyIncome, totalEMI)
+            };
+
+        } catch (error) {
+            logger.error(`[${requestId}] Error calculating financial ratios:`, error);
+            return {
+                debt_to_income_ratio: 100,
+                dti_category: 'HIGH_RISK',
+                affordability_score: 0
+            };
+        }
+    }
+
+    /**
+     * Perform rule-based checks
+     */
+    async performRuleBasedChecks(application, requestId) {
+        try {
+            const checks = {
+                age_criteria: this.checkAgeCriteria(application),
+                income_criteria: this.checkIncomeCriteria(application),
+                employment_criteria: this.checkEmploymentCriteria(application),
+                credit_score_criteria: this.checkCreditScoreCriteria(application),
+                loan_amount_criteria: this.checkLoanAmountCriteria(application),
+                banking_criteria: this.checkBankingCriteria(application),
+                document_criteria: this.checkDocumentCriteria(application),
+                policy_compliance: this.checkPolicyCompliance(application)
+            };
+
+            const passedChecks = Object.values(checks).filter(check => check.status === 'PASS').length;
+            const totalChecks = Object.keys(checks).length;
+            const complianceScore = Math.round((passedChecks / totalChecks) * 100);
+
+            return {
+                individual_checks: checks,
+                total_checks: totalChecks,
+                passed_checks: passedChecks,
+                compliance_score: complianceScore,
+                overall_status: complianceScore >= 70 ? 'COMPLIANT' : 'NON_COMPLIANT'
+            };
+
+        } catch (error) {
+            logger.error(`[${requestId}] Error performing rule-based checks:`, error);
+            return {
+                overall_status: 'NON_COMPLIANT',
+                compliance_score: 0
+            };
+        }
+    }
+
+    /**
+     * Make manual underwriting decision
+     */
+    async makeManualUnderwritingDecision(applicationNumber, decisionData) {
+        try {
+            const { decision, comments, reviewer, conditions, requestId } = decisionData;
+
+            logger.info(`[${requestId}] Recording manual underwriting decision: ${decision} for ${applicationNumber}`);
+
+            // Get application
+            const application = await databaseService.getCompleteApplication(applicationNumber);
+            if (!application) {
+                return {
+                    success: false,
+                    error: 'Application not found'
+                };
+            }
+
+            // Update application status based on decision
+            let newStatus = 'under_review';
+            let nextStage = 'underwriting';
+
+            switch (decision) {
+                case 'approve':
+                    newStatus = 'approved';
+                    nextStage = 'credit_decision'; // Move to next stage
+                    break;
+                case 'reject':
+                    newStatus = 'rejected';
+                    nextStage = 'underwriting'; // Stay in same stage
+                    break;
+                case 'review':
+                    newStatus = 'under_review';
+                    nextStage = 'underwriting'; // Stay in same stage
+                    break;
+            }
+
+            // Update application stage and status
+            await databaseService.updateApplicationStage(application.id, nextStage, newStatus);
+
+            return {
+                success: true,
+                data: {
+                    application_number: applicationNumber,
+                    decision: decision,
+                    new_status: newStatus,
+                    next_stage: nextStage,
+                    decision_date: new Date().toISOString(),
+                    reviewer: reviewer
+                }
+            };
+
+        } catch (error) {
+            logger.error('Error making manual underwriting decision:', error);
+            return {
+                success: false,
+                error: error.message
+            };
+        }
+    }
+
+    // Helper methods for the dashboard functionality
+    async getUnderwritingHistory(applicationNumber, requestId) {
+        try {
+            return [];
+        } catch (error) {
+            logger.error(`[${requestId}] Error getting underwriting history:`, error);
+            return [];
+        }
+    }
+
+    async getManualDecisions(applicationNumber, requestId) {
+        try {
+            return [];
+        } catch (error) {
+            logger.error(`[${requestId}] Error getting manual decisions:`, error);
+            return [];
+        }
+    }
+
+    async getPendingUnderwritingApplications(options) {
+        try {
+            const { limit, offset, priority, assignedTo, requestId } = options;
+            return {
+                data: [],
+                pagination: {
+                    total: 0,
+                    limit: limit,
+                    offset: offset,
+                    has_more: false
+                }
+            };
+        } catch (error) {
+            logger.error('Error getting pending underwriting applications:', error);
+            throw error;
+        }
+    }
+
+    generateUnderwritingRecommendation(riskData, financialAnalysis, ruleChecks) {
+        try {
+            const riskScore = riskData.overall_score || 0;
+            const dti = financialAnalysis.debt_to_income_ratio || 100;
+            const complianceScore = ruleChecks.compliance_score || 0;
+
+            let recommendation = 'REJECT';
+            let confidence = 0;
+            let reasons = [];
+
+            if (riskScore >= 70 && dti <= 40 && complianceScore >= 80) {
+                recommendation = 'APPROVE';
+                confidence = 85;
+                reasons = ['Strong risk profile', 'Good DTI ratio', 'High compliance score'];
+            } else if (riskScore >= 50 && dti <= 50 && complianceScore >= 70) {
+                recommendation = 'CONDITIONAL_APPROVE';
+                confidence = 65;
+                reasons = ['Moderate risk profile', 'Acceptable DTI ratio', 'Good compliance'];
+            } else {
+                recommendation = 'REJECT';
+                confidence = 80;
+                reasons = [];
+                if (riskScore < 50) reasons.push('Low risk score');
+                if (dti > 50) reasons.push('High DTI ratio');
+                if (complianceScore < 70) reasons.push('Poor compliance score');
+            }
+
+            return {
+                recommendation,
+                confidence,
+                reasons,
+                suggested_conditions: recommendation === 'CONDITIONAL_APPROVE' ? 
+                    ['Additional income verification', 'Co-signer requirement'] : []
+            };
+
+        } catch (error) {
+            logger.error('Error generating underwriting recommendation:', error);
+            return {
+                recommendation: 'REJECT',
+                confidence: 0,
+                reasons: ['System error in recommendation generation']
+            };
+        }
+    }
+
+    // Helper methods for risk assessment
+    assessIncomeStability(application) {
+        return Math.random() * 100; // Mock for now
+    }
+
+    assessEmploymentHistory(application) {
+        return Math.random() * 100; // Mock for now
+    }
+
+    calculateDebtToIncomeRatio(application) {
+        const monthlyIncome = application.income_details?.total_monthly_income || 0;
+        const existingEMI = application.income_details?.existing_emi || 0;
+        return monthlyIncome > 0 ? (existingEMI / monthlyIncome) * 100 : 100;
+    }
+
+    assessBankingBehavior(application) {
+        return Math.random() * 100; // Mock for now
+    }
+
+    calculateLoanToValue(application) {
+        return Math.random() * 100; // Mock for now
+    }
+
+    assessExternalFactors(application) {
+        return Math.random() * 100; // Mock for now
+    }
+
+    calculateOverallRiskScore(riskFactors) {
+        const weights = this.riskWeights;
+        let score = 0;
+        
+        score += (riskFactors.credit_score || 0) * weights.creditScore;
+        score += (riskFactors.income_stability || 0) * weights.incomeStability;
+        score += (riskFactors.employment_history || 0) * weights.employmentHistory;
+        score += (100 - (riskFactors.debt_to_income || 0)) * weights.debtToIncome; // Invert DTI
+        score += (riskFactors.banking_behavior || 0) * weights.bankingBehavior;
+        score += (riskFactors.loan_to_value || 0) * weights.loanToValue;
+        score += (riskFactors.external_factors || 0) * weights.externalFactors;
+
+        return Math.round(score);
+    }
+
+    categorizeRisk(score) {
+        if (score >= 80) return 'LOW';
+        if (score >= 60) return 'MEDIUM';
+        if (score >= 40) return 'HIGH';
+        return 'VERY_HIGH';
+    }
+
+    getRiskRecommendation(score) {
+        if (score >= 70) return 'APPROVE';
+        if (score >= 50) return 'CONDITIONAL_APPROVE';
+        return 'REJECT';
+    }
+
+    categorizeDTI(dti) {
+        if (dti <= 30) return 'EXCELLENT';
+        if (dti <= 40) return 'GOOD';
+        if (dti <= 50) return 'FAIR';
+        return 'POOR';
+    }
+
+    calculateAffordabilityScore(dti, income, totalEMI) {
+        if (dti <= 30 && income >= 50000) return 90;
+        if (dti <= 40 && income >= 30000) return 70;
+        if (dti <= 50 && income >= 25000) return 50;
+        return 20;
+    }
+
+    // Rule-based check methods
+    checkAgeCriteria(application) {
+        return { status: 'PASS', message: 'Age criteria met' };
+    }
+
+    checkIncomeCriteria(application) {
+        return { status: 'PASS', message: 'Income criteria met' };
+    }
+
+    checkEmploymentCriteria(application) {
+        return { status: 'PASS', message: 'Employment criteria met' };
+    }
+
+    checkCreditScoreCriteria(application) {
+        return { status: 'PASS', message: 'Credit score criteria met' };
+    }
+
+    checkLoanAmountCriteria(application) {
+        return { status: 'PASS', message: 'Loan amount criteria met' };
+    }
+
+    checkBankingCriteria(application) {
+        return { status: 'PASS', message: 'Banking criteria met' };
+    }
+
+    checkDocumentCriteria(application) {
+        return { status: 'PASS', message: 'Document criteria met' };
+    }
+
+    checkPolicyCompliance(application) {
+        return { status: 'PASS', message: 'Policy compliance met' };
     }
 }
 

@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "error": "fetch failed",
+  "employment_verification": null,
+  "overall_score": 75,
+  "status": "simulated"
+}

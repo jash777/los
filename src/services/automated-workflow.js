@@ -45,7 +45,13 @@ class AutomatedWorkflowService {
                 throw new Error('Application not found');
             }
 
-            if (application.current_stage !== 'loan_application' || application.current_status !== 'approved') {
+            // Check if application has completed loan application stage and is ready for automated processing
+            if (application.current_stage === 'loan_application' && application.current_status === 'approved') {
+                // Perfect - application is ready for automated workflow
+            } else if (application.current_stage === 'application_processing' && application.current_status === 'approved') {
+                // Application has moved past loan_application stage, which is also acceptable
+                logger.info(`[${requestId}] Application has progressed past loan_application stage. Current: ${application.current_stage}/${application.current_status}`);
+            } else {
                 throw new Error(`Application must complete comprehensive loan application stage. Current: ${application.current_stage}/${application.current_status}`);
             }
 
@@ -76,7 +82,9 @@ class AutomatedWorkflowService {
                 
                 try {
                     // Execute stage
+                    logger.info(`[${requestId}] Executing stage: ${stageConfig.stage} with service: ${stageConfig.service}.${stageConfig.method}`);
                     const stageResult = await this.executeStage(stageConfig, applicationNumber, requestId);
+                    logger.info(`[${requestId}] Stage ${stageConfig.stage} result:`, stageResult);
                     
                     results.push({
                         stage: stageConfig.stage,
@@ -85,8 +93,8 @@ class AutomatedWorkflowService {
                         processed_at: new Date().toISOString()
                     });
 
-                    // Check if stage was approved
-                    if (stageResult.status !== 'approved') {
+                    // Check if stage was approved (handle both 'approved' and 'passed' statuses)
+                    if (stageResult.status !== 'approved' && stageResult.status !== 'passed') {
                         logger.warn(`[${requestId}] Stage ${stageConfig.stage} was not approved. Status: ${stageResult.status}`);
                         
                         // Log rejection and stop workflow
@@ -102,6 +110,9 @@ class AutomatedWorkflowService {
                     }
 
                     logger.info(`[${requestId}] Stage ${stageConfig.stage} completed successfully`);
+
+                    // Don't update stage here - let each service handle its own stage transitions
+                    // The next stage will be executed in the next iteration of the loop
 
                 } catch (stageError) {
                     logger.error(`[${requestId}] Error in stage ${stageConfig.stage}:`, stageError);

@@ -13,6 +13,15 @@ const qualityCheckController = new QualityCheckController();
  * @desc Process quality check (Stage 6)
  * @access Public
  */
+router.post('/process/:applicationNumber', async (req, res) => {
+    await qualityCheckController.processQualityCheck(req, res);
+});
+
+/**
+ * @route POST /api/quality-check/:applicationNumber
+ * @desc Process quality check (Stage 6) - Legacy endpoint
+ * @access Public
+ */
 router.post('/:applicationNumber', async (req, res) => {
     await qualityCheckController.processQualityCheck(req, res);
 });

@@ -127,12 +127,27 @@ class DatabaseService {
             // Map application status to stage processing status
             const stageProcessingStatus = this.mapApplicationStatusToStageStatus(newStatus);
             
-            // Update stage processing
-            await connection.execute(`
-                UPDATE stage_processing 
-                SET status = ?, completed_at = CURRENT_TIMESTAMP, result_data = ?
-                WHERE application_number = ? AND stage_name = ?
-            `, [stageProcessingStatus, JSON.stringify(stageResult), applicationNumber, newStage]);
+            // Check if stage_processing record exists, if not create it
+            const [existingStage] = await connection.execute(
+                'SELECT id FROM stage_processing WHERE application_number = ? AND stage_name = ?',
+                [applicationNumber, newStage]
+            );
+            
+            if (existingStage.length > 0) {
+                // Update existing stage processing record
+                await connection.execute(`
+                    UPDATE stage_processing 
+                    SET status = ?, completed_at = CURRENT_TIMESTAMP, result_data = ?
+                    WHERE application_number = ? AND stage_name = ?
+                `, [stageProcessingStatus, JSON.stringify(stageResult), applicationNumber, newStage]);
+            } else {
+                // Create new stage processing record
+                await connection.execute(`
+                    INSERT INTO stage_processing 
+                    (application_number, stage_name, status, started_at, completed_at, result_data)
+                    VALUES (?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?)
+                `, [applicationNumber, newStage, stageProcessingStatus, JSON.stringify(stageResult)]);
+            }
             
             // Create audit log
             await this.createAuditLog(connection, applicationId, 'stage_updated', newStage,
@@ -193,7 +208,7 @@ class DatabaseService {
                     `, [
                         applicationNumber,
                         type,
-                        verificationData[type].status || 'completed',
+                        verificationData[type].status || 'verified',
                         JSON.stringify(verificationData[type]),
                         verificationData[type].score || 0
                     ]);

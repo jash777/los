@@ -30,8 +30,11 @@ class CreditDecisionService {
                 throw new Error('Application not found');
             }
 
-            if (existingApp.current_stage !== 'underwriting' || existingApp.current_status !== 'approved') {
-                throw new Error('Application must complete underwriting to proceed to credit decision');
+            // Allow multiple valid previous stages for flexibility
+            const validPreviousStages = ['underwriting', 'credit_decision'];
+            const validStatuses = ['approved', 'pending'];
+            if (!validPreviousStages.includes(existingApp.current_stage) || !validStatuses.includes(existingApp.current_status)) {
+                throw new Error(`Application must complete underwriting to proceed to credit decision. Current: ${existingApp.current_stage}/${existingApp.current_status}`);
             }
 
             const applicationId = existingApp.id;

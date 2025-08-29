@@ -1,0 +1,153 @@
+{
+  "success": true,
+  "employment_verification": {
+    "success": true,
+    "status_code": 200,
+    "message": "Employment verification successful",
+    "data": {
+      "employee_info": {
+        "employee_id": "EMP1756456502014b9kvc",
+        "employee_name": "EMPLOYEE NAME",
+        "designation": "Senior Software Engineer",
+        "department": "Information Technology",
+        "employee_code": "TS2018001",
+        "work_email": "rajesh.sharma@techsolutions.com"
+      },
+      "company_info": {
+        "company_name": "Tech Solutions Pvt Ltd",
+        "company_type": "Private Limited",
+        "industry": "Information Technology",
+        "cin": "U72200MH2010PTC123456",
+        "gstin": "27AABCT1234C1Z5",
+        "established_year": 2010,
+        "employee_count": "500-1000",
+        "annual_turnover": "50-100 Crores",
+        "company_address": {
+          "address": "Tech Park, Sector 5, Navi Mumbai",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "pincode": "400001"
+        }
+      },
+      "employment_details": {
+        "employment_status": "Active",
+        "employment_type": "Permanent",
+        "joining_date": "2018-03-15",
+        "confirmation_date": "2018-09-15",
+        "current_ctc": 900000,
+        "monthly_gross_salary": 75000,
+        "monthly_net_salary": 62000,
+        "last_promotion_date": "2022-04-01",
+        "notice_period_days": 60,
+        "probation_period": "Completed"
+      },
+      "reporting_structure": {
+        "reporting_manager": "Amit Patel",
+        "manager_designation": "Technical Lead",
+        "manager_email": "amit.patel@techsolutions.com",
+        "hr_contact": "Priya Sharma",
+        "hr_email": "hr@techsolutions.com",
+        "hr_phone": "022-12345678"
+      },
+      "salary_history": [
+        {
+          "effective_date": "2023-04-01",
+          "monthly_gross": 75000,
+          "annual_ctc": 900000,
+          "increment_percentage": 12
+        },
+        {
+          "effective_date": "2022-04-01",
+          "monthly_gross": 67000,
+          "annual_ctc": 804000,
+          "increment_percentage": 15
+        },
+        {
+          "effective_date": "2021-04-01",
+          "monthly_gross": 58000,
+          "annual_ctc": 696000,
+          "increment_percentage": 10
+        }
+      ],
+      "performance_info": {
+        "last_appraisal_rating": "Exceeds Expectations",
+        "last_appraisal_date": "2024-03-31",
+        "performance_trend": "Consistent",
+        "disciplinary_actions": 0,
+        "awards_recognition": [
+          {
+            "award": "Employee of the Quarter",
+            "date": "2023-12-31",
+            "category": "Performance Excellence"
+          }
+        ]
+      },
+      "benefits_info": {
+        "pf_applicable": true,
+        "esi_applicable": true,
+        "gratuity_applicable": true,
+        "medical_insurance": true,
+        "life_insurance": true,
+        "leave_balance": {
+          "earned_leave": 18,
+          "casual_leave": 8,
+          "sick_leave": 10
+        }
+      },
+      "verification_details": {
+        "verified_by": "HR Department",
+        "verification_date": "2024-08-27",
+        "verification_method": "Direct HR Confirmation",
+        "confidence_score": 95,
+        "data_freshness": "Real-time"
+      }
+    },
+    "response_code": "4001",
+    "response_message": "Employment verification successful",
+    "employee_id": "EMP1756456502014b9kvc",
+    "company_name": "Tech Solutions Pvt Ltd",
+    "employee_name": "Employee Name",
+    "designation": "Senior Software Engineer",
+    "employment_status": "Active",
+    "joining_date": "2018-03-15",
+    "current_salary": 75000,
+    "employment_type": "Permanent",
+    "department": "Information Technology",
+    "reporting_manager": "Amit Patel",
+    "company_details": {
+      "company_type": "Private Limited",
+      "industry": "Information Technology",
+      "employee_count": "500-1000",
+      "established_year": 2010
+    },
+    "verification_timestamp": "2025-08-29T08:35:03.777Z",
+    "verified_by": "HR Department"
+  },
+  "employee_info": {
+    "employee_id": "EMP1756456502014b9kvc",
+    "employee_name": "EMPLOYEE NAME",
+    "designation": "Senior Software Engineer",
+    "department": "Information Technology",
+    "employee_code": "TS2018001",
+    "work_email": "rajesh.sharma@techsolutions.com"
+  },
+  "company_info": {
+    "company_name": "Tech Solutions Pvt Ltd",
+    "company_type": "Private Limited",
+    "industry": "Information Technology",
+    "cin": "U72200MH2010PTC123456",
+    "gstin": "27AABCT1234C1Z5",
+    "established_year": 2010,
+    "employee_count": "500-1000",
+    "annual_turnover": "50-100 Crores",
+    "company_address": {
+      "address": "Tech Park, Sector 5, Navi Mumbai",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001"
+    }
+  },
+  "verification_status": "verified",
+  "overall_score": 75,
+  "status": "verified"
+}

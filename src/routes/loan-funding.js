@@ -13,6 +13,15 @@ const loanFundingController = new LoanFundingController();
  * @desc Process loan funding (Stage 7)
  * @access Public
  */
+router.post('/process/:applicationNumber', async (req, res) => {
+    await loanFundingController.processLoanFunding(req, res);
+});
+
+/**
+ * @route POST /api/loan-funding/:applicationNumber
+ * @desc Process loan funding (Stage 7) - Legacy endpoint
+ * @access Public
+ */
 router.post('/:applicationNumber', async (req, res) => {
     await loanFundingController.processLoanFunding(req, res);
 });

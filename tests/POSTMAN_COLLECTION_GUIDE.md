@@ -1,198 +1,406 @@
-# 🏦 Complete Loan Origination System - Postman Collection Guide
+# 📋 Dashboard API Postman Collection Guide
 
-## 📋 Overview
+## 🚀 Quick Start
 
-This comprehensive Postman collection provides complete testing coverage for the 7-stage Loan Origination System (LOS) with real-world Indian market integrations including PAN verification, CIBIL credit checks, Aadhaar validation, and bank statement analysis.
+### 1. Import the Collection
+1. Open Postman
+2. Click **Import** button
+3. Select the `DASHBOARD_API_POSTMAN_COLLECTION.json` file
+4. The collection will be imported with all endpoints ready to use
 
-## 🚀 Quick Setup
+### 2. Configure Environment Variables
+The collection uses these variables:
+- `base_url`: `http://localhost:3000/api/dashboard` (default)
+- `application_number`: Auto-populated from responses
 
-### Prerequisites
-1. **Start Services**: Run both main LOS and third-party simulator
-   ```bash
-   # Terminal 1: Start main LOS service
-   cd E:\LOS
-   node server.js
-   
-   # Terminal 2: Start third-party simulator
-   cd E:\LOS\third-party-simulator
-   node server.js
-   ```
+### 3. Start Testing
+1. Ensure your server is running (`npm start`)
+2. Start with **Health Check** to verify connectivity
+3. Run through the collection systematically
 
-2. **Import Collection**: Import `LOS_Complete_Postman_Collection.json` into Postman
-
-3. **Environment Setup**: The collection includes pre-configured environment variables:
-   - `base_url`: http://localhost:3000 (Main LOS API)
-   - `simulator_url`: http://localhost:4000 (Third-party simulator)
-   - Dynamic variables for unique testing data
+---
 
 ## 📊 Collection Structure
 
-### 🏥 System Health & Status
-- **Main LOS Health Check**: Verify main service is running
-- **Third-Party Simulator Health**: Verify simulator service is running
-- **System Statistics**: Get application counts and system stats
-- **Third-Party Services Status**: Check all third-party service endpoints
+### 🔍 Health Check
+- **Endpoint**: `GET /health`
+- **Purpose**: Verify API connectivity
+- **Expected Response**: 200 OK with health status
 
-### 🎯 Stage 1: Pre-Qualification
-- **Submit Pre-Qualification (High Income - Should Pass)**: Test successful pre-qualification
-- **Check Pre-Qualification Status**: Monitor application status
-- **Submit Pre-Qualification (Low Income - Should Fail)**: Test rejection scenario
-- **Submit Pre-Qualification (Invalid PAN - Should Fail)**: Test validation failure
+### 🏢 LOS Dashboard
+**Loan Origination System endpoints for application management**
 
-### 📝 Stage 2: Loan Application
-- **Get Required Fields**: Retrieve all required fields for loan application
-- **Process Loan Application**: Submit comprehensive loan application with:
-  - Personal details (name, DOB, gender, marital status)
-  - Contact information (addresses, phone, email)
-  - Identification (PAN, Aadhaar, driving license, passport)
-  - Employment details (company, designation, experience)
-  - Financial information (income, expenses, existing loans)
-  - Loan requirements (amount, purpose, tenure)
-  - Property details (for home loans)
-  - References
-- **Check Loan Application Status**: Monitor processing status
+1. **LOS Overview**
+   - **Endpoint**: `GET /los/overview`
+   - **Purpose**: Get comprehensive LOS dashboard metrics
+   - **Data**: Total applications, status distribution, CIBIL analytics, processing metrics
 
-### 📋 Stage 3: Application Processing
-- **Process Application**: Document verification and data validation
-- **Check Application Processing Status**: Monitor processing status
+2. **Applications List**
+   - **Endpoint**: `GET /los/applications`
+   - **Query Parameters**:
+     - `status`: Filter by status (pending, approved, rejected, conditional_approval)
+     - `limit`: Records per page (default: 50, max: 100)
+     - `offset`: Records to skip (default: 0)
+     - `search`: Search by application number, name, or mobile
+     - `stage`: Filter by stage (stage_1, stage_2)
 
-### 🔍 Stage 4: Underwriting
-- **Process Underwriting**: Risk assessment with:
-  - Employment stability analysis
-  - Income consistency verification
-  - Debt-to-income ratio calculation
-  - Collateral valuation
-  - Credit profile assessment
-- **Check Underwriting Status**: Monitor underwriting results
+3. **Application Details**
+   - **Endpoint**: `GET /los/applications/{application_number}`
+   - **Purpose**: Get complete application information
+   - **Note**: `application_number` is auto-populated from Applications List response
 
-### ✅ Stage 5: Credit Decision
-- **Make Credit Decision (Approval)**: Test approval scenario with loan terms
-- **Check Credit Decision Status**: Monitor decision status
-- **Make Credit Decision (Rejection Example)**: Test rejection scenario
+4. **Analytics Endpoints**:
+   - **Applications Trend**: `GET /los/analytics?type=applications_trend&period=7d`
+   - **CIBIL Distribution**: `GET /los/analytics?type=cibil_distribution`
+   - **Processing Time**: `GET /los/analytics?type=processing_time`
 
-### 🔍 Stage 6: Quality Check
-- **Perform Quality Check**: Final verification including:
-  - Document verification score
-  - Credit verification status
-  - Income verification results
-  - Property verification (for secured loans)
-  - Compliance checks (KYC, AML)
-- **Check Quality Check Status**: Monitor quality assurance results
+### 💼 LMS Dashboard
+**Loan Management System endpoints for portfolio management**
 
-### 💰 Stage 7: Loan Funding
-- **Process Loan Funding**: Final disbursement with:
-  - Disbursement details (amount, method, account)
-  - Loan account setup
-  - EMI schedule generation
-- **Check Loan Funding Status**: Monitor funding status
+1. **LMS Overview**
+   - **Endpoint**: `GET /lms/overview`
+   - **Purpose**: Get comprehensive LMS dashboard metrics
+   - **Data**: Portfolio overview, performance metrics, customer analytics, financial analytics
 
-### 🔧 Third-Party API Tests
-- **Test PAN Verification (Valid)**: Test successful PAN verification
-- **Test PAN Verification (Invalid)**: Test PAN validation failure
-- **Test CIBIL Credit Score (Excellent)**: Test high credit score scenario
-- **Test CIBIL Credit Score (Poor)**: Test low credit score scenario
-- **Test Bank Statement Analysis**: Test account aggregator integration
-- **Test Employment Verification**: Test employment validation
+2. **Loans List**
+   - **Endpoint**: `GET /lms/loans`
+   - **Purpose**: Get approved loans for portfolio management
+   - **Query Parameters**: Same as Applications List
 
-### 📊 Complete Workflow Tests
-- **Test Complete Workflow (Success Case)**: End-to-end successful application
-- **Get All Applications (Admin View)**: System statistics and application overview
-- **Test End-to-End Workflow (Automated)**: Comprehensive automated testing
+3. **Loan Details**
+   - **Endpoint**: `GET /lms/loans/{application_number}`
+   - **Purpose**: Get detailed loan information
 
-## 🎯 Testing Strategies
+4. **Revenue Analytics**
+   - **Endpoint**: `GET /lms/analytics?type=revenue_analytics`
+   - **Purpose**: Get financial analytics and revenue data
 
-### 1. Sequential Testing (Recommended)
-Run requests in the following order for complete workflow testing:
-1. System Health checks
-2. Pre-Qualification → Loan Application → Application Processing → Underwriting → Credit Decision → Quality Check → Loan Funding
-3. Third-party API validation
+### 🔄 Legacy Dashboard
+**Backward compatibility endpoints**
 
-### 2. Individual Stage Testing
-Test specific stages independently using the application number from previous stages.
+1. **Recent Activities**
+   - **Endpoint**: `GET /dashboard/recent-activities?limit=10`
+   - **Purpose**: Get recent application activities with timestamps
 
-### 3. Error Scenario Testing
-Use the provided negative test cases to validate error handling:
-- Invalid PAN numbers
-- Low income scenarios
-- Missing required fields
-- Invalid data formats
+2. **Dashboard Stats**
+   - **Endpoint**: `GET /dashboard/stats`
+   - **Purpose**: Get combined LOS and LMS statistics
 
-### 4. Load Testing
-Use the automated end-to-end test for repeated execution to test system performance.
+3. **Status Distribution**
+   - **Endpoint**: `GET /dashboard/status-distribution`
+   - **Purpose**: Get application status breakdown
 
-## 🔍 Key Features
+4. **Disbursement Trends**
+   - **Endpoint**: `GET /dashboard/disbursement-trends?period=30d`
+   - **Purpose**: Get time-series disbursement data
 
-### Automated Test Scripts
-- **Pre-request Scripts**: Generate unique test data (emails, phone numbers)
-- **Test Scripts**: Validate responses and extract application numbers
-- **Environment Variables**: Automatically store and reuse application data
+5. **Risk Distribution**
+   - **Endpoint**: `GET /dashboard/risk-distribution`
+   - **Purpose**: Get CIBIL score-based risk categorization
 
-### Comprehensive Data Models
-- **Indian Market Specific**: PAN, Aadhaar, IFSC codes, Indian addresses
-- **Real-world Scenarios**: Multiple loan types, employment types, income sources
-- **Edge Cases**: Invalid data, boundary conditions, error scenarios
+### 🔗 Combined Dashboard
+- **Endpoint**: `GET /combined`
+- **Purpose**: Get both LOS and LMS data in single request
 
-### Third-party Integration Testing
-- **PAN Verification**: SurePass-style API simulation
-- **CIBIL Integration**: Credit score and report generation
-- **Bank Statement Analysis**: Account aggregator simulation
-- **Employment Verification**: HR system integration
+---
 
-## 📈 Expected Results
+## 🧪 Testing Workflow
 
-### Successful Flow
-1. **Pre-Qualification**: `200 OK` with `decision: "approved"`
-2. **Loan Application**: `200 OK` with comprehensive application data
-3. **Application Processing**: `200 OK` with `decision: "approved"`
-4. **Underwriting**: `200 OK` with risk assessment scores
-5. **Credit Decision**: `200 OK` with loan terms and approval
-6. **Quality Check**: `200 OK` with quality scores
-7. **Loan Funding**: `200 OK` with disbursement details
+### Step 1: Health Check
+```bash
+GET {{base_url}}/health
+```
+**Expected Response**:
+```json
+{
+  "success": true,
+  "message": "Dashboard API is healthy",
+  "timestamp": "2025-08-28T06:59:56.217Z",
+  "version": "1.0.0"
+}
+```
 
-### Error Scenarios
-- **Invalid Data**: `400 Bad Request` with validation errors
-- **Business Rule Violations**: `200 OK` with `decision: "rejected"`
-- **System Errors**: `500 Internal Server Error` with error details
+### Step 2: LOS Overview
+```bash
+GET {{base_url}}/los/overview
+```
+**Expected Response**:
+```json
+{
+  "success": true,
+  "data": {
+    "overview": {
+      "total_applications": 4,
+      "pending_applications": 0,
+      "approved_applications": 0,
+      "rejected_applications": 0,
+      "conditional_approval": 4
+    },
+    "stage_distribution": {
+      "stage_2": 4
+    },
+    "cibil_analytics": {
+      "average_score": "742.5",
+      "score_distribution": {
+        "300-500": 0,
+        "501-700": 1,
+        "701-800": 3,
+        "801-900": 0
+      },
+      "total_with_cibil": 4
+    }
+  }
+}
+```
 
-## 🛠️ Troubleshooting
+### Step 3: Applications List
+```bash
+GET {{base_url}}/los/applications?limit=10&offset=0
+```
+**Expected Response**:
+```json
+{
+  "success": true,
+  "data": {
+    "applications": [
+      {
+        "application_number": "EL_1756357120212_vqutijowi",
+        "applicant_name": "JASHUVA PEYYALA",
+        "status": "conditional_approval",
+        "stage": "stage_2",
+        "loan_amount": 500000,
+        "cibil_score": 742,
+        "created_date": "2025-08-28T05:37:41.235Z",
+        "last_updated": "2025-08-28T05:37:45.278Z",
+        "processing_time": 2.5
+      }
+    ],
+    "pagination": {
+      "total": 4,
+      "limit": 10,
+      "offset": 0,
+      "has_more": false
+    }
+  }
+}
+```
+
+### Step 4: Application Details
+```bash
+GET {{base_url}}/los/applications/{{application_number}}
+```
+**Note**: `application_number` is automatically set from the previous response.
+
+### Step 5: Analytics Testing
+Test different analytics types:
+- Applications Trend: `?type=applications_trend&period=7d`
+- CIBIL Distribution: `?type=cibil_distribution`
+- Processing Time: `?type=processing_time`
+
+### Step 6: LMS Testing
+Follow the same pattern for LMS endpoints:
+1. LMS Overview
+2. Loans List
+3. Revenue Analytics
+
+### Step 7: Legacy Endpoints
+Test all legacy endpoints for backward compatibility:
+1. Recent Activities
+2. Dashboard Stats
+3. Status Distribution
+4. Disbursement Trends
+5. Risk Distribution
+
+### Step 8: Combined Dashboard
+```bash
+GET {{base_url}}/combined
+```
+
+---
+
+## 🔧 Advanced Features
+
+### Automatic Tests
+The collection includes automatic tests that run on every request:
+- ✅ Status code validation (200)
+- ✅ Response structure validation
+- ✅ Response time validation (< 5 seconds)
+- ✅ Automatic application number extraction
+
+### Pre-request Scripts
+- Automatically adds `X-Request-ID` header
+- Logs request details to console
+
+### Environment Variables
+- `base_url`: Configure for different environments
+- `application_number`: Auto-populated for detail requests
+
+### Query Parameter Examples
+
+#### Applications List with Filters
+```bash
+# All applications
+GET {{base_url}}/los/applications
+
+# Approved applications only
+GET {{base_url}}/los/applications?status=approved
+
+# Search by name
+GET {{base_url}}/los/applications?search=JASHUVA
+
+# Pagination
+GET {{base_url}}/los/applications?limit=5&offset=10
+
+# Stage filter
+GET {{base_url}}/los/applications?stage=stage_2
+```
+
+#### Analytics with Different Periods
+```bash
+# 7 days trend
+GET {{base_url}}/los/analytics?type=applications_trend&period=7d
+
+# 30 days trend
+GET {{base_url}}/los/analytics?type=applications_trend&period=30d
+
+# 90 days trend
+GET {{base_url}}/los/analytics?type=applications_trend&period=90d
+```
+
+---
+
+## 🚨 Error Handling
+
+### Common Error Responses
+
+#### 404 Not Found
+```json
+{
+  "success": false,
+  "error": "Not Found",
+  "message": "Route GET /api/dashboard/invalid-endpoint not found",
+  "availableRoutes": [...],
+  "timestamp": "2025-08-28T06:59:56.217Z"
+}
+```
+
+#### 400 Bad Request
+```json
+{
+  "success": false,
+  "error": "Invalid analytics type",
+  "timestamp": "2025-08-28T06:59:56.217Z"
+}
+```
+
+#### 500 Internal Server Error
+```json
+{
+  "success": false,
+  "error": "Failed to generate LOS dashboard data",
+  "details": "Error message details",
+  "timestamp": "2025-08-28T06:59:56.217Z"
+}
+```
+
+---
+
+## 📈 Performance Testing
+
+### Response Time Expectations
+- **Health Check**: < 100ms
+- **Overview endpoints**: < 500ms
+- **List endpoints**: < 1000ms
+- **Analytics endpoints**: < 2000ms
+- **Combined dashboard**: < 3000ms
+
+### Load Testing
+Use Postman's Collection Runner to:
+1. Run all endpoints in sequence
+2. Test with different query parameters
+3. Verify response consistency
+4. Monitor response times
+
+---
+
+## 🔍 Troubleshooting
 
 ### Common Issues
-1. **Connection Refused**: Ensure both services are running on correct ports
-2. **Application Not Found**: Check if application number is correctly set in environment
-3. **Validation Errors**: Review request body format and required fields
-4. **Stage Sequence**: Ensure previous stages are completed before proceeding
 
-### Debug Tips
-1. Check Postman Console for detailed logs
-2. Review environment variables for correct application numbers
-3. Use individual stage status endpoints to verify completion
-4. Check server logs for detailed error information
+#### 1. Connection Refused
+- **Cause**: Server not running
+- **Solution**: Start server with `npm start`
 
-## 📝 Customization
+#### 2. 404 Errors
+- **Cause**: Wrong base URL or endpoint
+- **Solution**: Verify `base_url` variable and endpoint path
 
-### Adding New Test Cases
-1. Duplicate existing requests
-2. Modify request body with new test data
-3. Update test scripts for expected results
-4. Add appropriate environment variables
+#### 3. Empty Responses
+- **Cause**: No application data available
+- **Solution**: Run loan application tests first to generate data
 
-### Environment Configuration
-- Modify `base_url` and `simulator_url` for different environments
-- Add authentication headers if required
-- Configure timeout settings for long-running processes
+#### 4. Slow Response Times
+- **Cause**: Large dataset or server issues
+- **Solution**: Check server logs and optimize queries
 
-## 🔗 Related Documentation
-- `POSTMAN_TESTING_GUIDE.md`: Basic testing guide
-- `rules-engine.json`: Business rules and validation logic
-- `INTEGRATION_COMPLETE.md`: System integration details
-- `PROJECT_STRUCTURE.md`: Complete system architecture
+### Debug Steps
+1. Check server health: `GET {{base_url}}/health`
+2. Verify base URL in collection variables
+3. Check server logs for errors
+4. Test with smaller limit values
+5. Verify application data exists
+
+---
+
+## 📝 Best Practices
+
+### Testing Order
+1. Start with Health Check
+2. Test LOS endpoints first
+3. Test LMS endpoints
+4. Test legacy endpoints
+5. Test combined dashboard
+6. Test error scenarios
+
+### Data Validation
+- Verify response structure
+- Check data types and formats
+- Validate pagination logic
+- Test filtering functionality
+
+### Performance Monitoring
+- Monitor response times
+- Check for memory leaks
+- Verify error handling
+- Test concurrent requests
+
+---
+
+## 🎯 Success Criteria
+
+### All Tests Should Pass
+- ✅ Status code: 200
+- ✅ Response structure: Valid JSON
+- ✅ Success field: true
+- ✅ Response time: < 5 seconds
+- ✅ Data consistency: Valid across endpoints
+
+### Expected Data Quality
+- Real application data (not empty)
+- Consistent timestamps
+- Valid CIBIL scores
+- Proper pagination
+- Accurate calculations
+
+---
 
 ## 📞 Support
 
-For issues or questions:
-1. Check server logs in both terminals
-2. Review API documentation in route files
-3. Validate request formats against service schemas
-4. Test individual third-party endpoints first
+If you encounter issues:
+1. Check server logs
+2. Verify endpoint documentation
+3. Test with curl commands
+4. Review error responses
+5. Check data availability
 
-This collection provides comprehensive testing coverage for the complete loan origination workflow with real-world Indian market requirements and third-party integrations.
+The collection is designed to be comprehensive and self-documenting. Each request includes descriptions and expected responses to help with testing and debugging.

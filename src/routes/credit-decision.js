@@ -13,6 +13,15 @@ const creditDecisionController = new CreditDecisionController();
  * @desc Process credit decision (Stage 4)
  * @access Public
  */
+router.post('/process/:applicationNumber', async (req, res) => {
+    await creditDecisionController.processCreditDecision(req, res);
+});
+
+/**
+ * @route POST /api/credit-decision/:applicationNumber
+ * @desc Process credit decision (Stage 5) - Legacy endpoint
+ * @access Public
+ */
 router.post('/:applicationNumber', async (req, res) => {
     await creditDecisionController.processCreditDecision(req, res);
 });

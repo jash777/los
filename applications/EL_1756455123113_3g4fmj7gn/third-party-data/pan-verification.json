@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "panData": {
+    "pan_number": "ABCDE1234F",
+    "name_on_pan": "RAJESH KUMAR SHARMA",
+    "status": "VALID",
+    "verification_date": "2025-08-29T08:12:03.674Z"
+  },
+  "nameMatch": {
+    "isMatch": true,
+    "matchPercentage": 1,
+    "providedName": "RAJESH KUMAR SHARMA",
+    "panName": "RAJESH KUMAR SHARMA"
+  },
+  "errors": []
+}

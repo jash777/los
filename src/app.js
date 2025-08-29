@@ -38,8 +38,17 @@ class EnhancedLOSApp {
         this.app.use(cors({
             origin: config.security.corsOrigins,
             credentials: true,
-            methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-            allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
+            methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+            allowedHeaders: [
+                'Content-Type', 
+                'Authorization', 
+                'X-Requested-With', 
+                'Accept', 
+                'Origin',
+                'X-Request-ID',
+                'x-request-id'
+            ],
+            exposedHeaders: ['X-Request-ID', 'x-request-id'],
             preflightContinue: false,
             optionsSuccessStatus: 200
         }));
@@ -138,6 +147,22 @@ class EnhancedLOSApp {
         // Rules engine routes
         const rulesEngineRoutes = require('./routes/rules-engine-routes');
         this.app.use('/api/rules-engine', rulesEngineRoutes);
+
+        // Dashboard workflow routes
+        const dashboardWorkflowRoutes = require('./routes/dashboard-workflow-routes');
+        this.app.use('/api/dashboard-workflow', dashboardWorkflowRoutes);
+
+        // PDF Routes
+        const pdfRoutes = require('./routes/pdf');
+        this.app.use('/api/pdf', pdfRoutes);
+
+        // Co-Lending Routes
+        const coLendingRoutes = require('./routes/co-lending');
+        this.app.use('/api/co-lending', coLendingRoutes);
+
+        // Underwriting Status Management Routes
+        const underwritingStatusRoutes = require('./routes/underwriting-status-routes');
+        this.app.use('/api/underwriting-status', underwritingStatusRoutes);
 
         // Root endpoint
         this.app.get('/', (req, res) => {

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .loan-types {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .loan-type {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .loan-type:hover {
+            background: #e9ecef;
+        }
+
+        .loan-type.active {
+            background: white;
+            border-bottom-color: #4facfe;
+        }
+
+        .loan-type h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .loan-type p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status-container {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .status-container.show {
+            display: block;
+        }
+
+        .status-success {
+            color: #28a745;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-error {
+            color: #dc3545;
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-info {
+            color: #0c5460;
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4facfe;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .business-fields,
+        .education-fields {
+            display: none;
+        }
+
+        .business-fields.show,
+        .education-fields.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Loan Application Portal</h1>
+            <p>Apply for Personal, Business, or Education Loans</p>
+        </div>
+
+        <div class="loan-types">
+            <div class="loan-type active" data-type="personal">
+                <h3>Personal Loan</h3>
+                <p>For personal expenses</p>
+            </div>
+            <div class="loan-type" data-type="business">
+                <h3>Business Loan</h3>
+                <p>For business growth</p>
+            </div>
+            <div class="loan-type" data-type="education">
+                <h3>Education Loan</h3>
+                <p>For educational purposes</p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="loanForm">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth *</label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number *</label>
+                            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="panNumber">PAN Number *</label>
+                            <input type="text" id="panNumber" name="panNumber" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loan Type Selection -->
+                <div class="form-section">
+                    <h3>Loan Type</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="selectedLoanType">Select Loan Type *</label>
+                            <select id="selectedLoanType" name="selectedLoanType" required>
+                                <option value="personal">Personal Loan</option>
+                                <option value="business">Business Loan</option>
+                                <option value="education">Education Loan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
+                        <strong>Note:</strong> This is a preliminary eligibility check based on your personal information.
+                    </p>
+                </div>
+
+                <!-- Basic Loan Details (for Stage 2) -->
+                <div class="form-section" id="loanDetailsSection" style="display: none;">
+                    <h3>Loan Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="loanAmount">Loan Amount (₹) *</label>
+                            <input type="number" id="loanAmount" name="loanAmount" min="50000" max="10000000">
+                        </div>
+                        <div class="form-group">
+                            <label for="loanTenure">Loan Tenure (months) *</label>
+                            <input type="number" id="loanTenure" name="loanTenure" min="12" max="360">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="monthlyIncome">Monthly Income (₹) *</label>
+                            <input type="number" id="monthlyIncome" name="monthlyIncome" min="15000">
+                        </div>
+                        <div class="form-group">
+                            <label for="employmentType">Employment Type *</label>
+                            <select id="employmentType" name="employmentType">
+                                <option value="">Select Employment Type</option>
+                                <option value="salaried">Salaried</option>
+                                <option value="self_employed">Self Employed</option>
+                                <option value="business">Business Owner</option>
+                                <option value="professional">Professional</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Loan Specific Fields -->
+                <div class="form-section business-fields">
+                    <h3>Business Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="businessName">Business Name</label>
+                            <input type="text" id="businessName" name="businessName">
+                        </div>
+                        <div class="form-group">
+                            <label for="businessType">Business Type</label>
+                            <select id="businessType" name="businessType">
+                                <option value="">Select Business Type</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="trading">Trading</option>
+                                <option value="services">Services</option>
+                                <option value="retail">Retail</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="businessVintage">Business Vintage (years)</label>
+                            <input type="number" id="businessVintage" name="businessVintage" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="annualTurnover">Annual Turnover (₹)</label>
+                            <input type="number" id="annualTurnover" name="annualTurnover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Loan Specific Fields -->
+                <div class="form-section education-fields">
+                    <h3>Education Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="courseName">Course Name</label>
+                            <input type="text" id="courseName" name="courseName">
+                        </div>
+                        <div class="form-group">
+                            <label for="instituteName">Institute Name</label>
+                            <input type="text" id="instituteName" name="instituteName">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="courseDuration">Course Duration (years)</label>
+                            <input type="number" id="courseDuration" name="courseDuration" min="1" max="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="courseCountry">Course Country</label>
+                            <select id="courseCountry" name="courseCountry">
+                                <option value="">Select Country</option>
+                                <option value="india">India</option>
+                                <option value="usa">USA</option>
+                                <option value="uk">UK</option>
+                                <option value="canada">Canada</option>
+                                <option value="australia">Australia</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Check Eligibility
+                </button>
+            </form>
+
+            <div class="status-container" id="statusContainer">
+                <div id="statusMessage"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:3000/api';
+        let currentLoanType = 'personal';
+        let applicationId = null;
+
+        // Loan type switching
+        document.querySelectorAll('.loan-type').forEach(type => {
+            type.addEventListener('click', function() {
+                document.querySelectorAll('.loan-type').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentLoanType = this.dataset.type;
+                
+                // Show/hide specific fields
+                document.querySelector('.business-fields').classList.toggle('show', currentLoanType === 'business');
+                document.querySelector('.education-fields').classList.toggle('show', currentLoanType === 'education');
+            });
+        });
+
+        // Form submission
+        document.getElementById('loanForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const statusContainer = document.getElementById('statusContainer');
+            const statusMessage = document.getElementById('statusMessage');
+            
+            // Disable submit button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="loading"></span>Checking Eligibility...';
+            
+            try {
+                // Step 1: Pre-qualification
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const preQualData = {
+                    personal_info: {
+                        first_name: firstName,
+                        last_name: lastName,
+                        date_of_birth: document.getElementById('dateOfBirth').value,
+                        mobile: document.getElementById('mobile').value,
+                        email: document.getElementById('email').value,
+                        pan_number: document.getElementById('panNumber').value
+                    },
+                    loan_type: document.getElementById('selectedLoanType').value
+                };
+                
+                showStatus('Processing pre-qualification...', 'info');
+                const preQualResponse = await fetch(`${API_BASE_URL}/pre-qualification/process`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(preQualData)
+                });
+                
+                const preQualResult = await preQualResponse.json();
+                
+                if (!preQualResponse.ok) {
+                    throw new Error(preQualResult.message || 'Pre-qualification failed');
+                }
+                
+                if (preQualResult.status === 'rejected') {
+                    showStatus(`Pre-qualification rejected: ${preQualResult.rejection_reason}`, 'error');
+                    return;
+                }
+                
+                applicationId = preQualResult.applicationId;
+                showStatus('✅ Pre-qualification successful! Please provide loan details to continue...', 'success');
+                
+                // Show loan details section for Stage 2
+                document.getElementById('loanDetailsSection').style.display = 'block';
+                document.getElementById('loanDetailsSection').scrollIntoView({ behavior: 'smooth' });
+                
+                // Make loan details fields required
+                document.getElementById('loanAmount').required = true;
+                document.getElementById('loanTenure').required = true;
+                document.getElementById('monthlyIncome').required = true;
+                document.getElementById('employmentType').required = true;
+                
+                // Update submit button
+                submitBtn.innerHTML = 'Submit Loan Application';
+                submitBtn.disabled = false;
+                
+                // Change form behavior for Stage 2
+                document.getElementById('loanForm').removeEventListener('submit', arguments.callee);
+                document.getElementById('loanForm').addEventListener('submit', handleStage2Submission);
+                
+                return; // Stop here, wait for user to fill loan details
+                
+            } catch (error) {
+                console.error('Application error:', error);
+                showStatus(`Application failed: ${error.message}`, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Check Eligibility';
+            }
+        });
+        
+        async function processRemainingStages(appId) {
+            try {
+                // Stage 3: Application Processing
+                showStatus('Processing documents and verification...', 'info');
+                await fetch(`${API_BASE_URL}/application-processing/${appId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                
+                // Stage 4: Underwriting
+                showStatus('Underwriting and risk assessment...', 'info');
+                await fetch(`${API_BASE_URL}/underwriting/${appId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                
+                // Stage 5: Credit Decision
+                showStatus('Making credit decision...', 'info');
+                const creditResponse = await fetch(`${API_BASE_URL}/credit-decision/${appId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                
+                const creditResult = await creditResponse.json();
+                
+                if (creditResult.decision === 'rejected') {
+                    showStatus(`Loan application rejected: ${creditResult.rejection_reason}`, 'error');
+                    return;
+                }
+                
+                // Stage 6: Quality Check
+                showStatus('Performing quality checks...', 'info');
+                await fetch(`${API_BASE_URL}/quality-check/${appId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                
+                // Stage 7: Loan Funding
+                showStatus('Processing loan funding...', 'info');
+                const fundingResponse = await fetch(`${API_BASE_URL}/loan-funding/${appId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                
+                const fundingResult = await fundingResponse.json();
+                
+                if (fundingResult.status === 'funded') {
+                    showStatus(`🎉 Congratulations! Your loan has been approved and funded!<br>
+                               Application ID: ${appId}<br>
+                               Approved Amount: ₹${fundingResult.approved_amount?.toLocaleString()}<br>
+                               Interest Rate: ${fundingResult.interest_rate}%<br>
+                               EMI: ₹${fundingResult.emi?.toLocaleString()}`, 'success');
+                } else {
+                    showStatus(`Loan funding failed: ${fundingResult.message}`, 'error');
+                }
+                
+            } catch (error) {
+                console.error('Processing error:', error);
+                showStatus(`Processing failed: ${error.message}`, 'error');
+            }
+        }
+        
+        async function handleStage2Submission(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Disable submit button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="loading"></span>Processing Full Application...';
+            
+            try {
+                // Step 2: Full loan application with detailed information
+                const loanAppData = {
+                    personal_info: {
+                        first_name: document.getElementById('firstName').value,
+                        last_name: document.getElementById('lastName').value,
+                        date_of_birth: document.getElementById('dateOfBirth').value,
+                        mobile: document.getElementById('mobile').value,
+                        email: document.getElementById('email').value,
+                        pan_number: document.getElementById('panNumber').value
+                    },
+                    loan_details: {
+                        loan_type: document.getElementById('selectedLoanType').value,
+                        loan_amount: parseInt(document.getElementById('loanAmount').value),
+                        loan_tenure: parseInt(document.getElementById('loanTenure').value),
+                        purpose: `${document.getElementById('selectedLoanType').value} loan`
+                    },
+                    employment_info: {
+                        employment_type: document.getElementById('employmentType').value,
+                        monthly_income: parseInt(document.getElementById('monthlyIncome').value),
+                        work_experience: 24 // Default 2 years
+                    }
+                };
+                
+                // Add specific fields based on loan type
+                const loanType = document.getElementById('selectedLoanType').value;
+                if (loanType === 'business') {
+                    loanAppData.business_info = {
+                        business_name: document.getElementById('businessName').value || 'Business',
+                        business_type: document.getElementById('businessType').value || 'services',
+                        business_vintage: parseInt(document.getElementById('businessVintage').value) || 1,
+                        annual_turnover: parseInt(document.getElementById('annualTurnover').value) || 1000000
+                    };
+                } else if (loanType === 'education') {
+                    loanAppData.education_info = {
+                        course_name: document.getElementById('courseName').value || 'Course',
+                        institute_name: document.getElementById('instituteName').value || 'Institute',
+                        course_duration: parseInt(document.getElementById('courseDuration').value) || 1,
+                        course_country: document.getElementById('courseCountry').value || 'india'
+                    };
+                }
+                
+                showStatus('Submitting detailed loan application...', 'info');
+                const loanAppResponse = await fetch(`${API_BASE_URL}/loan-application/${applicationId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(loanAppData)
+                });
+                
+                const loanAppResult = await loanAppResponse.json();
+                
+                if (!loanAppResponse.ok) {
+                    throw new Error(loanAppResult.message || 'Loan application failed');
+                }
+                
+                showStatus('Application submitted successfully! Processing through system...', 'info');
+                
+                // Continue with remaining stages
+                await processRemainingStages(applicationId);
+                
+            } catch (error) {
+                console.error('Application error:', error);
+                showStatus(`Application failed: ${error.message}`, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Loan Application';
+            }
+        }
+        
+        function showStatus(message, type) {
+            const statusContainer = document.getElementById('statusContainer');
+            const statusMessage = document.getElementById('statusMessage');
+            
+            statusContainer.className = `status-container show status-${type}`;
+            statusMessage.innerHTML = message;
+            
+            // Auto-scroll to status
+            statusContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

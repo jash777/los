@@ -13,6 +13,14 @@ class RulesEngineController {
         this.rulesEngineConfig = null;
         this.rulesEngineLoaded = false;
         this.loadRulesEngine();
+        
+        // Bind methods to preserve 'this' context
+        this.getRulesEngine = this.getRulesEngine.bind(this);
+        this.getStageRules = this.getStageRules.bind(this);
+        this.evaluateRules = this.evaluateRules.bind(this);
+        this.getAppliedRulesHistory = this.getAppliedRulesHistory.bind(this);
+        this.compareRulesImplementation = this.compareRulesImplementation.bind(this);
+        this.getRulesEndpoints = this.getRulesEndpoints.bind(this);
     }
 
     /**
@@ -45,12 +53,21 @@ class RulesEngineController {
                 await this.loadRulesEngine();
             }
 
+            const rulesEngine = this.rulesEngineConfig.loan_origination_rules_engine;
+
             res.json({
                 success: true,
                 data: {
-                    rules_engine: this.rulesEngineConfig,
-                    timestamp: new Date().toISOString(),
-                    version: this.rulesEngineConfig?.loan_origination_rules_engine?.version || '1.0.0'
+                    version: rulesEngine.version,
+                    description: rulesEngine.description,
+                    last_updated: rulesEngine.last_updated,
+                    total_stages: Object.keys(rulesEngine.stages).length,
+                    stages_overview: this.getStagesOverview(rulesEngine.stages),
+                    approval_criteria: this.getApprovalCriteria(rulesEngine),
+                    rejection_criteria: this.getRejectionCriteria(rulesEngine),
+                    global_business_rules: rulesEngine.global_business_rules,
+                    decision_flow: rulesEngine.decision_flow,
+                    detailed_stages: rulesEngine.stages
                 },
                 requestId,
                 timestamp: new Date().toISOString()
@@ -574,6 +591,69 @@ class RulesEngineController {
         }
         
         return maxAmount;
+    }
+
+    /**
+     * Get stages overview for quick reference
+     */
+    getStagesOverview(stages) {
+        const overview = {};
+        Object.keys(stages).forEach(stageKey => {
+            const stage = stages[stageKey];
+            overview[stageKey] = {
+                name: stage.stage_name,
+                description: stage.description,
+                has_auto_approve: stage.decision_criteria?.auto_approve ? true : false,
+                has_auto_reject: stage.decision_criteria?.auto_reject ? true : false
+            };
+        });
+        return overview;
+    }
+
+    /**
+     * Get approval criteria across all stages
+     */
+    getApprovalCriteria(rulesEngine) {
+        const criteria = {};
+        Object.keys(rulesEngine.stages).forEach(stageKey => {
+            const stage = rulesEngine.stages[stageKey];
+            if (stage.decision_criteria?.auto_approve) {
+                criteria[stageKey] = {
+                    stage_name: stage.stage_name,
+                    conditions: stage.decision_criteria.auto_approve.conditions
+                };
+            }
+            if (stage.underwriting_decision_matrix?.auto_approve_threshold) {
+                criteria[stageKey] = {
+                    ...criteria[stageKey],
+                    auto_approve_threshold: stage.underwriting_decision_matrix.auto_approve_threshold
+                };
+            }
+        });
+        return criteria;
+    }
+
+    /**
+     * Get rejection criteria across all stages
+     */
+    getRejectionCriteria(rulesEngine) {
+        const criteria = {};
+        Object.keys(rulesEngine.stages).forEach(stageKey => {
+            const stage = rulesEngine.stages[stageKey];
+            if (stage.decision_criteria?.auto_reject) {
+                criteria[stageKey] = {
+                    stage_name: stage.stage_name,
+                    conditions: stage.decision_criteria.auto_reject.conditions
+                };
+            }
+            if (stage.underwriting_decision_matrix?.auto_reject_threshold) {
+                criteria[stageKey] = {
+                    ...criteria[stageKey],
+                    auto_reject_threshold: stage.underwriting_decision_matrix.auto_reject_threshold
+                };
+            }
+        });
+        return criteria;
     }
 }
 
